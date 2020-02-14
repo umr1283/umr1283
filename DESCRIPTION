@@ -1,0 +1,13 @@
+Package: umr1283
+Title: UMR 1283 - RStudio Project Templates
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Mickaël",
+           family = "Canouil",
+           role = c("aut", "cre"),
+           email = "mickael.canouil@cnrs.fr",
+           comment = c(ORCID = "0000-0002-3396-4549"))
+Description: RStudio Project Templates for UMR 1283.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
