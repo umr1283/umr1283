@@ -11,3 +11,5 @@ Description: RStudio Project Templates for UMR 1283.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/mcanouil/umr1283
+BugReports: https://github.com/mcanouil/umr1283/issues
