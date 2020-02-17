@@ -3,7 +3,7 @@ title: "Untitled"
 params:
   firstname: "FirstName"
   lastname: "LastName"
-  script_name: NULL
+  script_name: "Untitled.Rmd"
   data_directory: NULL
   project_directory: !r here::here()
   working_directory: !r here::here("Data")
@@ -22,7 +22,7 @@ output:
   bookdown::html_document2:
     theme: simplex
     toc: true
-    toc_depth: 2
+    toc_depth: 3
     toc_float:
       collapsed: false
     fig_width: 6.3
