@@ -14,4 +14,7 @@
     └── test.Rproj
     ```
 
-* Add Rmarkdown template
+* Add Rmarkdown templates and formats for:
+    - ioslides
+    - PowerPoint
+    - HTML report
