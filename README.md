@@ -6,4 +6,4 @@ You can install `umr1283` from [GitLab](http://gitlab.egid.local/BioStat/umr1283
 remotes::install_gitlab("BioStat/umr1283", host = "gitlab.egid.local")
 ```
 
-[](./figures/readme-project.png)
+[](man/figures/readme-project.png)
