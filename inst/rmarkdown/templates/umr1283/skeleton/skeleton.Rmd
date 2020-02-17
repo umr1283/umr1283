@@ -3,7 +3,7 @@ title: "Untitled"
 params:
   firstname: "FirstName"
   lastname: "LastName"
-  script_name: "Untitled.Rmd"
+  script_name: "999-default"
   data_directory: NULL
   project_directory: !r here::here()
   working_directory: !r here::here("Data")
