@@ -1,3 +1,19 @@
 Binding: new_project
 Title: UMR 1283 - RStudio Project Templates
-OpenFiles: INDEX
+OpenFiles: README.md
+
+Parameter: working_directory
+Widget: TextInput
+Label: Working Directory
+Width: 100%
+Default: /disks/DATATMP
+
+Parameter: analyst_name
+Widget: TextInput
+Label: Analyst Name
+Default: Not specified
+
+Parameter: git_repository
+Widget: TextInput
+Label: Git Repository
+Default: http://gitlab.egid.local/BioStat
