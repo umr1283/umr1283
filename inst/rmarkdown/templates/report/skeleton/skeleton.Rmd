@@ -16,21 +16,7 @@ author:
     affiliation: "Université de Lille, INSERM, CNRS, Institut Pasteur de Lille, UMR 1283/8199 - EGID, F-59000, Lille, France."
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
-output:
-  bookdown::html_document2:
-    theme: simplex
-    toc: true
-    toc_depth: 3
-    toc_float:
-      collapsed: false
-    fig_width: 6.3
-    fig_height: 4.7
-    number_sections: true
-    self_contained: true
-    mathjax: default
-    df_print: kable
+output: umr1283::html_report
 ---
 
 ```{r setup, include = FALSE}
