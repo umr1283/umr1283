@@ -1,27 +1,35 @@
 #' new_project
 #'
-#' @param project_name
-#' @param analyst_name
-#' @param project_directory
-#' @param working_directory
-#' @param git_repository
-#' @param ...
+#' @param path character
+#' @param analyst_name character
+#' @param working_directory character
+#' @param git_repository character
+#' @param ... not used
 #'
 #' @return logical
 #' @export
 new_project <- function(
-  project_name,
-  analyst_name = "not specified",
-  project_directory = "/disks/PROJECT",
+  path,
+  analyst_name = "Not specified",
   working_directory = "/disks/DATATMP",
-  git_repository = "git@gitlab.egid.local:BioStat",
+  git_repository = "http://gitlab.egid.local/BioStat",
   ...
 )  {
-
+  project_directory <- gsub("~", "", dirname(path))
+  project_name <- basename(path)
+  dir.create(
+    path = path,
+    recursive = TRUE, showWarnings = FALSE, mode = "0775"
+  )
   sapply(
     X = file.path(project_directory, project_name, c("Docs", "Report", "Scripts")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
+  dir.create(
+    path = file.path(working_directory, project_name),
+    recursive = TRUE, showWarnings = FALSE, mode = "0775"
+  )
+
   file.symlink(
     from = file.path(working_directory, project_name),
     to = file.path(project_directory, project_name, "Data")
@@ -30,8 +38,16 @@ new_project <- function(
   readme <- paste(
     paste("#", project_name),
     paste("Analyst: ", analyst_name),
+    paste0(
+      '\n<!-- TO DELETE\n',
+      'Please setup a new "Internal" project on GitLab ',
+      '(', git_repository,') ',
+      'named: ', project_name,
+      '\n-->'
+    ),
     sep = "\n"
   )
+
   writeLines(readme, con = file.path(project_directory, project_name, "README.md"))
 
   rproj <- c(
@@ -53,10 +69,10 @@ new_project <- function(
     "",
     "QuitChildProcessesOnExit: Yes"
   )
-  writeLines(rproj, con = file.path(project_directory, project_name, paste0(project_name, ".txt")))
+  writeLines(rproj, con = file.path(project_directory, project_name, paste0(project_name, ".Rproj")))
 
   gitignore <- c(
-    "**.Rproj.user",
+    ".Rproj.user",
     "**.Rhistory",
     "**.RData",
     "**.Rdata",
@@ -85,10 +101,25 @@ new_project <- function(
       "add --all",
       "commit -am 'create project'",
       "config --local core.sharedRepository 0775",
-      paste0("remote add origin ", git_repository, "/", project_name, ".git")
+      paste0(
+        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
+        "/", project_name, ".git"
+      )
     )),
     FUN = system
   )
+
+  message(paste0(
+    'Please setup a new "Internal" project on GitLab ',
+    '(', gsub("^.*@(.*):.*", "\\1", git_repository),') ',
+    'named: ', project_name
+  ))
+  if (interactive()) {
+    if (grepl("gitlab", git_repository)) {
+      git_repository <- paste0(dirname(git_repository), "/projects/new")
+    }
+    utils::browseURL(git_repository)
+  }
 
   TRUE
 }
