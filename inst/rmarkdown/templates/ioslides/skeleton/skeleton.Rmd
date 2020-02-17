@@ -1,0 +1,46 @@
+---
+title: "A Title"
+subtitle: "A Subtitle"
+author: "One Author"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+output: umr1283::ioslides_presentation
+---
+
+```{r setup, include = FALSE}
+options(
+  stringsAsFactors = FALSE,
+  width = 80,
+  kableExtra.html.bsTable = TRUE
+)
+
+### Load packages and functions
+library(tidyverse)
+library(knitr)
+library(rmarkdown)
+library(kableExtra)
+
+### Set knitr rmarkdown chunk options
+opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  eval = TRUE,
+  tidy = FALSE,
+  crop = TRUE,
+  autodep = FALSE,
+  dpi = 120,
+  width = getOption("width"),
+  results = "asis",
+  comment = "#>",
+  fig.align = "center",
+  fig.path = "images/"
+)
+```
+
+# Title | Subtitle {.flexbox .vcenter}
+
+
+## Title 1 | Title 2
+
+
