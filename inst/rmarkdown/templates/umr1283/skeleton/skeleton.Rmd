@@ -1,0 +1,89 @@
+---
+title: "Untitled"
+params:
+  firstname: "FirstName"
+  lastname: "LastName"
+  script_name: NULL
+  data_directory: NULL
+  project_directory: !r here::here()
+  working_directory: !r here::here("Data")
+  show_code: FALSE
+  n_cores: !r parallel::detectCores()
+  dpi: 120
+  gg_fontsize: 12
+author:
+  - name: '`r paste(params[["firstname"]], params[["lastname"]])`'
+    affiliation: "Université de Lille, INSERM, CNRS, Institut Pasteur de Lille, UMR 1283/8199 - EGID, F-59000, Lille, France."
+    email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
+output:
+  bookdown::html_document2:
+    theme: simplex
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    fig_width: 6.3
+    fig_height: 4.7
+    number_sections: true
+    self_contained: true
+    mathjax: default
+    df_print: kable
+---
+
+```{r setup, include = FALSE}
+options(stringsAsFactors = FALSE)
+
+
+### Load packages and functions
+library(here)
+library(tidyverse)
+library(sessioninfo)
+library(kableExtra)
+library(knitr)
+
+bootstrap <- function(x) {
+  if (is_html_output()) {
+    kable_styling(
+      kable_input = x,
+      bootstrap_options = c("striped", "hover", "condensed", "responsive", "bordered"),
+      full_width = TRUE
+    )
+  } else {
+    x
+  }
+}
+
+
+### Set knitr rmarkdown chunk options
+output_directory <- file.path(params[["working_directory"]], params[["script_name"]])
+dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0777")
+opts_chunk$set(
+  results = "asis",
+  include = TRUE,
+  echo = params[["show_code"]],
+  warning = params[["show_code"]],
+  message = params[["show_code"]],
+  dpi = params[["dpi"]],
+  tidy = FALSE,
+  crop = TRUE,
+  autodep = TRUE,
+  fig.align = "center"
+)
+
+
+### Define theme
+theme_set(theme_light(base_size = params[["gg_fontsize"]]))
+```
+
+# Summary
+
+
+# R session information
+
+```{r session-info, results = "markup"}
+options("width" = 110)
+session_info()
+```
