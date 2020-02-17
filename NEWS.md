@@ -1,6 +1,6 @@
 # umr1283 0.1.0
 
-* default template with
+* Add project template with
     ```
     /disks/PROJECT/test
     ├── Data -> /disks/DATATMP/test
@@ -13,3 +13,5 @@
     ├── Scripts
     └── test.Rproj
     ```
+
+* Add Rmarkdown template
