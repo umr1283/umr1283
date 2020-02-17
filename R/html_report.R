@@ -14,8 +14,6 @@
 #' @return R Markdown output format to pass to render
 #' @export
 html_report <- function(
-  theme = "simplex",
-  toc = TRUE,
   toc_depth = 3,
   fig_width = 6.3,
   fig_height = 4.7,
@@ -26,5 +24,5 @@ html_report <- function(
   code_download = TRUE,
   ...
 ) {
-  bookdown::html_document2(...)
+  bookdown::html_document2(toc = TRUE, toc_float = list(collapse = FALSE), theme = "simplex", ...)
 }
