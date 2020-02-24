@@ -16,6 +16,8 @@ author:
     affiliation: "Université de Lille, INSERM, CNRS, Institut Pasteur de Lille, UMR 1283/8199 - EGID, F-59000, Lille, France."
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = here::here("Report")) })
 output: umr1283::html_report
 ---
 
@@ -49,9 +51,9 @@ dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode
 opts_chunk$set(
   results = "asis",
   include = TRUE,
-  echo = params[["show_code"]],
-  warning = params[["show_code"]],
-  message = params[["show_code"]],
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
   dpi = params[["dpi"]],
   tidy = FALSE,
   crop = TRUE,

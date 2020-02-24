@@ -5,8 +5,6 @@
 \title{html_report}
 \usage{
 html_report(
-  theme = "simplex",
-  toc = TRUE,
   toc_depth = 3,
   fig_width = 6.3,
   fig_height = 4.7,
@@ -19,13 +17,6 @@ html_report(
 )
 }
 \arguments{
-\item{theme}{Visual theme ("default", "cerulean", "journal", "flatly",
-"darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper",
-"sandstone", "simplex", or "yeti"). Pass \code{NULL} for no theme (in this
-case you can use the \code{css} parameter to add your own styles).}
-
-\item{toc}{\code{TRUE} to include a table of contents in the output}
-
 \item{toc_depth}{Depth of headers to include in table of contents}
 
 \item{fig_width}{Default width (in inches) for figures}
