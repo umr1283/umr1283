@@ -8,7 +8,7 @@ new_project(
   path,
   analyst_name = "Not specified",
   working_directory = "/disks/DATATMP",
-  git_repository = "http://gitlab.egid.local/BioStat",
+  git_repository = "https://github.com/mcanouil/umr1283",
   ...
 )
 }
