@@ -17,7 +17,13 @@ author:
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = here::here("Report")) })
+    rmarkdown::render(
+      inputFile,
+      encoding = encoding, 
+      output_dir = here::here("Report"),
+      intermediates_dir = here::here("Data")
+    )
+  })
 output: umr1283::html_report
 ---
 
