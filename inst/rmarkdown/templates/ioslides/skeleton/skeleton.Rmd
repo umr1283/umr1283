@@ -3,6 +3,8 @@ title: "A Title"
 subtitle: "A Subtitle"
 author: "One Author"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = here::here("Report")) })
 output: umr1283::ioslides_presentation
 ---
 
