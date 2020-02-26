@@ -71,9 +71,12 @@ stopifnot(all(sapply(
     "rain", "readr", "scales", "sessioninfo", "stats", "tibble", 
     "tidyr", "utils", "magrittr"
   ),
-  FUN = requireNamespace
+  FUN = require,
+  character.only = TRUE,
+  warn.conflicts = FALSE,
+  quietly = TRUE
 )))
-library("rlang")
+library("rlang", quietly = TRUE)
 `%>%` <- magrittr::`%>%`
 
 ### Set knitr rmarkdown chunk options
@@ -391,8 +394,9 @@ cell_comp <- switch(
     } else {
       idol_cpgs <- NULL
     }
+    exp_hub <- ExperimentHub::ExperimentHub()
     FlowSorted.CordBloodCombined.450k <- AnnotationHub::query(
-      x = ExperimentHub::ExperimentHub(), 
+      x = exp_hub, 
       pattern = "FlowSorted.CordBloodCombined.450k"
     )[[1]]
     out <- FlowSorted.Blood.EPIC::estimateCellCounts2(
@@ -409,7 +413,7 @@ cell_comp <- switch(
       verbose = FALSE
     )$counts
     colnames(out) <- paste0("CellT_", colnames(out))
-    ExperimentHub::removeCache()
+    AnnotationHub::removeCache(exp_hub, ask = FALSE)
     out
   },
   {
@@ -676,7 +680,6 @@ if (max(norm_beta, na.rm = TRUE) >= 1) {
 data_mset@metadata[grep("_values", names(data_mset@metadata))] <- NULL
 data_mset@metadata[["norm_beta_values"]] <- norm_beta
 data_mset@metadata[["phenotypes"]] <- phenotypes
-
 ```
 
 ```{r export}
