@@ -683,9 +683,18 @@ data_mset@metadata[["phenotypes"]] <- phenotypes
 ```
 
 ```{r export}
-readr::write_rds(x = data_mset, path = file.path(output_directory, paste0(params[["array"]], "_QC_mset.rds")))
-readr::write_csv(as.data.frame(norm_beta), path = file.path(output_directory, paste0(params[["array"]], "_QC_betavalues.csv")))
-readr::write_csv(as.data.frame(phenotypes), path = file.path(output_directory, paste0(params[["array"]], "_QC_phenotypes.csv")))
+readr::write_rds(
+  x = data_mset, 
+  path = file.path(output_directory, paste0(params[["array"]], "_QC_mset.rds"))
+)
+readr::write_csv(
+  x = as.data.frame(norm_beta), 
+  path = gzfile(file.path(output_directory, paste0(params[["array"]], "_QC_betavalues.csv.gz")))
+)
+readr::write_csv(
+  x = as.data.frame(phenotypes), 
+  path = file.path(output_directory, paste0(params[["array"]], "_QC_phenotypes.csv"))
+)
 ```
 
 <!-- ## Principal Component Analysis -->
