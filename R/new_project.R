@@ -22,7 +22,7 @@ new_project <- function(
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   sapply(
-    X = file.path(project_directory, project_name, c("Docs", "Report", "Scripts")),
+    X = file.path(project_directory, project_name, c("docs", "reports", "scripts")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   dir.create(
@@ -32,7 +32,7 @@ new_project <- function(
 
   file.symlink(
     from = file.path(working_directory, project_name),
-    to = file.path(project_directory, project_name, "Data")
+    to = file.path(project_directory, project_name, "data")
   )
 
   readme <- paste(
@@ -89,9 +89,9 @@ new_project <- function(
     "**.aux",
     "**.toc",
     "**.snm",
-    "Data",
-    "/Scripts/*.html",
-    "/Scripts/*.pdf"
+    "data",
+    "/scripts/*.html",
+    "/scripts/*.pdf"
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
