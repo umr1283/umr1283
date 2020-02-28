@@ -56,6 +56,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 ```{r setup, include = FALSE}
 options(stringsAsFactors = FALSE)
 
@@ -557,7 +558,7 @@ cat("\nThe gender threshold used for prediction was:", gender_threshold, "\n\n")
 
 phenotypes <- phenotypes %>% 
   dplyr::mutate(Sample_ID = as.character(Sample_ID)) %>% 
-  dplyr::left_join(y = sex_predicted, by = c("Sample_ID")) %>% 
+  dplyr::left_join(y = sex_predicted, by = "Sample_ID") %>% 
   dplyr::mutate(
     qc_predicted_gender = c("1" = 1, "2" = 2, "M" = 1, "F" = 2, "0" = 2)[qc_predicted_gender],
     qc_observed_gender = gender_clean,
@@ -584,17 +585,29 @@ ggplot2::ggplot(
 ```
 
 ```{r gender_check_fig, eval = do_check_gender}
+annot_gender <- data.frame(
+  qc_xmedian = c(c(0, 0, 20), c(0, 20, 20)),
+  qc_ymedian = c(c(0, 20, 20), c(0, 0, 20)) + gender_threshold,
+  qc_predicted_gender = rep(c(1, 2), each = 3)
+)
+
 ggplot2::ggplot(
   data = phenotypes, 
   mapping = ggplot2::aes(
     x = qc_xmedian, 
     y = qc_ymedian, 
-    shape = factor(qc_predicted_gender), 
+    shape = factor(qc_observed_gender), 
     colour = factor(qc_observed_gender)
   )
 ) +
+  ggplot2::geom_polygon(
+    mapping = aes(x = qc_xmedian, y = qc_ymedian, fill = factor(qc_predicted_gender)),
+    alpha = 0.1,
+    data = annot_gender,
+    inherit.aes = FALSE
+  ) +
   ggplot2::geom_abline(
-    data = data.frame(Threshold = paste("=", gender_threshold), Seuil = -1), 
+    data = data.frame(Threshold = paste("=", gender_threshold), Seuil = gender_threshold), 
     mapping = ggplot2::aes(intercept = Seuil, slope = 1, linetype = Threshold),
     na.rm = TRUE
   ) +
@@ -605,6 +618,7 @@ ggplot2::ggplot(
   ) +
   ggplot2::geom_point(
     data = ~ dplyr::filter(.x, qc_gender_discrepancy),
+    colour = "firebrick2",
     size = 4,
     show.legend = FALSE,
     na.rm = TRUE
@@ -624,8 +638,20 @@ ggplot2::ggplot(
     x = expression(atop("X chromosome", paste("Median total intensity ", (log[2])))), 
     y = expression(atop("Y chromosome", paste("Median total intensity ", (log[2]))))
   ) +
+  ggplot2::coord_cartesian(
+    xlim = range(phenotypes[["qc_xmedian"]], na.rm = TRUE),
+    ylim = range(phenotypes[["qc_ymedian"]], na.rm = TRUE)
+  ) +
   ggplot2::scale_colour_viridis_d(
-    name = "Gender (Observed)", 
+    name = "Gender (Predicted)", 
+    breaks = c(1, 2), 
+    labels = c("Male", "Female"),
+    drop = FALSE,
+    begin = 0.2, 
+    end = 0.8
+  ) +
+  ggplot2::scale_fill_viridis_d(
+    name = "Gender (Predicted)", 
     breaks = c(1, 2), 
     labels = c("Male", "Female"),
     drop = FALSE,
@@ -633,11 +659,17 @@ ggplot2::ggplot(
     end = 0.8
   ) +
   ggplot2::scale_shape_manual(
-    name = "Gender (Predicted)", 
+    name = "Gender (Observed)", 
     breaks = c(1, 2), 
     labels = c("Male", "Female"), 
     values = c(22, 21),
     drop = FALSE
+  ) +
+  ggplot2::guides(
+    fill = ggplot2::guide_legend(order = 1, override.aes = list(alpha = 1)), 
+    shape = ggplot2::guide_legend(order = 2),
+    linetype = ggplot2::guide_legend(order = 3),
+    colour = "none"
   )
 ```
 
