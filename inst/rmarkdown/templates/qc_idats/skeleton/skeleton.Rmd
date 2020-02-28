@@ -459,7 +459,7 @@ cell_comp <- switch(
         ), "K"]
       )
     }
-    beta_matrix <- minfi::getBeta(data_rgset)
+    beta_matrix <- na.exclude(minfi::getBeta(data_mset))
     max_k <- min(ncol(beta_matrix), 25)
     k_estimated <- min(estimate_k_cluster(
       Rmat = beta_matrix, 
