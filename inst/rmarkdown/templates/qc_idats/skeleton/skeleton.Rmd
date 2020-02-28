@@ -20,7 +20,7 @@ params:
   filter_callrate: TRUE
   callrate_samples: 0.99
   callrate_probes: 1
-  gender_threshold: -2 
+  gender_threshold: NULL 
   gender_colname: NULL
   norm_background: "oob"
   norm_dye: "RELIC"
@@ -591,6 +591,8 @@ annot_gender <- data.frame(
   qc_predicted_gender = rep(c(1, 2), each = 3)
 )
 
+axis_limits <- range(phenotypes[, c("qc_xmedian", "qc_ymedian")], na.rm = TRUE)
+
 ggplot2::ggplot(
   data = phenotypes, 
   mapping = ggplot2::aes(
@@ -638,10 +640,7 @@ ggplot2::ggplot(
     x = expression(atop("X chromosome", paste("Median total intensity ", (log[2])))), 
     y = expression(atop("Y chromosome", paste("Median total intensity ", (log[2]))))
   ) +
-  ggplot2::coord_cartesian(
-    xlim = range(phenotypes[["qc_xmedian"]], na.rm = TRUE),
-    ylim = range(phenotypes[["qc_ymedian"]], na.rm = TRUE)
-  ) +
+  ggplot2::coord_cartesian(xlim = axis_limits, ylim = axis_limits) +
   ggplot2::scale_colour_viridis_d(
     name = "Gender (Predicted)", 
     breaks = c(1, 2), 
