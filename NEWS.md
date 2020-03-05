@@ -1,20 +1,31 @@
+# umr1283 0.2.0
+
+## New features
+
+* Added Rmarkdown templates for:
+    - qc_idats - `UMR 1283 - QC idats`
+    - qc_plink - `UMR 1283 - QC PLINK`
+    - qc_impute - `UMR 1283 - QC Imputation (VCF)`
+
 # umr1283 0.1.0
 
-* Add project template with
+## New features
+
+* Added a `NEWS.md` file to track changes to the package.
+* Added a RStudio project template `UMR 1283 - RStudio Project Templates`
     ```
     /disks/PROJECT/test
-    ├── Data -> /disks/DATATMP/test
-    ├── Docs
+    ├── aata -> /disks/DATATMP/test
+    ├── docs
     ├── README.md
-    ├── Report
+    ├── reports
     ├── Scripts
     ├── .git
     ├── .gitignore
-    ├── Scripts
+    ├── scripts
     └── test.Rproj
     ```
-
-* Add Rmarkdown templates and formats for:
-    - ioslides
-    - PowerPoint
-    - HTML report
+* Added Rmarkdown templates for:
+    - ioslides - `UMR 1283 - ioslides`
+    - PowerPoint - `UMR 1283 - PowerPoint`
+    - HTML report - `UMR 1283 - Report`
