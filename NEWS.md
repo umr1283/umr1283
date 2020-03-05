@@ -6,7 +6,7 @@
 * Added a RStudio project template `UMR 1283 - RStudio Project Templates`
     ```
     /disks/PROJECT/test
-    ├── aata -> /disks/DATATMP/test
+    ├── data -> /disks/DATATMP/test
     ├── docs
     ├── README.md
     ├── reports
