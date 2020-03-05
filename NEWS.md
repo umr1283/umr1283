@@ -8,12 +8,11 @@
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
     ├── docs
-    ├── README.md
     ├── reports
-    ├── Scripts
+    ├── scripts
+    ├── README.md
     ├── .git
     ├── .gitignore
-    ├── scripts
     └── test.Rproj
     ```
 * Added Rmarkdown templates for:
