@@ -1,12 +1,3 @@
-# umr1283 0.2.0
-
-## New features
-
-* Added Rmarkdown templates for:
-    - qc_idats - `UMR 1283 - QC idats`
-    - qc_plink - `UMR 1283 - QC PLINK`
-    - qc_impute - `UMR 1283 - QC Imputation (VCF)`
-
 # umr1283 0.1.0
 
 ## New features
@@ -29,3 +20,6 @@
     - ioslides - `UMR 1283 - ioslides`
     - PowerPoint - `UMR 1283 - PowerPoint`
     - HTML report - `UMR 1283 - Report`
+    - qc_idats - `UMR 1283 - QC idats`
+    - qc_plink - `UMR 1283 - QC PLINK`
+    - qc_impute - `UMR 1283 - QC Imputation (VCF)`
