@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 0.2.0
 
 ## Minor improvements and fixes
 
