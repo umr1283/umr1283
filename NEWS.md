@@ -5,6 +5,8 @@
 * Remove Rmarkdown templates, now in `dgapaq`:
     - qc_impute - `UMR 1283 - QC Imputation (VCF)`.
     - qc_plink - `UMR 1283 - QC PLINK`.
+* Remove Rmarkdown templates, now in `dmapaq`:
+    - qc_idats - `UMR 1283 - QC idats`.
 
 # umr1283 0.1.0
 
