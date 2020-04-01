@@ -109,6 +109,16 @@ new_project <- function(
     FUN = system
   )
 
+  Sys.chmod(
+    paths = list.files(
+      path = file.path(project_directory, project_name),
+      recursive = TRUE, all.files = TRUE, include.dirs = TRUE,
+      full.names = TRUE
+    ),
+    mode = "0775",
+    use_umask = FALSE
+  )
+
   message(paste0(
     'Please setup a new "Internal" project on GitLab ',
     '(', gsub("^.*@(.*):.*", "\\1", git_repository),') ',
