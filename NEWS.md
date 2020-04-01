@@ -1,3 +1,7 @@
+# umr1283 0.3.0
+
+* Set 775 permissions for files and directories
+
 # umr1283 0.2.0
 
 ## Minor improvements and fixes
