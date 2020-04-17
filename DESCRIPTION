@@ -1,6 +1,6 @@
 Package: umr1283
 Title: UMR 1283 - RStudio Project Templates
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: 
     person(given = "Mickaël",
            family = "Canouil",
