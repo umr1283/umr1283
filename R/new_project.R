@@ -22,7 +22,7 @@ new_project <- function(
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   sapply(
-    X = file.path(project_directory, project_name, c("docs", "reports", "scripts")),
+    X = file.path(project_directory, project_name, c("docs", "reports", "scripts", "logs")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   dir.create(
@@ -39,13 +39,13 @@ new_project <- function(
     paste("#", project_name),
     paste("Analyst: ", analyst_name),
     paste0(
-      '\n<!-- TO DELETE\n',
+      '<!-- TO DELETE\n',
       'Please setup a new "Internal" project on GitLab ',
       '(', git_repository,') ',
       'named: ', project_name,
       '\n-->'
     ),
-    sep = "\n"
+    sep = "\n\n"
   )
 
   writeLines(readme, con = file.path(project_directory, project_name, "README.md"))
@@ -90,8 +90,7 @@ new_project <- function(
     "**.toc",
     "**.snm",
     "data",
-    "/scripts/*.html",
-    "/scripts/*.pdf"
+    "logs"
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 

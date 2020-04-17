@@ -1,4 +1,25 @@
+# umr1283 0.4.0
+
+## Minor improvements and fixes
+
+* Add a `logs` directory.
+    ```
+    /disks/PROJECT/test
+    ├── data -> /disks/DATATMP/test
+    ├── docs
+    ├── logs
+    ├── reports
+    ├── scripts
+    ├── README.md
+    ├── .git
+    ├── .gitignore
+    └── test.Rproj
+    ```
+* Fix some style in `README.md` file.
+
 # umr1283 0.3.0
+
+## Minor improvements and fixes
 
 * Set 775 permissions for files and directories
 
