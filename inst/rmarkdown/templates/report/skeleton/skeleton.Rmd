@@ -4,13 +4,8 @@ params:
   firstname: "FirstName"
   lastname: "LastName"
   script_name: "999-default"
-  data_directory: NULL
   project_directory: !r here::here()
-  working_directory: !r here::here("Data")
-  show_code: FALSE
-  n_cores: !r parallel::detectCores()
-  dpi: 120
-  gg_fontsize: 12
+  data_directory: NULL
 author:
   - name: '`r paste(params[["firstname"]], params[["lastname"]])`'
     affiliation: "Université de Lille, INSERM, CNRS, Institut Pasteur de Lille, UMR 1283/8199 - EGID, F-59000, Lille, France."
@@ -29,31 +24,33 @@ output: umr1283::html_report
 
 ```{r setup, include = FALSE}
 options(stringsAsFactors = FALSE)
+options("width" = 110)
 
 
-### Load packages and functions
-library(here)
-library(tidyverse)
-library(sessioninfo)
-library(kableExtra)
-library(knitr)
+### Load packages ==================================================================================
+# library(here)
 
-bootstrap <- function(x) {
-  if (is_html_output()) {
-    kable_styling(
-      kable_input = x,
-      bootstrap_options = c("striped", "hover", "condensed", "responsive", "bordered"),
-      full_width = TRUE
-    )
-  } else {
-    x
-  }
+suppressPackageStartupMessages({
+  library(sessioninfo)
+  library(gt)
+  library(knitr)
+  library(ggplot2)
+})
+
+
+### Source functions ===============================================================================
+
+
+### Environment ====================================================================================
+project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
+
+if (dir.exists(file.path(params[["working_directory"]], "data"))) {
+  output_directory <- file.path(params[["working_directory"]], "data", params[["script_name"]])
+} else {
+  output_directory <- file.path(params[["working_directory"]], "Data", params[["script_name"]])
 }
+dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
 
-
-### Set knitr rmarkdown chunk options
-output_directory <- file.path(params[["working_directory"]], params[["script_name"]])
-dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0777")
 opts_chunk$set(
   results = "asis",
   include = TRUE,
@@ -68,8 +65,8 @@ opts_chunk$set(
 )
 
 
-### Define theme
-theme_set(theme_light(base_size = params[["gg_fontsize"]]))
+### Define theme ===================================================================================
+theme_set(theme_light())
 ```
 
 # Summary
@@ -78,6 +75,5 @@ theme_set(theme_light(base_size = params[["gg_fontsize"]]))
 # R session information
 
 ```{r session-info, results = "markup"}
-options("width" = 110)
 session_info()
 ```
