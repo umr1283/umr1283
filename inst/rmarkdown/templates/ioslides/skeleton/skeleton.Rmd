@@ -11,7 +11,19 @@ knit: (function(inputFile, encoding) {
       intermediates_dir = here::here("Data")
     )
   })
-output: umr1283::ioslides_presentation
+csl: '`r system.file("rmarkdown/templates/ioslides/resources/csl/apa.csl", package = "umr1283")`' 
+css: '`r system.file("rmarkdown/templates/ioslides/resources/mc_theme.css", package = "umr1283")`' 
+logo: '`r system.file("rmarkdown/templates/ioslides/resources/logo_UMR.png", package = "umr1283")`' 
+output:
+  rmarkdown::ioslides_presentation:
+    smaller: false
+    self_contained: true
+    mathjax: default
+    fig_width: 5.94
+    fig_height: 3.30
+    transition: 0.5
+    incremental: false
+    code_download: true
 ---
 
 ```{r setup, include = FALSE}

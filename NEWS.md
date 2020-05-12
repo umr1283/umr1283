@@ -2,6 +2,9 @@
 
 ## Minor improvements and fixes
 
+* Update report template.
+* Fix ressources in ioslide template.
+
 # umr1283 0.4.0
 
 ## Minor improvements and fixes
