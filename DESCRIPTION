@@ -1,6 +1,6 @@
 Package: umr1283
 Title: UMR 1283 - RStudio Project Templates
-Version: 0.4.0
+Version: 0.4.1
 Authors@R: 
     person(given = "Mickaël",
            family = "Canouil",
@@ -18,4 +18,4 @@ Imports:
     rmarkdown (>= 2.1)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
