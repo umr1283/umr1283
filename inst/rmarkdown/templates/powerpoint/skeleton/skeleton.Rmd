@@ -7,8 +7,8 @@ knit: (function(inputFile, encoding) {
     rmarkdown::render(
       inputFile,
       encoding = encoding, 
-      output_dir = here::here("Report"),
-      intermediates_dir = here::here("Data")
+      output_dir = here::here("reports"),
+      intermediates_dir = here::here("data")
     )
   })
 output: umr1283::powerpoint_presentation

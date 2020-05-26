@@ -8,15 +8,15 @@ params:
   data_directory: NULL
 author:
   - name: '`r paste(params[["firstname"]], params[["lastname"]])`'
-    affiliation: "Université de Lille, INSERM, CNRS, Institut Pasteur de Lille, UMR 1283/8199 - EGID, F-59000, Lille, France."
+    affiliation: "Université de Lille, INSERM UMR 1283, CNRS UMR 8199, Institut Pasteur de Lille, EGID, F-59000, Lille, France."
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 knit: (function(inputFile, encoding) {
     rmarkdown::render(
       inputFile,
       encoding = encoding, 
-      output_dir = here::here("Report"),
-      intermediates_dir = here::here("Data")
+      output_dir = here::here("reports"),
+      intermediates_dir = here::here("data")
     )
   })
 output: umr1283::html_report
