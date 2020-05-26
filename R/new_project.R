@@ -37,7 +37,7 @@ new_project <- function(
 
   readme <- paste(
     paste("#", project_name),
-    paste("Analyst: ", analyst_name),
+    paste("Analyst:", analyst_name),
     paste0(
       '<!-- TO DELETE\n',
       'Please setup a new "Internal" project on GitLab ',

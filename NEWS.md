@@ -1,3 +1,9 @@
+# umr1283 0.5.0
+
+## Minor improvements and fixes
+
+* Update rmarkdown templates according to project directory tree structure.
+
 # umr1283 0.4.1
 
 ## Minor improvements and fixes
