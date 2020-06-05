@@ -11,9 +11,11 @@ author:
     affiliation: "Université de Lille, INSERM UMR 1283, CNRS UMR 8199, Institut Pasteur de Lille, EGID, F-59000, Lille, France."
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-knit: (function(inputFile, encoding) {
+knit: 
+  (function(inputFile, encoding) {
     rmarkdown::render(
-      inputFile,
+      input = inputFile,
+      output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
       encoding = encoding, 
       output_dir = here::here("reports"),
       intermediates_dir = here::here("data")
@@ -23,8 +25,7 @@ output: umr1283::html_report
 ---
 
 ```{r setup, include = FALSE}
-options(stringsAsFactors = FALSE)
-options("width" = 110)
+options(stringsAsFactors = FALSE, "width" = 110)
 
 
 ### Load packages ==================================================================================
@@ -44,12 +45,12 @@ suppressPackageStartupMessages({
 ### Environment ====================================================================================
 project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
 
-if (dir.exists(file.path(params[["working_directory"]], "data"))) {
-  output_directory <- file.path(params[["working_directory"]], "data", params[["script_name"]])
-} else {
-  output_directory <- file.path(params[["working_directory"]], "Data", params[["script_name"]])
-}
-dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
+# if (dir.exists(file.path(params[["working_directory"]], "data"))) {
+#   output_directory <- file.path(params[["working_directory"]], "data", params[["script_name"]])
+# } else {
+#   output_directory <- file.path(params[["working_directory"]], "Data", params[["script_name"]])
+# }
+# dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
 
 opts_chunk$set(
   results = "asis",
@@ -57,11 +58,13 @@ opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
-  dpi = params[["dpi"]],
+  dpi = 120,
   tidy = FALSE,
   crop = TRUE,
   autodep = TRUE,
-  fig.align = "center"
+  fig.align = "center",
+  width = getOption("width"),
+  comment = "#>"
 )
 
 
