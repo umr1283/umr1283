@@ -3,9 +3,11 @@ title: "A Title"
 subtitle: "A Subtitle"
 author: "One Author"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-knit: (function(inputFile, encoding) {
+knit: 
+  (function(inputFile, encoding) {
     rmarkdown::render(
-      inputFile,
+      input = inputFile,
+      output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
       encoding = encoding, 
       output_dir = here::here("reports"),
       intermediates_dir = here::here("data")
