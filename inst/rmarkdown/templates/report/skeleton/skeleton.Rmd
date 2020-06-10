@@ -18,7 +18,7 @@ knit:
       output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
       encoding = encoding, 
       output_dir = here::here("reports"),
-      intermediates_dir = here::here("data")
+      intermediates_dir = here::here("outputs")
     )
   })
 output: umr1283::html_report
@@ -45,8 +45,8 @@ suppressPackageStartupMessages({
 ### Environment ====================================================================================
 project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
 
-# if (dir.exists(file.path(params[["working_directory"]], "data"))) {
-#   output_directory <- file.path(params[["working_directory"]], "data", params[["script_name"]])
+# if (dir.exists(file.path(params[["working_directory"]], "outputs"))) {
+#   output_directory <- file.path(params[["working_directory"]], "outputs", params[["script_name"]])
 # } else {
 #   output_directory <- file.path(params[["working_directory"]], "Data", params[["script_name"]])
 # }

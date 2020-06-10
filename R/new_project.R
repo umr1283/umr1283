@@ -32,7 +32,7 @@ new_project <- function(
 
   file.symlink(
     from = file.path(working_directory, project_name),
-    to = file.path(project_directory, project_name, "data")
+    to = file.path(project_directory, project_name, "outputs")
   )
 
   readme <- paste(
@@ -89,7 +89,7 @@ new_project <- function(
     "**.aux",
     "**.toc",
     "**.snm",
-    "data",
+    "outputs",
     "logs"
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
