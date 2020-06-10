@@ -10,7 +10,7 @@ knit:
       output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
       encoding = encoding, 
       output_dir = here::here("reports"),
-      intermediates_dir = here::here("data")
+      intermediates_dir = here::here("outputs")
     )
   })
 output: umr1283::powerpoint_presentation
