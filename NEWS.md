@@ -1,3 +1,21 @@
+# umr1283 0.6.0
+
+## Minor improvements and fixes
+
+* Rename `data` to `outputs`.
+    ```
+    /disks/PROJECT/test
+    ├── outputs -> /disks/DATATMP/test
+    ├── docs
+    ├── logs
+    ├── reports
+    ├── scripts
+    ├── README.md
+    ├── .git
+    ├── .gitignore
+    └── test.Rproj
+    ```
+
 # umr1283 0.5.0
 
 ## Minor improvements and fixes

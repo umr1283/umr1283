@@ -10,7 +10,7 @@ knit:
       output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
       encoding = encoding, 
       output_dir = here::here("reports"),
-      intermediates_dir = here::here("data")
+      intermediates_dir = here::here("outputs")
     )
   })
 csl: '`r system.file("rmarkdown/templates/ioslides/resources/csl/apa.csl", package = "umr1283")`' 
