@@ -3,66 +3,65 @@ title: "A Title"
 subtitle: "A Subtitle"
 author: "One Author"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-knit: 
-  (function(inputFile, encoding) {
-    rmarkdown::render(
-      input = inputFile,
-      output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
-      encoding = encoding, 
-      output_dir = here::here("reports"),
-      intermediates_dir = here::here("outputs")
-    )
-  })
-csl: '`r system.file("rmarkdown/templates/ioslides/resources/csl/apa.csl", package = "umr1283")`' 
-css: '`r system.file("rmarkdown/templates/ioslides/resources/mc_theme.css", package = "umr1283")`' 
-logo: '`r system.file("rmarkdown/templates/ioslides/resources/logo_UMR.png", package = "umr1283")`' 
-output:
-  rmarkdown::ioslides_presentation:
-    smaller: false
-    self_contained: true
-    mathjax: default
-    fig_width: 5.94
-    fig_height: 3.30
-    transition: 0.5
-    incremental: false
-    code_download: true
+knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile), 
+encoding = encoding, output_dir = here::here("reports"), intermediates_dir = here::here("outputs", gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile))))
+output: umr1283::ioslides_presentation
+params:
+  project_directory: !r here::here()
+  output_directory: !r here::here("outputs", "ioslides")
 ---
 
 ```{r setup, include = FALSE}
-options(
-  stringsAsFactors = FALSE,
-  width = 80,
-  kableExtra.html.bsTable = TRUE
-)
+options("stringsAsFactors" = FALSE, "width" = 80)
 
-### Load packages and functions
-library(tidyverse)
-library(knitr)
-library(rmarkdown)
-library(kableExtra)
 
-### Set knitr rmarkdown chunk options
+### Load packages ==================================================================================
+library(here)
+
+suppressPackageStartupMessages({
+  library(knitr)
+  library(gt)
+  library(ggplot2)
+})
+
+
+### Source functions ===============================================================================
+
+
+### Environment ====================================================================================
+project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
+output_directory <- params[["output_directory"]]
+dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
+
 opts_chunk$set(
+  eval = TRUE,
   include = TRUE,
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
-  eval = TRUE,
+  dpi = 120,
   tidy = FALSE,
   crop = TRUE,
-  autodep = FALSE,
-  dpi = 120,
-  width = getOption("width"),
+  autodep = TRUE,
   results = "asis",
-  comment = "#>",
   fig.align = "center",
+  width = getOption("width"),
+  comment = "#>",
   fig.path = "images/"
 )
+
+
+### Define theme ===================================================================================
+# options(
+#   ggplot2.discrete.colour = scale_colour_viridis_d,
+#   ggplot2.discrete.fill = scale_fill_viridis_d,
+#   ggplot2.continuous.colour = scale_colour_viridis_c,
+#   ggplot2.continuous.fill = scale_fill_viridis_c
+# )
+# theme_set(theme_light())
 ```
 
 # Title | Subtitle {.flexbox .vcenter}
 
 
 ## Title 1 | Title 2
-
-
