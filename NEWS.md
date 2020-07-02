@@ -2,7 +2,7 @@
 
 ## Minor improvements and fixes
 
-* Fix ioslide template.
+* Fix ioslide templates.
 * Update setup chunks in all templates.
 
 # umr1283 0.6.0
