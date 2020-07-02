@@ -56,8 +56,9 @@ ioslides_presentation <- function(
   args <- c(args, rmarkdown::pandoc_variable_arg("transition", transition))
   if (is.null(css)) {
     css <- c(
-      system.file("rmarkdown/templates/ioslides/resources", "mc_theme.css", package = "mctemplates"),
-      system.file("rmarkdown/templates/ioslides/resources", "all.min.5.11.2.css", package = "mctemplates")
+      system.file("rmarkdown/templates/ioslides/resources", "mc_theme.css", package = "umr1283"),
+      # system.file("rmarkdown/templates/ioslides/resources", "all.min.5.11.2.css", package = "umr1283"),
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     )
   }
   for (css_file in css) args <- c(args, "--css", rmarkdown::pandoc_path_arg(css_file))
@@ -71,11 +72,11 @@ ioslides_presentation <- function(
     args <- c(args, rmarkdown::pandoc_variable_arg("analytics", analytics))
   }
   if (is.null(csl)) {
-    csl <- system.file("rmarkdown/templates/ioslides/resources", "csl", "apa.csl", package = "mctemplates")
+    csl <- system.file("rmarkdown/templates/ioslides/resources", "csl", "apa.csl", package = "umr1283")
     if (!is.null(pandoc_args) && grepl("--csl", pandoc_args)) {
-      pandoc_args[grepl("--csl", pandoc_args)] <- paste0("--csl=", rmarkdown:::normalized_relative_to(dir = , file = csl))
+      pandoc_args[grepl("--csl", pandoc_args)] <- paste0("--csl=", csl)
     } else {
-      pandoc_args <- c(pandoc_args, paste0("--csl=", rmarkdown:::normalized_relative_to(dir = , file = csl)))
+      pandoc_args <- c(pandoc_args, paste0("--csl=", csl))
     }
   }
   pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir, output_dir) {
@@ -87,7 +88,7 @@ ioslides_presentation <- function(
       dir.create(files_dir)
     }
     if (is.null(logo)) {
-      logo <- system.file("rmarkdown/templates/ioslides/resources", "logo_UMR.png", package = "mctemplates")
+      logo <- system.file("rmarkdown/templates/ioslides/resources", "logo_UMR.png", package = "umr1283")
     }
     if (!is.null(logo)) {
       logo_path <- logo
