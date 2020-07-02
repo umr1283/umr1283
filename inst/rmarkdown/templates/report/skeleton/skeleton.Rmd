@@ -1,11 +1,5 @@
 ---
 title: "Untitled"
-params:
-  firstname: "FirstName"
-  lastname: "LastName"
-  project_directory: !r here::here()
-  output_directory: !r here::here("outputs", "999-default")
-  data_directory: NULL
 author:
   - name: '`r paste(params[["firstname"]], params[["lastname"]])`'
     affiliation: "Université de Lille, INSERM UMR 1283, CNRS UMR 8199, Institut Pasteur de Lille, EGID, F-59000, Lille, France."
@@ -14,6 +8,12 @@ date: '`r format(Sys.time(), "%B %d, %Y")`'
 knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile), 
 encoding = encoding, output_dir = here::here("reports"), intermediates_dir = here::here("outputs", gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile))))
 output: umr1283::html_report
+params:
+  firstname: "FirstName"
+  lastname: "LastName"
+  project_directory: !r here::here()
+  output_directory: !r here::here("outputs", "999-default")
+  data_directory: NULL
 ---
 
 ```{r setup, include = FALSE}
