@@ -52,13 +52,13 @@ opts_chunk$set(
 
 
 ### Define theme ===================================================================================
-# options(
-#   ggplot2.discrete.colour = scale_colour_viridis_d,
-#   ggplot2.discrete.fill = scale_fill_viridis_d,
-#   ggplot2.continuous.colour = scale_colour_viridis_c,
-#   ggplot2.continuous.fill = scale_fill_viridis_c
-# )
-# theme_set(theme_light())
+options(
+  ggplot2.discrete.colour = scale_colour_viridis_d,
+  ggplot2.discrete.fill = scale_fill_viridis_d,
+  ggplot2.continuous.colour = scale_colour_viridis_c,
+  ggplot2.continuous.fill = scale_fill_viridis_c
+)
+theme_set(theme_light())
 ```
 
 # Title | Subtitle {.flexbox .vcenter}
