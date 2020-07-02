@@ -3,24 +3,16 @@ title: "Untitled"
 params:
   firstname: "FirstName"
   lastname: "LastName"
-  script_name: "999-default"
   project_directory: !r here::here()
+  output_directory: !r here::here("outputs", "999-default")
   data_directory: NULL
 author:
   - name: '`r paste(params[["firstname"]], params[["lastname"]])`'
     affiliation: "Université de Lille, INSERM UMR 1283, CNRS UMR 8199, Institut Pasteur de Lille, EGID, F-59000, Lille, France."
     email: '`r paste0(params[["firstname"]], ".", params[["lastname"]], "@cnrs.fr")`'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-knit: 
-  (function(inputFile, encoding) {
-    rmarkdown::render(
-      input = inputFile,
-      output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile),
-      encoding = encoding, 
-      output_dir = here::here("reports"),
-      intermediates_dir = here::here("outputs")
-    )
-  })
+knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile), 
+encoding = encoding, output_dir = here::here("reports"), intermediates_dir = here::here("outputs", gsub("[0-9]+-(.*)\\.Rmd", "\\1", inputFile))))
 output: umr1283::html_report
 ---
 
@@ -29,12 +21,12 @@ options(stringsAsFactors = FALSE, "width" = 110)
 
 
 ### Load packages ==================================================================================
-# library(here)
+library(here)
 
 suppressPackageStartupMessages({
+  library(knitr)
   library(sessioninfo)
   library(gt)
-  library(knitr)
   library(ggplot2)
 })
 
@@ -44,16 +36,11 @@ suppressPackageStartupMessages({
 
 ### Environment ====================================================================================
 project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
-
-# if (dir.exists(file.path(params[["working_directory"]], "outputs"))) {
-#   output_directory <- file.path(params[["working_directory"]], "outputs", params[["script_name"]])
-# } else {
-#   output_directory <- file.path(params[["working_directory"]], "Data", params[["script_name"]])
-# }
-# dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
+output_directory <- params[["output_directory"]]
+dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
 
 opts_chunk$set(
-  results = "asis",
+  eval = TRUE,
   include = TRUE,
   echo = FALSE,
   warning = FALSE,
@@ -62,6 +49,7 @@ opts_chunk$set(
   tidy = FALSE,
   crop = TRUE,
   autodep = TRUE,
+  results = "asis",
   fig.align = "center",
   width = getOption("width"),
   comment = "#>"
@@ -69,6 +57,12 @@ opts_chunk$set(
 
 
 ### Define theme ===================================================================================
+options(
+  ggplot2.discrete.colour = scale_colour_viridis_d,
+  ggplot2.discrete.fill = scale_fill_viridis_d,
+  ggplot2.continuous.colour = scale_colour_viridis_c,
+  ggplot2.continuous.fill = scale_fill_viridis_c
+)
 theme_set(theme_light())
 ```
 
