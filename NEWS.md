@@ -1,3 +1,9 @@
+# umr1283 0.7.1
+
+## Patch
+
+* Fix outputs directory in templates.
+
 # umr1283 0.7.0
 
 ## Minor improvements and fixes
