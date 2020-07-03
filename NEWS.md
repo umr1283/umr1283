@@ -1,6 +1,8 @@
-# umr1283 0.7.1
+# umr1283 0.7.2
 
-## Patch
+* Fix knitr hook in templates.
+
+# umr1283 0.7.1
 
 * Fix outputs directory in templates.
 
