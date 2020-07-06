@@ -14,24 +14,13 @@ params:
 options("stringsAsFactors" = FALSE, "width" = 80)
 
 
-### Load packages ==================================================================================
-library(here)
-
-suppressPackageStartupMessages({
-  library(knitr)
-  library(gt)
-  library(ggplot2)
-})
-
-
-### Source functions ===============================================================================
-
-
 ### Environment ====================================================================================
 project_name <- gsub("(.*)_.*", "\\1", basename(params[["project_directory"]]))
 output_directory <- params[["output_directory"]]
 dir.create(path = output_directory, recursive = TRUE, showWarnings = FALSE, mode = "0775")
 
+
+### knitr settings =================================================================================
 opts_chunk$set(
   eval = TRUE,
   include = TRUE,
@@ -46,8 +35,18 @@ opts_chunk$set(
   fig.align = "center",
   width = getOption("width"),
   comment = "#>",
-  fig.path = "images/"
+  fig.path = file.path(output_directory, "images/")
 )
+
+
+### Load packages ==================================================================================
+library(here)
+
+suppressPackageStartupMessages({
+  library(knitr)
+  library(gt)
+  library(ggplot2)
+})
 
 
 ### Define theme ===================================================================================
@@ -58,6 +57,11 @@ options(
   ggplot2.continuous.fill = scale_fill_viridis_c
 )
 theme_set(theme_light())
+
+
+### Source functions ===============================================================================
+
+
 ```
 
 # Title | Subtitle {.flexbox .vcenter}
