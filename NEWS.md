@@ -1,3 +1,8 @@
+# umr1283 0.7.3
+
+* In [rmarkdown templates](inst/rmarkdown/templates),
+    + Reorder code in setup chunk.
+
 # umr1283 0.7.2
 
 * Fix knitr hook in templates.
