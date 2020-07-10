@@ -1,3 +1,8 @@
+# umr1283 0.7.4
+
+* In [rmarkdown templates](inst/rmarkdown/templates),
+    + Remove css style for tables.
+
 # umr1283 0.7.3
 
 * In [rmarkdown templates](inst/rmarkdown/templates),

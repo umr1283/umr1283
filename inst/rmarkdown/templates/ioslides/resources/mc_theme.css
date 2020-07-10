@@ -100,7 +100,7 @@ code {
   padding: 2px;
 }
 
-table thead th {
+/*table thead th {
   color: #ffffff;
   font-size: 85%;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #666666), color-stop(80%, #333333)) no-repeat;
@@ -112,7 +112,7 @@ table thead th {
 
 table tbody {
   font-size: 75%;
-}
+}*/
 
 aside.gdbar {
   height: 97px;
