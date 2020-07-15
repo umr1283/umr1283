@@ -1,6 +1,11 @@
 # umr1283 0.7.4
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
+    + Use local font-awesome (v5.11.2) css.
+
+# umr1283 0.7.4
+
+* In [rmarkdown templates](inst/rmarkdown/templates),
     + Remove css style for tables.
 
 # umr1283 0.7.3
