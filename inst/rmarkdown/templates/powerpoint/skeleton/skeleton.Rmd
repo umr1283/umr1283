@@ -3,7 +3,7 @@ title: "A Title"
 subtitle: "A Subtitle"
 author: "One Author"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = gsub("[0-9]+-(.*)\\.Rmd", "\\1", basename(inputFile)), encoding = encoding, output_dir = here::here("reports"), intermediates_dir = here::here("outputs", gsub(".Rmd$", "", basename(inputFile)))))
+knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = gsub("[0-9-]*(.*)\\.Rmd", "\\1", basename(inputFile)), encoding = encoding, output_dir = here::here("reports"), intermediates_dir = here::here("outputs", gsub(".Rmd$", "", basename(inputFile)))))
 output: umr1283::powerpoint_presentation
 ---
 
