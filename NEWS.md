@@ -1,4 +1,4 @@
-# umr1283 0.7.4
+# umr1283 0.7.5
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
     + Minor code change.
