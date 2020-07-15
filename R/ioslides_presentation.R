@@ -60,8 +60,8 @@ ioslides_presentation <- function(
     #   destfile = "inst/rmarkdown/templates/ioslides/resources/all.min.css"
     # )
     css <- c(
-      system.file("rmarkdown/templates/ioslides/resources/all.min.css", package = "umr1283"),
-      # "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css",
+      # system.file("rmarkdown/templates/ioslides/resources/all.min.css", package = "umr1283"),
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css",
       system.file("rmarkdown/templates/ioslides/resources/mc_theme.css", package = "umr1283")
     )
   }
