@@ -1,7 +1,7 @@
 # umr1283 0.7.4
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
-    + Use local font-awesome (v5.11.2) css.
+    + Minor code change.
 
 # umr1283 0.7.4
 
