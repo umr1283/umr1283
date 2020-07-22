@@ -1,3 +1,8 @@
+# umr1283 (development version)
+
+* In [rmarkdown templates](inst/rmarkdown/templates),
+    + Remove default subdirectory for intermediate Rmarkdown files.
+
 # umr1283 0.7.5
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
