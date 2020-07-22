@@ -7,7 +7,7 @@ knit: (function(inputFile, encoding) rmarkdown::render(inputFile, output_file = 
 output: umr1283::ioslides_presentation
 params:
   project_directory: !r here::here()
-  output_directory: !r here::here("outputs", "ioslides")
+  output_directory: !r here::here("outputs")
 ---
 
 ```{r setup, include = FALSE}
