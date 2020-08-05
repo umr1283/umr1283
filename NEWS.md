@@ -2,6 +2,9 @@
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
     + Remove default subdirectory for intermediate Rmarkdown files.
+    + Update affiliation.
+* In `R/new_project.R`,
+    + Add "reports" to `.gitignore`.
 
 # umr1283 0.7.5
 
