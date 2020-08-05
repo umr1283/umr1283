@@ -91,7 +91,7 @@ new_project <- function(
     "**.snm",
     "outputs",
     "logs",
-    "outputs"
+    "reports"
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
