@@ -1,3 +1,8 @@
+# umr1283 0.7.7
+
+* In [rmarkdown templates](inst/rmarkdown/templates),
+    + Update ggplot2 template code.
+
 # umr1283 0.7.6
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
