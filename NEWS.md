@@ -1,3 +1,10 @@
+# umr1283 0.7.8
+
+* In [rmarkdown templates](inst/rmarkdown/templates/ioslides/resources),
+    + Add Font-Awesome 5.14.0 icons to ioslides.
+* In `ioslides_presentation.R`,
+    + Update to include Font-Awesome 5.14.0 icons.
+
 # umr1283 0.7.7
 
 * In [rmarkdown templates](inst/rmarkdown/templates),
