@@ -69,6 +69,18 @@ ul li ul pre {
   margin-left: -2em;
 }
 
+ul > li::before {
+  content: none;
+  margin-left: -1em;
+  position: absolute;
+  font-weight: 600;
+}
+
+ul li ul li::before {
+  content: none;
+  font-weight: 600;
+}
+
 pre {
   font-family: 'Source Code Pro', 'Courier New', monospace;
   font-size: 20px;
