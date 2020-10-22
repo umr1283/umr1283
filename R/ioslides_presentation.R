@@ -150,7 +150,7 @@ ioslides_presentation <- function(
     )
     slides_lines <- rmarkdown:::read_utf8(output_tmpfile)
     if (self_contained) {
-      slides_lines <- rmarkdown:::base64_image_encode(slides_lines)
+      slides_lines <- rmarkdown:::base64_encode_images(slides_lines)
     }
     output_lines <- rmarkdown:::read_utf8(output_file)
     sentinel_line <- grep("^RENDERED_SLIDES$", output_lines)
