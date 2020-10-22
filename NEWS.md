@@ -1,3 +1,12 @@
+# umr1283 0.7.9
+
+* In `DESCRIPTION`,
+    - Update dependencies.
+* In `R/ioslides_presentation.R`,
+    + Update not exported function from `rmarkdown`.
+* In [rmarkdown templates](inst/rmarkdown/templates/ioslides/resources),
+    + Update affiliation.
+
 # umr1283 0.7.8
 
 * In [rmarkdown templates](inst/rmarkdown/templates/ioslides/resources),
