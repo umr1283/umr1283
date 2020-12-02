@@ -8,7 +8,7 @@ Authors@R:
            email = "mickael.canouil@cnrs.fr",
            comment = c(ORCID = "0000-0002-3396-4549"))
 Description: RStudio Project Templates for UMR 1283.
-License: MIT + file NOTE
+License: MIT + file LICENSE
 URL: https://github.com/mcanouil/umr1283
 BugReports: https://github.com/mcanouil/umr1283/issues
 Depends: 
