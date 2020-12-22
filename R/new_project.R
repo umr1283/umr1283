@@ -22,7 +22,7 @@ new_project <- function(
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   sapply(
-    X = file.path(project_directory, project_name, c("docs", "reports", "scripts", "logs")),
+    X = file.path(project_directory, project_name, c("docs", "reports", "scripts", "logs", "renv")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   dir.create(
@@ -35,15 +35,40 @@ new_project <- function(
     to = file.path(project_directory, project_name, "outputs")
   )
 
+  file.symlink(
+    from = file.path(working_directory, project_name, "library"),
+    to = file.path(project_directory, project_name, "renv", "library")
+  )
+
   readme <- paste(
     paste("#", project_name),
     paste("Analyst:", analyst_name),
-    paste0(
-      '<!-- TO DELETE\n',
-      'Please setup a new "Internal" project on GitLab ',
-      '(', git_repository,') ',
-      'named: ', project_name,
-      '\n-->'
+    # paste0(
+    #   "<!-- TO DELETE\n",
+    #   'Please setup a new "Internal" project on GitLab ',
+    #   "(", git_repository,") ",
+    #   "named: ", project_name,
+    #   "\n-->"
+    # ),
+    paste(
+      "## Design",
+      "",
+      "``` bash",
+      "nohup Rscript scripts/01-design.R > logs/01.log &",
+      "```",
+      "",
+      "## Quality Control",
+      "",
+      "``` bash",
+      'nohup Rscript -e \'rmarkdown::render(input = here::here("scripts", "02-qc.Rmd"), output_file = "QC.html", output_dir = here::here("reports"), encoding = "UTF-8")\' > logs/02.log &',
+      "```",
+      "",
+      "## Analyses",
+      "",
+      "``` bash",
+      "nohup Rscript scripts/03-analysis.R > logs/03.log &",
+      "```",
+      sep = "\n"
     ),
     sep = "\n\n"
   )
@@ -95,19 +120,7 @@ new_project <- function(
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
-  sapply(
-    X = paste("git -C", file.path(project_directory, project_name), c(
-      "init",
-      "add --all",
-      "commit -am 'create project'",
-      "config --local core.sharedRepository 0775",
-      paste0(
-        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
-        "/", project_name, ".git"
-      )
-    )),
-    FUN = system
-  )
+  renv::init(project = file.path(project_directory, project_name))
 
   Sys.chmod(
     paths = list.files(
@@ -119,17 +132,37 @@ new_project <- function(
     use_umask = FALSE
   )
 
-  message(paste0(
-    'Please setup a new "Internal" project on GitLab ',
-    '(', gsub("^.*@(.*):.*", "\\1", git_repository),') ',
-    'named: ', project_name
-  ))
-  if (interactive()) {
-    if (grepl("gitlab", git_repository)) {
-      git_repository <- paste0(dirname(git_repository), "/projects/new")
-    }
-    utils::browseURL(git_repository)
-  }
+  sapply(
+    X = paste("git -C", file.path(project_directory, project_name), c(
+      "init",
+      "add --all",
+      "commit -am 'create project'",
+      "config --local core.sharedRepository 0775",
+      paste(
+        "push --set-upstream",
+        gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
+        "master"
+      ),
+      paste0(
+        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
+        "/", project_name, ".git"
+      ),
+      "git push origin master"
+    )),
+    FUN = system
+  )
+
+  # message(paste0(
+  #   'Please setup a new "Internal" project on GitLab ',
+  #   '(', gsub("^.*@(.*):.*", "\\1", git_repository),') ',
+  #   'named: ', project_name
+  # ))
+  # if (interactive()) {
+  #   if (grepl("gitlab", git_repository)) {
+  #     git_repository <- paste0(dirname(git_repository), "/projects/new")
+  #   }
+  #   utils::browseURL(git_repository)
+  # }
 
   TRUE
 }

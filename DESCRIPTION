@@ -1,6 +1,6 @@
 Package: umr1283
 Title: UMR 1283 - RStudio Project Templates
-Version: 0.7.9
+Version: 0.7.9.9000
 Authors@R: 
     person(given = "Mickaël",
            family = "Canouil",
@@ -15,7 +15,8 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     bookdown (>= 0.21),
-    rmarkdown (>= 2.5)
+    rmarkdown (>= 2.5),
+    renv (>= 0.12.3)
 Suggests: 
     here (>= 0.1),
     knitr (>= 1.30),
