@@ -14,7 +14,7 @@ new_project <- function(
   working_directory = "/disks/DATATMP",
   git_repository = "https://github.com/mcanouil/umr1283",
   ...
-)  {
+) {
   path <- normalizePath(path)
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
@@ -122,7 +122,7 @@ new_project <- function(
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
-  renv::init(project = file.path(project_directory, project_name), force = TRUE)
+  renv::init(project = path, force = TRUE)
 
   Sys.chmod(
     paths = list.files(
