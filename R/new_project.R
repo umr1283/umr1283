@@ -21,20 +21,20 @@ new_project <- function(
     path = path,
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
-  sapply(
+  invisible(sapply(
     X = file.path(project_directory, project_name, c("docs", "reports", "scripts", "logs", "renv")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  )
-  dir.create(
-    path = file.path(working_directory, project_name),
-    recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  )
+  ))
+
+  invisible(sapply(
+    X = file.path(working_directory, project_name, c("outputs", "library")),
+    FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
+  ))
 
   file.symlink(
-    from = file.path(working_directory, project_name),
+    from = file.path(working_directory, project_name, "outputs"),
     to = file.path(project_directory, project_name, "outputs")
   )
-
   file.symlink(
     from = file.path(working_directory, project_name, "library"),
     to = file.path(project_directory, project_name, "renv", "library")
@@ -91,6 +91,7 @@ new_project <- function(
     "LaTeX: pdfLaTeX",
     "",
     "AutoAppendNewline: Yes",
+    "LineEndingConversion: Posix",
     "",
     "QuitChildProcessesOnExit: Yes"
   )
@@ -120,7 +121,7 @@ new_project <- function(
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
-  renv::init(project = file.path(project_directory, project_name))
+  renv::init(project = file.path(project_directory, project_name), force = TRUE)
 
   Sys.chmod(
     paths = list.files(
@@ -132,7 +133,7 @@ new_project <- function(
     use_umask = FALSE
   )
 
-  sapply(
+  invisible(sapply(
     X = paste("git -C", file.path(project_directory, project_name), c(
       "init",
       "add --all",
@@ -147,22 +148,10 @@ new_project <- function(
         "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
         "/", project_name, ".git"
       ),
-      "git push origin master"
+      "push origin master"
     )),
     FUN = system
-  )
-
-  # message(paste0(
-  #   'Please setup a new "Internal" project on GitLab ',
-  #   '(', gsub("^.*@(.*):.*", "\\1", git_repository),') ',
-  #   'named: ', project_name
-  # ))
-  # if (interactive()) {
-  #   if (grepl("gitlab", git_repository)) {
-  #     git_repository <- paste0(dirname(git_repository), "/projects/new")
-  #   }
-  #   utils::browseURL(git_repository)
-  # }
+  ))
 
   TRUE
 }
