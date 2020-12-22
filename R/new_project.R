@@ -44,13 +44,8 @@ new_project <- function(
   readme <- paste(
     paste("#", project_name),
     paste("Analyst:", analyst_name),
-    # paste0(
-    #   "<!-- TO DELETE\n",
-    #   'Please setup a new "Internal" project on GitLab ',
-    #   "(", git_repository,") ",
-    #   "named: ", project_name,
-    #   "\n-->"
-    # ),
+     "<!-- Initialise `renv` `with renv::init(force = TRUE)`.-->",
+     "<!-- Update `renv` with `renv::snapshot()`.-->",
     paste(
       "## Design",
       "",
@@ -121,8 +116,6 @@ new_project <- function(
     "reports"
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
-
-  renv::init(project = path, force = TRUE)
 
   Sys.chmod(
     paths = list.files(

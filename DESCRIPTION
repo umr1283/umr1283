@@ -15,14 +15,14 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     bookdown (>= 0.21),
-    rmarkdown (>= 2.5),
-    renv (>= 0.12.3)
+    rmarkdown (>= 2.5)
 Suggests: 
     here (>= 0.1),
     knitr (>= 1.30),
     gt (>= 0.2.2),
     ggplot2 (>= 3.3.2),
-    sessioninfo (>= 1.1.1)
+    sessioninfo (>= 1.1.1),
+    renv (>= 0.12.3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
