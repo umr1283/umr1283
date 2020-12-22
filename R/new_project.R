@@ -117,6 +117,8 @@ new_project <- function(
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
+  renv::init(project = path, force = TRUE)
+
   Sys.chmod(
     paths = list.files(
       path = file.path(project_directory, project_name),
