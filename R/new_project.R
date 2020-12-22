@@ -15,6 +15,7 @@ new_project <- function(
   git_repository = "https://github.com/mcanouil/umr1283",
   ...
 )  {
+  path <- normalizePath(path)
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
   dir.create(
