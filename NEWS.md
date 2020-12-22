@@ -1,9 +1,9 @@
 # umr1283 (development version)
 
 * In `DESCRIPTION`,
-    + Add `renv`.
+    + Add `renv` in `Suggests`.
 * In `R/new_project.R`,
-    + Add `renv`.
+    + Add `renv` directory structure.
     + Improve project README.
     + Add push to gitlab.
 
