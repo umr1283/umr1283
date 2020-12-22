@@ -1,7 +1,16 @@
+# umr1283 (development version)
+
+* In `DESCRIPTION`,
+    + Add `renv`.
+* In `R/new_project.R`,
+    + Add `renv`.
+    + Improve project README.
+    + Add push to gitlab.
+
 # umr1283 0.7.9
 
 * In `DESCRIPTION`,
-    - Update dependencies.
+    + Update dependencies.
 * In `R/ioslides_presentation.R`,
     + Update not exported function from `rmarkdown`.
 * In [rmarkdown templates](inst/rmarkdown/templates/ioslides/resources),
