@@ -23,9 +23,6 @@ new_project(
 
 \item{...}{not used}
 }
-\value{
-logical
-}
 \description{
 new_project
 }
