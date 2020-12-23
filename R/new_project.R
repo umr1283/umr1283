@@ -48,7 +48,7 @@ new_project <- function(
       "<!--",
       "1. Initialise `renv`",
       "``` r",
-      "renv::init(force = TRUE)",
+      "renv::init()",
       "```",
       "2. Commit/push new created files",
       "``` bash",
@@ -69,10 +69,15 @@ new_project <- function(
       "``` r",
       "renv::restore()",
       "```",
+      "5. Revert to previous state",
+      "``` r",
+      "renv::revert()",
+      "```",
       "-->",
       sep = "\n"
     ),
     paste(
+      "<!--",
       "## Design",
       "",
       "``` bash",
@@ -90,6 +95,7 @@ new_project <- function(
       "``` bash",
       "nohup Rscript scripts/03-analysis.R > logs/03.log &",
       "```",
+      "-->",
       sep = "\n"
     ),
     sep = "\n\n"
@@ -155,25 +161,27 @@ new_project <- function(
     use_umask = FALSE
   )
 
-  invisible(sapply(
-    X = paste("git -C", file.path(project_directory, project_name), c(
-      "init",
-      "add --all",
-      "commit -am 'create project'",
-      "config --local core.sharedRepository 0775",
-      paste(
-        "push --set-upstream",
-        gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
-        "master"
-      ),
-      paste0(
-        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
-        "/", project_name, ".git"
-      ),
-      "push origin master"
-    )),
-    FUN = system
-  ))
+  invisible(capture.output({
+    sapply(
+      X = paste("git -C", file.path(project_directory, project_name), c(
+        "init",
+        "add --all",
+        "commit -am 'create project'",
+        "config --local core.sharedRepository 0775",
+        paste(
+          "push --set-upstream",
+          gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
+          "master"
+        ),
+        paste0(
+          "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
+          "/", project_name, ".git"
+        ),
+        "push origin master"
+      )),
+      FUN = system, intern = TRUE
+    )
+  }))
 
   TRUE
 }
