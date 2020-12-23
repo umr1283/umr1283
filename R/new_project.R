@@ -6,7 +6,7 @@
 #' @param git_repository character
 #' @param ... not used
 #'
-#' @return logical
+#' @return NULL
 #' @export
 new_project <- function(
   path,
@@ -191,5 +191,5 @@ new_project <- function(
     )
   }))
 
-  TRUE
+  invisible()
 }
