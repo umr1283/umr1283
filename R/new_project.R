@@ -48,7 +48,7 @@ new_project <- function(
       "<!--",
       "1. Set default MRAN",
       "``` r",
-      paste0('options(repos = c(CRAN = "https://mran.microsoft.com/snapshot/', Sys.Date() - 1, '"))'),
+      paste0('options(repos = c(CRAN = "https://mran.microsoft.com/snapshot/', Sys.Date(), '"))'),
       "```",
       "2. Initialise `renv`",
       "``` r",
