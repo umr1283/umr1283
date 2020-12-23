@@ -77,6 +77,10 @@ new_project <- function(
       "``` r",
       "renv::revert()",
       "```",
+      "8. Update R packages",
+      "``` r",
+      "renv::update()",
+      "```",
       "-->",
       sep = "\n"
     ),
