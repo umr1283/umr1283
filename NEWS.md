@@ -1,3 +1,8 @@
+# umr1283 0.8.1
+
+* In `R/new_project.R`,
+    + Ensure project directory is in `0775`.
+
 # umr1283 0.8.0
 
 * In `DESCRIPTION`,
