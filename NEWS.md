@@ -1,8 +1,3 @@
-# umr1283 0.8.1
-
-* In `R/new_project.R`,
-    + Ensure project directory is in `0775`.
-
 # umr1283 0.8.0
 
 * In `DESCRIPTION`,
@@ -11,6 +6,8 @@
     + Add `renv` directory structure.
     + Improve project README.
     + Add push to gitlab.
+    + Ensure project directory is in `0775`.
+    + Install `BiocManager` version > 1.30.10 (with CRAN repository fix).
 
 # umr1283 0.7.9
 
