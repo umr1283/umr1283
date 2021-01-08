@@ -6,6 +6,10 @@
 #' @return NULL
 #' @export
 migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
+  if (!all(c("outputs", "scripts") %in% list.files(path))) {
+    stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
+  }
+
   if (missing(date)) {
     stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), '!'), call. = FALSE)
   }
