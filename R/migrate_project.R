@@ -1,10 +1,11 @@
 #' migrate_project
 #'
 #' @param path character
+#' @param working_directory character
 #'
 #' @return NULL
 #' @export
-migrate_project <- function(path, date) {
+migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
   if (missing(date)) {
     stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), '!'), call. = FALSE)
   }
@@ -16,9 +17,7 @@ migrate_project <- function(path, date) {
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
 
-  working_directory <- gsub("PROJECT", "DATATMP", project_directory)
-
-  dir.create(
+    dir.create(
     path = file.path(project_directory, project_name, "renv"),
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
