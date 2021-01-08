@@ -15,7 +15,6 @@ new_project <- function(
   git_repository = "https://github.com/mcanouil/umr1283",
   ...
 ) {
-  path <- normalizePath(path)
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
   dir.create(
@@ -44,46 +43,6 @@ new_project <- function(
   readme <- paste(
     paste("#", project_name),
     paste("Analyst:", analyst_name),
-    paste(
-      "<!--",
-      "1. Set default MRAN",
-      "``` r",
-      paste0('options(repos = c(CRAN = "https://mran.microsoft.com/snapshot/', Sys.Date(), '"))'),
-      "```",
-      "2. Initialise `renv`",
-      "``` r",
-      "renv::init()",
-      "```",
-      "3. Commit/push new created files",
-      "``` bash",
-      'git status',
-      'git add --all',
-      'git commit -m "init renv"',
-      'git push origin master',
-      "```",
-      "4. Install R packages (from CRAN/MRAN, Github or BioConductor)",
-      "``` r",
-      'renv::install()',
-      "```",
-      "5. Update `renv`",
-      "``` r",
-      "renv::snapshot()",
-      "```",
-      "6. Restore previous state",
-      "``` r",
-      "renv::restore()",
-      "```",
-      "7. Revert to previous state",
-      "``` r",
-      "renv::revert()",
-      "```",
-      "8. Update R packages",
-      "``` r",
-      "renv::update()",
-      "```",
-      "-->",
-      sep = "\n"
-    ),
     paste(
       "<!--",
       "## Design",
@@ -157,7 +116,58 @@ new_project <- function(
   )
   writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
 
-  # renv::init(project = path, force = TRUE)
+  writeLines(
+    text = 'library("BiocManager")',
+    con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
+  )
+
+  old_repos <- getOption("repos")
+  current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
+  options(repos = current_repos)
+  renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
+
+  BiocManager <- package_version(utils::available.packages(
+    repos = paste0("https://mran.microsoft.com/snapshot/", Sys.Date())
+  )["BiocManager", "Version"])
+
+  renv::install(
+    packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
+    project = file.path(project_directory, project_name),
+    library = file.path(
+      project_directory, project_name,
+      "renv", "library",
+      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
+      R.Version()[["platform"]]
+    ),
+    prompt = FALSE
+  )
+
+  renv::snapshot(
+    project = file.path(project_directory, project_name),
+    packages = c("BiocManager", "renv"),
+    prompt = FALSE
+  )
+
+  invisible(sapply(
+    X = paste("git -C", file.path(project_directory, project_name), c(
+      "init",
+      "add --all",
+      "commit -am 'create project'",
+      "config --local core.sharedRepository 0775",
+      paste(
+        "push --set-upstream",
+        gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
+        "master"
+      ),
+      paste0(
+        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
+        "/", project_name, ".git"
+      ),
+      "push origin master"
+    )),
+    FUN = system, ignore.stdout = TRUE, ignore.stderr = TRUE
+  ))
+
   Sys.chmod(
     paths = file.path(project_directory, project_name),
     mode = "0775",
@@ -173,28 +183,6 @@ new_project <- function(
     mode = "0775",
     use_umask = FALSE
   )
-
-  invisible(capture.output({
-    sapply(
-      X = paste("git -C", file.path(project_directory, project_name), c(
-        "init",
-        "add --all",
-        "commit -am 'create project'",
-        "config --local core.sharedRepository 0775",
-        paste(
-          "push --set-upstream",
-          gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
-          "master"
-        ),
-        paste0(
-          "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
-          "/", project_name, ".git"
-        ),
-        "push origin master"
-      )),
-      FUN = system, intern = TRUE
-    )
-  }))
 
   invisible()
 }
