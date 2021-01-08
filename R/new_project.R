@@ -15,6 +15,9 @@ new_project <- function(
   git_repository = "https://github.com/mcanouil/umr1283",
   ...
 ) {
+  old_repos <- getOption("repos")
+  on.exit(options(repos = old_repos))
+
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
   dir.create(
@@ -57,17 +60,24 @@ new_project <- function(
       'nohup Rscript -e \'rmarkdown::render(input = here::here("scripts", "02-qc.Rmd"), output_file = "QC.html", output_dir = here::here("reports"), encoding = "UTF-8")\' > logs/02.log &',
       "```",
       "",
-      "## Analyses",
+      "## Statistical Analyses",
       "",
       "``` bash",
       "nohup Rscript scripts/03-analysis.R > logs/03.log &",
+      "```",
+      "",
+      "## Meeting Slides",
+      "",
+      paste("###", Sys.Date()),
+      "",
+      "``` bash",
+      paste0('nohup Rscript -e \'rmarkdown::render(input = here::here("scripts", "', gsub("-", "", Sys.Date()), '-meeting.Rmd"), output_dir = here::here("reports"))\' > logs/', gsub("-", "", Sys.Date()), '-meeting.log &'),
       "```",
       "-->",
       sep = "\n"
     ),
     sep = "\n\n"
   )
-
   writeLines(readme, con = file.path(project_directory, project_name, "README.md"))
 
   rproj <- c(
@@ -121,14 +131,11 @@ new_project <- function(
     con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
   )
 
-  old_repos <- getOption("repos")
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
   options(repos = current_repos)
   renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
 
-  BiocManager <- package_version(utils::available.packages(
-    repos = paste0("https://mran.microsoft.com/snapshot/", Sys.Date())
-  )["BiocManager", "Version"])
+  BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
 
   renv::install(
     packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
