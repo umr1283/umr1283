@@ -22,7 +22,7 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
   project_directory <- gsub("~", "", dirname(path))
   project_name <- basename(path)
 
-    dir.create(
+  dir.create(
     path = file.path(project_directory, project_name, "renv"),
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
