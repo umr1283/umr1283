@@ -1,4 +1,4 @@
-# umr1283 0.8.0
+# umr1283 (development version)
 
 * In `DESCRIPTION`,
     + Add `renv` in `Suggests`.
