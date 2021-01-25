@@ -2,5 +2,6 @@
 
 export(html_report)
 export(ioslides_presentation)
+export(migrate_project)
 export(new_project)
 export(powerpoint_presentation)

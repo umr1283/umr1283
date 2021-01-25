@@ -1,7 +1,8 @@
 #' migrate_project
 #'
-#' @param path character
-#' @param working_directory character
+#' @param path A character string. The path to the project to upgrade.
+#' @param date A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.
+#' @param working_directory A character string. The root path to the working directory of the project.
 #'
 #' @return NULL
 #' @export
