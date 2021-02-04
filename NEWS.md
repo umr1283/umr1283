@@ -7,7 +7,6 @@
     + Improve project README.
     + Add push to gitlab.
     + Ensure project directory is in `0775`.
-    + Install `BiocManager` version > 1.30.10 (with CRAN repository fix).
 * In `R/migrate_project.R`,
     + New function to migrate old project to `renv` project-like.
 
