@@ -7,8 +7,10 @@
     + Improve project README.
     + Add push to gitlab.
     + Ensure project directory is in `0775`.
+    + Default `BiocManager` install.
 * In `R/migrate_project.R`,
     + New function to migrate old project to `renv` project-like.
+    + Default `BiocManager` install.
 
 # umr1283 0.7.9
 
