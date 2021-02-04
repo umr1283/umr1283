@@ -10,9 +10,9 @@
 #' @export
 new_project <- function(
   path,
-  analyst_name = "Not specified",
-  working_directory = "/disks/DATATMP",
-  git_repository = "https://github.com/mcanouil/umr1283",
+  analyst_name,
+  working_directory,
+  git_repository,
   ...
 ) {
   old_repos <- getOption("repos")
