@@ -58,7 +58,7 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
 
   if (!file.exists(file.path(project_directory, project_name, "scripts", "00-dependencies.R"))) {
     writeLines(
-      text = 'library("BiocManager")',
+      text = '# library("BiocManager")',
       con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
     )
   }
@@ -67,23 +67,23 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
   options(repos = current_repos)
   renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
 
-  BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
-
-  renv::install(
-    packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
-    project = file.path(project_directory, project_name),
-    library = file.path(
-      project_directory, project_name,
-      "renv", "library",
-      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
-      R.Version()[["platform"]]
-    ),
-    prompt = FALSE
-  )
+  # BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
+  #
+  # renv::install(
+  #   packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
+  #   project = file.path(project_directory, project_name),
+  #   library = file.path(
+  #     project_directory, project_name,
+  #     "renv", "library",
+  #     paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
+  #     R.Version()[["platform"]]
+  #   ),
+  #   prompt = FALSE
+  # )
 
   renv::snapshot(
     project = file.path(project_directory, project_name),
-    packages = c("BiocManager", "renv"),
+    packages = c("renv"),
     prompt = FALSE
   )
 
