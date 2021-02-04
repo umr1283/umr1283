@@ -16,4 +16,4 @@ Default: Not specified
 Parameter: git_repository
 Widget: TextInput
 Label: Git Repository
-Default: http://gitlab.egid.local/BioStat
+Default: http://gitlab.egid.local/BioStats
