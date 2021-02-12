@@ -1,3 +1,8 @@
+# umr1283 (development version)
+
+* In `R/new_project.R`,
+    + Add missing documention.
+
 # umr1283 0.8.0
 
 * In `DESCRIPTION`,
