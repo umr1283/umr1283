@@ -1,9 +1,9 @@
 #' new_project
 #'
-#' @param path character
-#' @param analyst_name character
-#' @param working_directory character
-#' @param git_repository character
+#' @param path A character string. A path to where the project is to be created.
+#' @param analyst_name A character string. The name of the analyst in charge of that project.
+#' @param working_directory A character string. A path to where outputs is to be generated.
+#' @param git_repository A character string. URL to the git server/repository.
 #' @param ... not used
 #'
 #' @return NULL
