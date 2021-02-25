@@ -136,14 +136,14 @@ new_project <- function(
   renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
 
   cat(
-    'options("BiocManager.check_repositories" = FALSE)\n',
+    'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
     file = file.path(project_directory, project_name, ".Rprofile"),
     append = TRUE
   )
 
   BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
 
-  options("BiocManager.check_repositories" = FALSE)
+  options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")
 
   renv::install(
     packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
@@ -157,10 +157,23 @@ new_project <- function(
     prompt = FALSE
   )
 
+  renv::install(
+    packages = "here",
+    project = file.path(project_directory, project_name),
+    library = file.path(
+      project_directory, project_name,
+      "renv", "library",
+      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
+      R.Version()[["platform"]]
+    ),
+    prompt = FALSE
+  )
+
   renv::snapshot(
     project = file.path(project_directory, project_name),
-    packages = c("renv", "BiocManager"),
-    prompt = FALSE
+    packages = c("renv", "BiocManager", "here"),
+    prompt = FALSE,
+    type = "all"
   )
 
   invisible(sapply(
