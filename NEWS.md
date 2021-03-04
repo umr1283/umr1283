@@ -3,9 +3,11 @@
 * In `R/new_project.R`,
     + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
     + Install `here` using `renv` by default.
+    + Set umask to `0002`.
 * In `R/migrate_project.R`,
     + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
     + Install `here` using `renv` by default.
+    + Set umask to `0002`.
 
 # umr1283 0.8.1
 

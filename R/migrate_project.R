@@ -69,6 +69,7 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
 
   cat(
     'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
+    'Sys.umask("0002")\n',
     file = file.path(project_directory, project_name, ".Rprofile"),
     append = TRUE
   )
