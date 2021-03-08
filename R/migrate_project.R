@@ -29,7 +29,7 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
 
   old_outputs <- list.files(file.path(working_directory, project_name), full.names = TRUE)
   invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library")),
+    X = file.path(working_directory, project_name, c("outputs", "library", "python")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
   invisible(sapply(
@@ -54,6 +54,10 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
   file.symlink(
     from = file.path(working_directory, project_name, "library"),
     to = file.path(project_directory, project_name, "renv", "library")
+  )
+  file.symlink(
+    from = file.path(working_directory, project_name, "python"),
+    to = file.path(project_directory, project_name, "renv", "python")
   )
 
   if (!file.exists(file.path(project_directory, project_name, "scripts", "00-dependencies.R"))) {

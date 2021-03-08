@@ -4,10 +4,13 @@
     + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
+    + Allow to not use MRAN for new project (default).
+    + Add support for `renv::use_python()`.
 * In `R/migrate_project.R`,
     + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
+    + Add support for `renv::use_python()`.
 
 # umr1283 0.8.1
 
