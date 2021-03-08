@@ -4,7 +4,7 @@
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
 #' @param working_directory A character string. A path to where outputs is to be generated.
 #' @param git_repository A character string. URL to the git server/repository.
-#' @param use_mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())`.
+#' @param use_mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
 #' @param ... not used
 #'
 #' @return NULL
@@ -32,7 +32,7 @@ new_project <- function(
   ))
 
   invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library")),
+    X = file.path(working_directory, project_name, c("outputs", "library", "python")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
 
@@ -43,6 +43,10 @@ new_project <- function(
   file.symlink(
     from = file.path(working_directory, project_name, "library"),
     to = file.path(project_directory, project_name, "renv", "library")
+  )
+  file.symlink(
+    from = file.path(working_directory, project_name, "python"),
+    to = file.path(project_directory, project_name, "renv", "python")
   )
 
   readme <- paste(
