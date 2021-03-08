@@ -4,6 +4,7 @@
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
 #' @param working_directory A character string. A path to where outputs is to be generated.
 #' @param git_repository A character string. URL to the git server/repository.
+#' @param use_mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())`.
 #' @param ... not used
 #'
 #' @return NULL
@@ -13,6 +14,7 @@ new_project <- function(
   analyst_name,
   working_directory,
   git_repository,
+  use_mran = FALSE,
   ...
 ) {
   old_repos <- getOption("repos")
@@ -131,7 +133,11 @@ new_project <- function(
     con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
   )
 
-  current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
+  if (use_mran) {
+    current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
+  } else {
+    current_repos <- list(CRAN = "https://cloud.r-project.org/")
+  }
   options(repos = current_repos)
   renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
 
