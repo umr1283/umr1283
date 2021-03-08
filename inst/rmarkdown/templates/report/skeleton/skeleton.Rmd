@@ -20,7 +20,7 @@ output: umr1283::html_report
 options("width" = 110)
 
 
-### Project Setup ==================================================================================
+### Project setup ==================================================================================
 library(here)
 project_name <- gsub("(.*)_.*", "\\1", list.files(params[["project_directory"]], pattern = ".Rproj$"))
 
