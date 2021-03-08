@@ -11,6 +11,10 @@
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
     + Add support for `renv::use_python()`.
+* In [rmarkdown templates](inst/rmarkdown/templates),
+    + Remove ioslides template.
+    + Remove PowerPoint template.
+    + Update `html_document` template.
 
 # umr1283 0.8.1
 
