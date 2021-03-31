@@ -17,9 +17,6 @@ use_python(
 
 \item{type}{Type of Python environment to use.}
 }
-\value{
-results from `python -m ensurepip`.
-}
 \description{
 use_python
 }
