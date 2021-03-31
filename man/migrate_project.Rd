@@ -4,10 +4,14 @@
 \alias{migrate_project}
 \title{migrate_project}
 \usage{
-migrate_project(path, date, working_directory = "/disks/DATATMP")
+migrate_project(
+  project = rprojroot::find_rstudio_root_file(),
+  date,
+  working_directory = "/disks/DATATMP"
+)
 }
 \arguments{
-\item{path}{A character string. The path to the project to upgrade.}
+\item{project}{A character string. The path a RStudio project.}
 
 \item{date}{A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.}
 
