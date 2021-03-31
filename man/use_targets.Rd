@@ -17,9 +17,6 @@ use_targets(
 
 \item{...}{Any parameter to `targets::tar_script`.}
 }
-\value{
-`targets::tar_script`
-}
 \description{
 use_targets
 }

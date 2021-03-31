@@ -3,4 +3,5 @@
 export(html_report)
 export(migrate_project)
 export(new_project)
+export(use_python)
 export(use_targets)
