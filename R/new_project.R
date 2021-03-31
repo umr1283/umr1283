@@ -32,7 +32,7 @@ new_project <- function(
   ))
 
   invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library", "python")),
+    X = file.path(working_directory, project_name, c("outputs", "library", "python", "_targets")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
 
@@ -40,6 +40,8 @@ new_project <- function(
     from = file.path(working_directory, project_name, "outputs"),
     to = file.path(project_directory, project_name, "outputs")
   )
+
+  # Python
   file.symlink(
     from = file.path(working_directory, project_name, "library"),
     to = file.path(project_directory, project_name, "renv", "library")
@@ -48,6 +50,17 @@ new_project <- function(
     from = file.path(working_directory, project_name, "python"),
     to = file.path(project_directory, project_name, "renv", "python")
   )
+  system(paste(
+    file.path(project_directory, project_name, "renv/python/virtualenvs/renv-python-3.7.3/bin/python"),
+    "-m ensurepip"
+  ))
+
+  # Targets
+  file.symlink(
+    from = file.path(working_directory, project_name, "_targets"),
+    to = file.path(project_directory, project_name, "_targets")
+  )
+  cat("library(targets)\n", file = file.path(project_directory, project_name, "_targets.R"))
 
   readme <- paste(
     paste("#", project_name),
@@ -98,9 +111,6 @@ new_project <- function(
     "NumSpacesForTab: 2",
     "Encoding: UTF-8",
     "",
-    "RnwWeave: knitr",
-    "LaTeX: pdfLaTeX",
-    "",
     "AutoAppendNewline: Yes",
     "LineEndingConversion: Posix",
     "",
@@ -111,21 +121,8 @@ new_project <- function(
   gitignore <- c(
     ".Rproj.user",
     "**.Rhistory",
-    "**.RData",
     "**.Rdata",
-    "**.Ruserdata",
-    "**.rdb",
-    "**.rdx",
-    "**.glo",
-    "**.ist",
-    "**.out",
-    "**.nav",
-    "**.log",
-    "**.bbl",
-    "**.blg",
-    "**.aux",
-    "**.toc",
-    "**.snm",
+    "_targets",
     "outputs",
     "logs",
     "reports"
@@ -149,7 +146,8 @@ new_project <- function(
     'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
     'Sys.umask("0002")\n',
     file = file.path(project_directory, project_name, ".Rprofile"),
-    append = TRUE
+    append = TRUE,
+    sep = ""
   )
 
   BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
@@ -169,7 +167,7 @@ new_project <- function(
   )
 
   renv::install(
-    packages = "here",
+    packages = c("here", "targets", "visnetwork"),
     project = file.path(project_directory, project_name),
     library = file.path(
       project_directory, project_name,
@@ -182,7 +180,7 @@ new_project <- function(
 
   renv::snapshot(
     project = file.path(project_directory, project_name),
-    packages = c("renv", "BiocManager", "here"),
+    packages = c("renv", "BiocManager", "here", "targets", "visnetwork"),
     prompt = FALSE,
     type = "all"
   )

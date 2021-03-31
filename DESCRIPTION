@@ -17,7 +17,8 @@ Imports:
     utils,
     bookdown (>= 0.21),
     rmarkdown (>= 2.5),
-    renv (>= 0.12.3)
+    renv (>= 0.12.3),
+    rprojroot (>= 2.0.2)
 Suggests: 
     here (>= 0.1),
     knitr (>= 1.30),
