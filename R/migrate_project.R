@@ -1,13 +1,13 @@
 #' migrate_project
 #'
-#' @param path A character string. The path to the project to upgrade.
+#' @param project A character string. The path a RStudio project.
 #' @param date A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.
 #' @param working_directory A character string. The root path to the working directory of the project.
 #'
 #' @return NULL
 #' @export
-migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
-  if (!all(c("outputs", "scripts") %in% list.files(path))) {
+migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date, working_directory = "/disks/DATATMP") {
+  if (!all(c("outputs", "scripts") %in% list.files(project))) {
     stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
   }
 
@@ -15,15 +15,14 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
     stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), '!'), call. = FALSE)
   }
 
-  if (file.exists(file.path(path, "renv.lock")) & file.exists(file.path(path, "renv"))) {
+  if (file.exists(file.path(project, "renv.lock")) & file.exists(file.path(project, "renv"))) {
     stop("`renv` setup already exists!", call. = FALSE)
   }
 
-  project_directory <- gsub("~", "", dirname(path))
-  project_name <- basename(path)
+  project_name <- basename(project)
 
   dir.create(
-    path = file.path(project_directory, project_name, "renv"),
+    path = file.path(project, project_name, "renv"),
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
 
@@ -46,35 +45,35 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
       }
     }
   ))
-  unlink(file.path(project_directory, project_name, "outputs"))
+  unlink(file.path(project, "outputs"))
   file.symlink(
     from = file.path(working_directory, project_name, "outputs"),
-    to = file.path(project_directory, project_name, "outputs")
+    to = file.path(project, "outputs")
   )
   file.symlink(
     from = file.path(working_directory, project_name, "library"),
-    to = file.path(project_directory, project_name, "renv", "library")
+    to = file.path(project, "renv", "library")
   )
   file.symlink(
     from = file.path(working_directory, project_name, "python"),
-    to = file.path(project_directory, project_name, "renv", "python")
+    to = file.path(project, "renv", "python")
   )
 
-  if (!file.exists(file.path(project_directory, project_name, "scripts", "00-dependencies.R"))) {
+  if (!file.exists(file.path(project, "scripts", "_dependencies.R"))) {
     writeLines(
       text = '# library("BiocManager")',
-      con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
+      con = file.path(project, "scripts", "_dependencies.R")
     )
   }
 
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
   options(repos = current_repos)
-  renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
+  renv::scaffold(project = project, repos = current_repos)
 
   cat(
     'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
     'Sys.umask("0002")\n',
-    file = file.path(project_directory, project_name, ".Rprofile"),
+    file = file.path(project, ".Rprofile"),
     append = TRUE
   )
 
@@ -84,9 +83,9 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
 
   renv::install(
     packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
-    project = file.path(project_directory, project_name),
+    project = project,
     library = file.path(
-      project_directory, project_name,
+      project,
       "renv", "library",
       paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
       R.Version()[["platform"]]
@@ -96,9 +95,9 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
 
   renv::install(
     packages = "here",
-    project = file.path(project_directory, project_name),
+    project = project,
     library = file.path(
-      project_directory, project_name,
+      project,
       "renv", "library",
       paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
       R.Version()[["platform"]]
@@ -107,21 +106,21 @@ migrate_project <- function(path, date, working_directory = "/disks/DATATMP") {
   )
 
   renv::snapshot(
-    project = file.path(project_directory, project_name),
+    project = project,
     packages = c("renv", "BiocManager", "here"),
     prompt = FALSE,
     type = "all"
   )
 
   Sys.chmod(
-    paths = file.path(project_directory, project_name),
+    paths = project,
     mode = "0775",
     use_umask = FALSE
   )
 
   Sys.chmod(
     paths = list.files(
-      path = file.path(project_directory, project_name),
+      path = project,
       recursive = TRUE, all.files = TRUE, include.dirs = TRUE,
       full.names = TRUE
     ),

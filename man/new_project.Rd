@@ -6,20 +6,23 @@
 \usage{
 new_project(
   path,
-  analyst_name = "Not specified",
-  working_directory = "/disks/DATATMP",
-  git_repository = "https://github.com/mcanouil/umr1283",
+  analyst_name,
+  working_directory,
+  git_repository,
+  use_mran = FALSE,
   ...
 )
 }
 \arguments{
-\item{path}{character}
+\item{path}{A character string. A path to where the project is to be created.}
 
-\item{analyst_name}{character}
+\item{analyst_name}{A character string. The name of the analyst in charge of that project.}
 
-\item{working_directory}{character}
+\item{working_directory}{A character string. A path to where outputs is to be generated.}
 
-\item{git_repository}{character}
+\item{git_repository}{A character string. URL to the git server/repository.}
+
+\item{use_mran}{A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.}
 
 \item{...}{not used}
 }
