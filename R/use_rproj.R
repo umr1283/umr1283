@@ -4,7 +4,7 @@ use_rproj <- function(project) {
   if (!file.exists(file)) {
     writeLines(
       con = file,
-      text = (
+      text = c(
         "Version: 1.0",
         "",
         "RestoreWorkspace: No",
