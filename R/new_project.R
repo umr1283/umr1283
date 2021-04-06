@@ -14,6 +14,20 @@
 #'
 #' @return NULL
 #' @export
+#' @examples
+#'
+#' if (!interactive()) {
+#'   new_project(
+#'     path = "/disks/PROJECT/_test_project",
+#'     analyst_name = "Analyst Name",
+#'     working_directory = "/disks/DATATMP",
+#'     git_repository = "http://gitlab.egid.local/BioStats",
+#'     mran = FALSE,
+#'     targets = TRUE,
+#'     python = TRUE
+#'   )
+#' }
+#'
 new_project <- function(
   path,
   analyst_name,
@@ -50,6 +64,10 @@ new_project <- function(
     to = file.path(project, "outputs")
   ))
 
+  old_wd <- getwd()
+  on.exit(setwd(old_wd), add = TRUE)
+  setwd(project)
+
   use_readme(project, analyst_name)
 
   use_rproj(project)
@@ -64,22 +82,15 @@ new_project <- function(
     current_repos <- list(CRAN = "https://cloud.r-project.org/")
   }
 
-  use_dir_structure(project = project, working_directory = working_directory, repos = current_repos)
+  use_dir_structure(
+    project = project,
+    working_directory = working_directory,
+    repos = current_repos,
+    targets = targets,
+    python = python
+  )
 
-  git_remote <- gsub("https*://(.*)/(.*)", "\\1:\\2", git_repository)
-
-  invisible(sapply(
-    X = paste("git -C", project, c(
-      "init",
-      "add --all",
-      "commit -am 'create project'",
-      "config --local core.sharedRepository 0775",
-      sprintf("push --set-upstream git@%s/%s.git master", git_remote, basename(project)),
-      sprintf("push remote add origin git@%s/%s.git master", git_remote, basename(project)),
-      "push origin master"
-    )),
-    FUN = system, ignore.stdout = TRUE, ignore.stderr = TRUE
-  ))
+  use_git(project, git_repository)
 
   use_group_permission(project)
 

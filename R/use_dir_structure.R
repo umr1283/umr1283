@@ -1,5 +1,5 @@
 #' @keywords internal
-use_dir_structure <- function(project, working_directory, repos) {
+use_dir_structure <- function(project, working_directory, repos, targets, python) {
   options(
     repos = repos,
     BiocManager.check_repositories = FALSE,
@@ -31,12 +31,8 @@ use_dir_structure <- function(project, working_directory, repos) {
 
   # Targets
   if (targets) {
-    use_targets(
-      project = project,
-      working_directory = working_directory,
-    )
     renv::install(
-      packages = c("targets"),
+      packages = c("targets", "visNetwork"),
       project = project,
       library = file.path(
         project, "renv", "library",
@@ -45,9 +41,13 @@ use_dir_structure <- function(project, working_directory, repos) {
       ),
       prompt = FALSE
     )
+    use_targets(
+      project = project,
+      working_directory = working_directory,
+    )
     cat("library(targets)\n", file = file.path(project, ".Rprofile"), append = TRUE)
-    invisible()
   }
 
   renv::snapshot(project = project, prompt = FALSE, type = "all")
+  invisible()
 }
