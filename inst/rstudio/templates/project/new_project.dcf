@@ -15,7 +15,7 @@ Default: Not specified
 
 Parameter: git_repository
 Widget: TextInput
-Label: Git Organisation/User Repository
+Label: Git Organisation
 Default: http://gitlab.egid.local/BioStats
 
 Parameter: targets
