@@ -1,25 +1,28 @@
 # umr1283 (development version)
 
+* In `DESCRIPTION`,
+    + Remove `rmarkdown` templates dependencies.
+    + Add `rprojroot` to locate RStudio project root.
+    + Add `targets` in `Suggests`.
 * In `R/new_project.R`,
-    + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
+    + Set `BiocManager` to use MRAN with new option as of `v1.30.12`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
     + Allow to not use MRAN for new project (default).
     + Add support for `renv::use_python()`.
     + Add support for `targets`.
 * In `R/migrate_project.R`,
-    + Set `BiocManager` to use MRAN with new option as of `v1.30.11`.
+    + Set `BiocManager` to use MRAN with new option as of `v1.30.12`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
     + Add support for `renv::use_python()`.
-* In [rmarkdown templates](inst/rmarkdown/templates),
-    + Remove ioslides template.
-    + Remove PowerPoint template.
-    + Update `html_document` template.
 * In `R/use_targets`,
     + Create directory structure required for `targets`. 
 * In `R/use_python`,
     + Create directory structure required for `reticulate` and `Python`. 
+* In `R/use_affiliation`,
+    + Add function to get current affiliation.
+* Remove [rmarkdown templates](inst/rmarkdown/templates).
 
 # umr1283 0.8.1
 
