@@ -145,29 +145,16 @@ new_project <- function(
   cat(
     'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
     'Sys.umask("0002")\n',
+    'if (interactive()) library(targets)\n',
     file = file.path(project_directory, project_name, ".Rprofile"),
     append = TRUE,
     sep = ""
   )
 
-  BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
-
   options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")
 
   renv::install(
-    packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
-    project = file.path(project_directory, project_name),
-    library = file.path(
-      project_directory, project_name,
-      "renv", "library",
-      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
-      R.Version()[["platform"]]
-    ),
-    prompt = FALSE
-  )
-
-  renv::install(
-    packages = c("here", "targets", "visnetwork"),
+    packages = c("here", "BiocManager", "targets", "visnetwork"),
     project = file.path(project_directory, project_name),
     library = file.path(
       project_directory, project_name,
@@ -180,7 +167,7 @@ new_project <- function(
 
   renv::snapshot(
     project = file.path(project_directory, project_name),
-    packages = c("renv", "BiocManager", "here", "targets", "visnetwork"),
+    packages = c("renv", "here", "BiocManager", "targets", "visnetwork"),
     prompt = FALSE,
     type = "all"
   )
