@@ -18,5 +18,5 @@ use_targets(
 \item{...}{Any parameter to `targets::tar_script`.}
 }
 \description{
-use_targets
+Setup directory structure for `targets`.
 }

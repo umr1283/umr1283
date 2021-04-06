@@ -18,5 +18,5 @@ use_python(
 \item{type}{Type of Python environment to use.}
 }
 \description{
-use_python
+Setup directory structure for `python`.
 }
