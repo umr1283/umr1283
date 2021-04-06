@@ -77,27 +77,13 @@ migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date,
     append = TRUE
   )
 
-  BiocManager <- package_version(utils::available.packages(repos = getOption("repos"))["BiocManager", "Version"])
-
   options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")
 
   renv::install(
-    packages = if (BiocManager > "1.30.10") "BiocManager" else "Bioconductor/BiocManager",
-    project = project,
+    packages = c("here", "BiocManager"),
+    project = file.path(project_directory, project_name),
     library = file.path(
-      project,
-      "renv", "library",
-      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
-      R.Version()[["platform"]]
-    ),
-    prompt = FALSE
-  )
-
-  renv::install(
-    packages = "here",
-    project = project,
-    library = file.path(
-      project,
+      project_directory, project_name,
       "renv", "library",
       paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
       R.Version()[["platform"]]
@@ -106,17 +92,13 @@ migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date,
   )
 
   renv::snapshot(
-    project = project,
-    packages = c("renv", "BiocManager", "here"),
+    project = file.path(project_directory, project_name),
+    packages = c("renv", "here", "BiocManager"),
     prompt = FALSE,
     type = "all"
   )
 
-  Sys.chmod(
-    paths = project,
-    mode = "0775",
-    use_umask = FALSE
-  )
+  Sys.chmod(paths = project, mode = "0775", use_umask = FALSE)
 
   Sys.chmod(
     paths = list.files(
