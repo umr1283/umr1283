@@ -15,7 +15,7 @@ use_targets(
 
 \item{working_directory}{Path to the working temporary directory.}
 
-\item{...}{Any parameter to `targets::tar_script`.}
+\item{...}{Not used.}
 }
 \description{
 Setup directory structure for `targets`.

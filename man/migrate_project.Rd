@@ -7,7 +7,9 @@
 migrate_project(
   project = rprojroot::find_rstudio_root_file(),
   date,
-  working_directory = "/disks/DATATMP"
+  working_directory = "/disks/DATATMP",
+  targets = FALSE,
+  python = FALSE
 )
 }
 \arguments{
@@ -16,6 +18,12 @@ migrate_project(
 \item{date}{A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.}
 
 \item{working_directory}{A character string. The root path to the working directory of the project.}
+
+\item{targets}{A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
+Default is `FALSE`.}
+
+\item{python}{A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
+Default is `FALSE`.}
 }
 \description{
 migrate_project
