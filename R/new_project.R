@@ -27,189 +27,61 @@ new_project <- function(
   old_repos <- getOption("repos")
   on.exit(options(repos = old_repos))
 
-  project_directory <- gsub("~", "", dirname(path))
-  project_name <- basename(path)
+  project <- gsub("~", "", path)
+
+  if (!dir.exists(dirname(project))) stop(sprintf('"%s" does not exist!', dirname(project)))
+
   dir.create(
-    path = path,
+    path = project,
     recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
   invisible(sapply(
-    X = file.path(project_directory, project_name, c("docs", "reports", "scripts", "logs", "renv")),
+    X = file.path(project, c("docs", "reports", "scripts", "logs", "renv")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
 
   invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library")),
+    X = file.path(working_directory, basename(project), c("outputs", "library")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
 
-  file.symlink(
-    from = file.path(working_directory, project_name, "outputs"),
-    to = file.path(project_directory, project_name, "outputs")
-  )
+  invisible(file.symlink(
+    from = file.path(working_directory, basename(project), "outputs"),
+    to = file.path(project, "outputs")
+  ))
 
-  # Python
-  if (python) {
-    use_python(
-      project = file.path(project_directory, project_name),
-      working_directory = working_directory,
-      type = "virtualenv"
-    )
-  }
+  use_readme(project, analyst_name)
 
-  # Targets
-  if (targets) {
-    use_targets(
-      project = file.path(project_directory, project_name),
-      working_directory = working_directory,
-    )
-  }
+  use_rproj(project)
 
-  readme <- paste(
-    paste("#", project_name),
-    paste("Analyst:", analyst_name),
-    paste(
-      "<!--",
-      "## Design",
-      "",
-      "``` bash",
-      "nohup Rscript scripts/01-design.R > logs/01.log &",
-      "```",
-      "",
-      "## Quality Control",
-      "",
-      "``` bash",
-      'nohup Rscript -e \'rmarkdown::render(input = here::here("scripts", "02-qc.Rmd"), output_file = "QC.html", output_dir = here::here("reports"), encoding = "UTF-8")\' > logs/02.log &',
-      "```",
-      "",
-      "## Statistical Analyses",
-      "",
-      "``` bash",
-      "nohup Rscript scripts/03-analysis.R > logs/03.log &",
-      "```",
-      "",
-      "## Meeting Slides",
-      "",
-      paste("###", Sys.Date()),
-      "",
-      "``` bash",
-      paste0('nohup Rscript -e \'rmarkdown::render(input = here::here("scripts", "', gsub("-", "", Sys.Date()), '-meeting.Rmd"), output_dir = here::here("reports"))\' > logs/', gsub("-", "", Sys.Date()), '-meeting.log &'),
-      "```",
-      "-->",
-      sep = "\n"
-    ),
-    sep = "\n\n"
-  )
-  writeLines(readme, con = file.path(project_directory, project_name, "README.md"))
+  use_gitignore(project)
 
-  rproj <- c(
-    "Version: 1.0",
-    "",
-    "RestoreWorkspace: No",
-    "SaveWorkspace: No",
-    "AlwaysSaveHistory: No",
-    "",
-    "EnableCodeIndexing: Yes",
-    "UseSpacesForTab: Yes",
-    "NumSpacesForTab: 2",
-    "Encoding: UTF-8",
-    "",
-    "AutoAppendNewline: Yes",
-    "LineEndingConversion: Posix",
-    "",
-    "QuitChildProcessesOnExit: Yes"
-  )
-  writeLines(rproj, con = file.path(project_directory, project_name, paste0(project_name, ".Rproj")))
-
-  gitignore <- c(
-    ".Rproj.user",
-    "**.Rhistory",
-    "**.Rdata",
-    "_targets",
-    "outputs",
-    "logs",
-    "reports"
-  )
-  writeLines(gitignore, con = file.path(project_directory, project_name, ".gitignore"))
-
-  writeLines(
-    text = 'library("BiocManager")',
-    con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
-  )
+  use_dependencies(project)
 
   if (mran) {
     current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
   } else {
     current_repos <- list(CRAN = "https://cloud.r-project.org/")
   }
-  options(repos = current_repos)
-  renv::scaffold(project = file.path(project_directory, project_name), repos = current_repos)
 
-  cat(
-    'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
-    'Sys.umask("0002")\n',
-    'if (interactive()) library(targets)\n',
-    file = file.path(project_directory, project_name, ".Rprofile"),
-    append = TRUE,
-    sep = ""
-  )
+  use_dir_structure(project = project, working_directory = working_directory, repos = current_repos)
 
-  options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")
-
-  renv::install(
-    packages = c("here", "BiocManager", "targets", "visnetwork"),
-    project = file.path(project_directory, project_name),
-    library = file.path(
-      project_directory, project_name,
-      "renv", "library",
-      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
-      R.Version()[["platform"]]
-    ),
-    prompt = FALSE
-  )
-
-  renv::snapshot(
-    project = file.path(project_directory, project_name),
-    packages = c("renv", "here", "BiocManager", "targets", "visnetwork"),
-    prompt = FALSE,
-    type = "all"
-  )
+  git_remote <- gsub("https*://(.*)/(.*)", "\\1:\\2", git_repository)
 
   invisible(sapply(
-    X = paste("git -C", file.path(project_directory, project_name), c(
+    X = paste("git -C", project, c(
       "init",
       "add --all",
       "commit -am 'create project'",
       "config --local core.sharedRepository 0775",
-      paste(
-        "push --set-upstream",
-        gsub("https*://(.*)/(.*)", paste0("git@\\1:\\2/", project_name, ".git"), git_repository),
-        "master"
-      ),
-      paste0(
-        "remote add origin ", gsub("https*://(.*)/(.*)", "git@\\1:\\2", git_repository),
-        "/", project_name, ".git"
-      ),
+      sprintf("push --set-upstream git@%s/%s.git master", git_remote, basename(project)),
+      sprintf("push remote add origin git@%s/%s.git master", git_remote, basename(project)),
       "push origin master"
     )),
     FUN = system, ignore.stdout = TRUE, ignore.stderr = TRUE
   ))
 
-  Sys.chmod(
-    paths = file.path(project_directory, project_name),
-    mode = "0775",
-    use_umask = FALSE
-  )
+  use_group_permission(project)
 
-  Sys.chmod(
-    paths = list.files(
-      path = file.path(project_directory, project_name),
-      recursive = TRUE, all.files = TRUE, include.dirs = TRUE,
-      full.names = TRUE
-    ),
-    mode = "0775",
-    use_umask = FALSE
-  )
-
-  invisible()
+  invisible(project)
 }
