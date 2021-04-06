@@ -1,10 +1,3 @@
-#' use_dir_structure
-#'
-#' @param project A character string. The path a RStudio project.
-#' @param working_directory A character string. The root path to the working directory of the project.
-#' @param repos  A character string wirh CRAN/MRAN repository.
-#'
-#'
 #' @keywords internal
 use_dir_structure <- function(project, working_directory, repos) {
   options(
