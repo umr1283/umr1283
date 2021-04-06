@@ -4,7 +4,7 @@
     + Remove `rmarkdown` templates dependencies.
     + Add `rprojroot` to locate RStudio project root.
     + Add `targets` in `Suggests`.
-* In `R/new_project.R`,
+* In `R/create_project.R` (previously `R/new_project.R`),
     + Set `BiocManager` to use MRAN with new option as of `v1.30.12`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
