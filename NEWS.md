@@ -11,11 +11,13 @@
     + Allow to not use MRAN for new project (default).
     + Add support for `renv::use_python()`.
     + Add support for `targets`.
+    + Refactoring using use_* functions.
 * In `R/migrate_project.R`,
     + Set `BiocManager` to use MRAN with new option as of `v1.30.12`.
     + Install `here` using `renv` by default.
     + Set umask to `0002`.
     + Add support for `renv::use_python()`.
+    + Refactoring using use_* functions.
 * In `R/use_targets`,
     + Create directory structure required for `targets`. 
 * In `R/use_python`,
