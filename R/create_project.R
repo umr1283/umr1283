@@ -1,4 +1,4 @@
-#' new_project
+#' create_project
 #'
 #' @param path A character string. A path to where the project is to be created.
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
@@ -17,7 +17,7 @@
 #' @examples
 #'
 #' if (!interactive()) {
-#'   new_project(
+#'   create_project(
 #'     path = "/disks/PROJECT/_test_project",
 #'     analyst_name = "Analyst Name",
 #'     working_directory = "/disks/DATATMP",
@@ -28,7 +28,7 @@
 #'   )
 #' }
 #'
-new_project <- function(
+create_project <- function(
   path,
   analyst_name,
   working_directory,
