@@ -20,7 +20,7 @@ use_python <- function(project = rprojroot::find_rstudio_root_file(), working_di
     from = file.path(working_directory, basename(project), "python"),
     to = file.path(project, "renv", "python")
   )
-  renv::use_python(type = type)
+  renv::use_python(type = type, project = project)
   system(paste(file.path(project, "renv/python/virtualenvs/renv-python-3.7.3/bin/python"), "-m ensurepip"))
-  invisible()
+  invisible(project)
 }

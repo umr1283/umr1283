@@ -21,5 +21,5 @@ use_targets <- function(project = rprojroot::find_rstudio_root_file(), working_d
   )
   cat("_targets\n", file = file.path(project, ".gitignore"), append = TRUE)
   cat("library(targets)\n", file = file.path(project, "_targets.R"))
-  invisible()
+  invisible(project)
 }
