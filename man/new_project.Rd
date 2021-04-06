@@ -9,7 +9,9 @@ new_project(
   analyst_name,
   working_directory,
   git_repository,
-  use_mran = FALSE,
+  mran = FALSE,
+  targets = TRUE,
+  python = FALSE,
   ...
 )
 }
@@ -22,7 +24,14 @@ new_project(
 
 \item{git_repository}{A character string. URL to the git server/repository.}
 
-\item{use_mran}{A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.}
+\item{mran}{A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
+Default is `FALSE`.}
+
+\item{targets}{A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
+Default is `TRUE`.}
+
+\item{python}{A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
+Default is `FALSE`.}
 
 \item{...}{not used}
 }
