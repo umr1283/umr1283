@@ -9,7 +9,7 @@
 #' @export
 use_targets <- function(project = rprojroot::find_rstudio_root_file(), working_directory = "/disks/DATATMP", ...) {
   if (nchar(system.file(package = "targets")) == 0) {
-    warning('"targets" is not installed!\nrenv::install(c("targets", "visnetwork")) to install it.')
+    warning('"targets" is not installed!\nrenv::install(c("targets", "visNetwork")) to install it.')
   }
   dir.create(
     path = file.path(working_directory, basename(project), "_targets"),
