@@ -7,7 +7,8 @@
 use_python(
   project = rprojroot::find_rstudio_root_file(),
   working_directory = "/disks/DATATMP",
-  type = "virtualenv"
+  type = "virtualenv",
+  ...
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ use_python(
 \item{working_directory}{Path to the working temporary directory.}
 
 \item{type}{Type of Python environment to use.}
+
+\item{...}{Not used.}
 }
 \description{
 Setup directory structure for `python`.
