@@ -5,9 +5,10 @@
 #' @param project A character string. The path a RStudio project.
 #' @param working_directory Path to the working temporary directory.
 #' @param type Type of Python environment to use.
+#' @param ... Not used.
 #'
 #' @export
-use_python <- function(project = rprojroot::find_rstudio_root_file(), working_directory = "/disks/DATATMP", type = "virtualenv") {
+use_python <- function(project = rprojroot::find_rstudio_root_file(), working_directory = "/disks/DATATMP", type = "virtualenv", ...) {
   if (nchar(system.file(package = "renv")) == 0) {
     stop('"renv" is not installed!\ninstall.packages("renv") to install it.')
   }

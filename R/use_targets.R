@@ -4,12 +4,12 @@
 #'
 #' @param project A character string. The path a RStudio project.
 #' @param working_directory Path to the working temporary directory.
-#' @param ... Any parameter to `targets::tar_script`.
+#' @param ... Not used.
 #'
 #' @export
 use_targets <- function(project = rprojroot::find_rstudio_root_file(), working_directory = "/disks/DATATMP", ...) {
   if (nchar(system.file(package = "targets")) == 0) {
-    stop('"targets" is not installed!\nrenv::install(c("targets", "visnetwork")) to install it.')
+    warning('"targets" is not installed!\nrenv::install(c("targets", "visnetwork")) to install it.')
   }
   dir.create(
     path = file.path(working_directory, basename(project), "_targets"),
