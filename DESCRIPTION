@@ -9,8 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-3396-4549"))
 Description: RStudio Project Templates for UMR 1283.
 License: MIT + file LICENSE
-URL: https://github.com/umr1283/umr1283
-BugReports: https://github.com/umr1283/umr1283/issues
+URL: https://github.com/umr1283/umr1283/
+BugReports: https://github.com/umr1283/umr1283/issues/
 Depends: 
     R (>= 3.5.0)
 Imports: 
