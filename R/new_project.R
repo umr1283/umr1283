@@ -4,7 +4,12 @@
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
 #' @param working_directory A character string. A path to where outputs is to be generated.
 #' @param git_repository A character string. URL to the git server/repository.
-#' @param use_mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
+#' @param mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
+#'     Default is `FALSE`.
+#' @param targets A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
+#'     Default is `TRUE`.
+#' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
+#'     Default is `FALSE`.
 #' @param ... not used
 #'
 #' @return NULL
@@ -14,7 +19,9 @@ new_project <- function(
   analyst_name,
   working_directory,
   git_repository,
-  use_mran = FALSE,
+  mran = FALSE,
+  targets = TRUE,
+  python = FALSE,
   ...
 ) {
   old_repos <- getOption("repos")
@@ -32,7 +39,7 @@ new_project <- function(
   ))
 
   invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library", "python", "_targets")),
+    X = file.path(working_directory, project_name, c("outputs", "library")),
     FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
   ))
 
@@ -42,25 +49,21 @@ new_project <- function(
   )
 
   # Python
-  file.symlink(
-    from = file.path(working_directory, project_name, "library"),
-    to = file.path(project_directory, project_name, "renv", "library")
-  )
-  file.symlink(
-    from = file.path(working_directory, project_name, "python"),
-    to = file.path(project_directory, project_name, "renv", "python")
-  )
-  system(paste(
-    file.path(project_directory, project_name, "renv/python/virtualenvs/renv-python-3.7.3/bin/python"),
-    "-m ensurepip"
-  ))
+  if (python) {
+    use_python(
+      project = file.path(project_directory, project_name),
+      working_directory = working_directory,
+      type = "virtualenv"
+    )
+  }
 
   # Targets
-  file.symlink(
-    from = file.path(working_directory, project_name, "_targets"),
-    to = file.path(project_directory, project_name, "_targets")
-  )
-  cat("library(targets)\n", file = file.path(project_directory, project_name, "_targets.R"))
+  if (targets) {
+    use_targets(
+      project = file.path(project_directory, project_name),
+      working_directory = working_directory,
+    )
+  }
 
   readme <- paste(
     paste("#", project_name),
@@ -134,7 +137,7 @@ new_project <- function(
     con = file.path(project_directory, project_name, "scripts", "00-dependencies.R")
   )
 
-  if (use_mran) {
+  if (mran) {
     current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
   } else {
     current_repos <- list(CRAN = "https://cloud.r-project.org/")
