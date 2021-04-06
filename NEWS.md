@@ -21,7 +21,7 @@
 * In `R/use_targets`,
     + Create directory structure required for `targets`. 
 * In `R/use_python`,
-    + Create directory structure required for `reticulate` and `Python`. 
+    + Create directory structure required for `reticulate` and `Python` within `renv`. 
 * In `R/use_affiliation`,
     + Add function to get current affiliation.
 * Remove [rmarkdown templates](inst/rmarkdown/templates).
