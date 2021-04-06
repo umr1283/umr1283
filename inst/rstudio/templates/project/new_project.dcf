@@ -15,5 +15,23 @@ Default: Not specified
 
 Parameter: git_repository
 Widget: TextInput
-Label: Git Repository
+Label: Git Organisation/User Repository
 Default: http://gitlab.egid.local/BioStats
+
+Parameter: targets
+Widget: CheckboxInput
+Label: Use targets
+Default: On
+Position: right
+
+Parameter: python
+Widget: CheckboxInput
+Label: Use python
+Default: Off
+Position: right
+
+Parameter: mran
+Widget: CheckboxInput
+Label: Use MRAN (today)
+Default: Off
+Position: right
