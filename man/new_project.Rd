@@ -38,3 +38,18 @@ Default is `FALSE`.}
 \description{
 new_project
 }
+\examples{
+
+if (!interactive()) {
+  new_project(
+    path = "/disks/PROJECT/_test_project",
+    analyst_name = "Analyst Name",
+    working_directory = "/disks/DATATMP",
+    git_repository = "http://gitlab.egid.local/BioStats",
+    mran = FALSE,
+    targets = TRUE,
+    python = TRUE
+  )
+}
+
+}
