@@ -1,5 +1,7 @@
 #' use_targets
 #'
+#' Setup directory structure for `targets`.
+#'
 #' @param project A character string. The path a RStudio project.
 #' @param working_directory Path to the working temporary directory.
 #' @param ... Any parameter to `targets::tar_script`.
