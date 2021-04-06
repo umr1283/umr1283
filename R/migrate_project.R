@@ -11,6 +11,9 @@
 #' @return NULL
 #' @export
 migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date, working_directory = "/disks/DATATMP", targets = FALSE, python = FALSE) {
+  old_repos <- getOption("repos")
+  on.exit(options(repos = old_repos))
+
   if (!all(c("outputs", "scripts") %in% list.files(project))) {
     stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
   }
@@ -59,73 +62,13 @@ migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date,
     to = file.path(project, "renv", "library")
   )
 
-  if (!file.exists(file.path(project, "scripts", "_dependencies.R"))) {
-    writeLines(
-      text = '# library("BiocManager")',
-      con = file.path(project, "scripts", "_dependencies.R")
-    )
-  }
+  use_dependencies(project)
 
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
-  options(repos = current_repos)
-  renv::scaffold(project = project, repos = current_repos)
 
-  cat(
-    'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")\n',
-    'Sys.umask("0002")\n',
-    file = file.path(project, ".Rprofile"),
-    append = TRUE
-  )
+  use_dir_structure(project = project, working_directory = working_directory, repos = current_repos)
 
-  options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")
-
-  renv::install(
-    packages = c("here", "BiocManager"),
-    project = file.path(project_directory, project_name),
-    library = file.path(
-      project_directory, project_name,
-      "renv", "library",
-      paste0("R-", R.Version()[["major"]], ".", gsub("\\..*", "", R.Version()[["minor"]])),
-      R.Version()[["platform"]]
-    ),
-    prompt = FALSE
-  )
-
-  renv::snapshot(
-    project = file.path(project_directory, project_name),
-    packages = c("renv", "here", "BiocManager"),
-    prompt = FALSE,
-    type = "all"
-  )
-
-  # Python
-  if (python) {
-    use_python(
-      project = file.path(project_directory, project_name),
-      working_directory = working_directory,
-      type = "virtualenv"
-    )
-  }
-
-  # Targets
-  if (targets) {
-    use_targets(
-      project = file.path(project_directory, project_name),
-      working_directory = working_directory,
-    )
-  }
-
-  Sys.chmod(paths = project, mode = "0775", use_umask = FALSE)
-
-  Sys.chmod(
-    paths = list.files(
-      path = project,
-      recursive = TRUE, all.files = TRUE, include.dirs = TRUE,
-      full.names = TRUE
-    ),
-    mode = "0775",
-    use_umask = FALSE
-  )
+  use_group_permission(project)
 
   invisible()
 }
