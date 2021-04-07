@@ -1,5 +1,5 @@
 #' @keywords internal
-use_gitignore <- function(project) {
+use_gitignore <- function(project = rprojroot::find_rstudio_root_file()) {
   file <- file.path(project, ".gitignore")
   if (!file.exists(file)) {
     writeLines(

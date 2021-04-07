@@ -1,5 +1,5 @@
 #' @keywords internal
-use_dependencies <- function(project) {
+use_dependencies <- function(project = rprojroot::find_rstudio_root_file()) {
   file <- file.path(project, "scripts", "_dependencies.R")
   if (!file.exists(file)) {
     writeLines(

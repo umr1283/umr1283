@@ -40,8 +40,16 @@ create_project <- function(
 ) {
   old_repos <- getOption("repos")
   on.exit(options(repos = old_repos))
+  owd <- getwd()
+  on.exit(setwd(owd), add = TRUE)
+  env_lib <- Sys.getenv("R_LIBS_USER")
+  on.exit(Sys.setenv("R_LIBS_USER" = env_lib), add = TRUE)
 
-  project <- gsub("~", "", path)
+  if (path == basename(path)) {
+    project <- normalizePath(path.expand(file.path(".", path)), mustWork = FALSE)
+  } else {
+    project <- normalizePath(path.expand(path), mustWork = FALSE)
+  }
 
   if (!dir.exists(dirname(project))) stop(sprintf('"%s" does not exist!', dirname(project)))
 
@@ -64,13 +72,9 @@ create_project <- function(
     to = file.path(project, "outputs")
   ))
 
-  old_wd <- getwd()
-  on.exit(setwd(old_wd), add = TRUE)
-  setwd(project)
+  use_rproj(project)
 
   use_readme(project, analyst_name)
-
-  use_rproj(project)
 
   use_gitignore(project)
 
@@ -87,12 +91,11 @@ create_project <- function(
     working_directory = working_directory,
     repos = current_repos,
     targets = targets,
-    python = python
+    python = python,
+    git_repository = git_repository
   )
 
-  use_git(project, git_repository)
+  cat("* Project created.\n")
 
-  use_group_permission(project)
-
-  invisible(project)
+  invisible(TRUE)
 }
