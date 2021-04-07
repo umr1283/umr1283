@@ -12,6 +12,7 @@ create_project(
   mran = FALSE,
   targets = TRUE,
   python = FALSE,
+  restart = interactive(),
   ...
 )
 }
@@ -32,6 +33,8 @@ Default is `TRUE`.}
 
 \item{python}{A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 Default is `FALSE`.}
+
+\item{restart}{A boolean. If `TRUE`, restarts the RStudio session.}
 
 \item{...}{not used}
 }
