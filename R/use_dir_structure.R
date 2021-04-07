@@ -41,10 +41,10 @@ use_dir_structure <- function(project, working_directory, repos, targets, python
       ),
       prompt = FALSE
     )
-    use_targets(
+    suppressWarnings(use_targets(
       project = project,
       working_directory = working_directory,
-    )
+    ))
     cat("library(targets)\n", file = file.path(project, ".Rprofile"), append = TRUE)
   }
 
