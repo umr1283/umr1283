@@ -10,6 +10,7 @@
 #'     Default is `TRUE`.
 #' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 #'     Default is `FALSE`.
+#' @param restart A boolean. If `TRUE`, restarts the RStudio session.
 #' @param ... not used
 #'
 #' @return NULL
@@ -36,6 +37,7 @@ create_project <- function(
   mran = FALSE,
   targets = TRUE,
   python = FALSE,
+  restart = interactive(),
   ...
 ) {
   old_repos <- getOption("repos")
@@ -96,6 +98,8 @@ create_project <- function(
   )
 
   cat("* Project created.\n")
+
+  if (restart) rstudioapi::restartSession()
 
   invisible(TRUE)
 }

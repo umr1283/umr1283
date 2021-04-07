@@ -17,6 +17,7 @@ Imports:
     renv (>= 0.12.0),
     rprojroot (>= 2.0.0),
     gert (>= 1.2.0),
+    rstudioapi (>= 0.13)
 Suggests:
     targets (>= 0.3.0)
 Encoding: UTF-8

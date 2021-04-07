@@ -7,10 +7,20 @@
 #'     Default is `FALSE`.
 #' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 #'     Default is `FALSE`.
+#' @param restart A boolean. If `TRUE`, restarts the RStudio session.
+#' @param ... not used
 #'
 #' @return NULL
 #' @export
-migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date, working_directory = "/disks/DATATMP", targets = FALSE, python = FALSE) {
+migrate_project <- function(
+  project = rprojroot::find_rstudio_root_file(),
+  date,
+  working_directory = "/disks/DATATMP",
+  targets = FALSE,
+  python = FALSE,
+  restart = interactive(),
+  ...
+) {
   old_repos <- getOption("repos")
   on.exit(options(repos = old_repos))
   owd <- getwd()
@@ -70,9 +80,16 @@ migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date,
 
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
 
-  use_dir_structure(project = project, working_directory = working_directory, repos = current_repos)
+  use_dir_structure(
+    project = project,
+    working_directory = working_directory,
+    repos = current_repos,
+    targets = targets,
+    python = python,
+    git_repository = git_repository
+  )
 
-  use_group_permission(project)
+  if (restart) rstudioapi::restartSession()
 
-  invisible()
+  invisible(TRUE)
 }
