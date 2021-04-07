@@ -1,5 +1,5 @@
 #' @keywords internal
-use_rproj <- function(project) {
+use_rproj <- function(project = ".") {
   file <- file.path(project, ".Rproj")
   if (!file.exists(file)) {
     writeLines(

@@ -13,6 +13,10 @@
 migrate_project <- function(project = rprojroot::find_rstudio_root_file(), date, working_directory = "/disks/DATATMP", targets = FALSE, python = FALSE) {
   old_repos <- getOption("repos")
   on.exit(options(repos = old_repos))
+  owd <- getwd()
+  on.exit(setwd(owd), add = TRUE)
+  env_lib <- Sys.getenv("R_LIBS_USER")
+  on.exit(Sys.setenv("R_LIBS_USER" = env_lib), add = TRUE)
 
   if (!all(c("outputs", "scripts") %in% list.files(project))) {
     stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
