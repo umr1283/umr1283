@@ -1,5 +1,5 @@
 #' @keywords internal
-use_rprofile <- function(project) {
+use_rprofile <- function(project = rprojroot::find_rstudio_root_file()) {
   file <- file.path(project, ".Rprofile")
   if (!file.exists(file)) {
     writeLines(

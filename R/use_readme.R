@@ -1,5 +1,5 @@
 #' @keywords internal
-use_readme <- function(project, analyst_name) {
+use_readme <- function(project = rprojroot::find_rstudio_root_file(), analyst_name) {
   file <- file.path(project, "README.md")
   if (!file.exists(file)) {
     writeLines(
