@@ -28,7 +28,6 @@
 #'     python = TRUE
 #'   )
 #' }
-#'
 create_project <- function(
   path,
   analyst_name,
