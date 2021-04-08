@@ -13,7 +13,7 @@
 #' @return NULL
 #' @export
 migrate_project <- function(
-  project = rprojroot::find_rstudio_root_file(),
+  project = ".",
   date,
   working_directory = "/disks/DATATMP",
   targets = FALSE,
@@ -21,75 +21,60 @@ migrate_project <- function(
   restart = interactive(),
   ...
 ) {
-  old_repos <- getOption("repos")
-  on.exit(options(repos = old_repos))
-  owd <- getwd()
-  on.exit(setwd(owd), add = TRUE)
-  env_lib <- Sys.getenv("R_LIBS_USER")
-  on.exit(Sys.setenv("R_LIBS_USER" = env_lib), add = TRUE)
+  proj <- normalizePath(project, mustWork = FALSE)
 
-  if (!all(c("outputs", "scripts") %in% list.files(project))) {
-    stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
-  }
+  proj_wd <- file.path(working_directory, basename(proj))
 
   if (missing(date)) {
     stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), '!'), call. = FALSE)
   }
-
-  if (file.exists(file.path(project, "renv.lock")) & file.exists(file.path(project, "renv"))) {
-    stop("`renv` setup already exists!", call. = FALSE)
-  }
-
-  project_name <- basename(project)
-
-  dir.create(
-    path = file.path(project, project_name, "renv"),
-    recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  )
-
-  old_outputs <- list.files(file.path(working_directory, project_name), full.names = TRUE)
-  invisible(sapply(
-    X = file.path(working_directory, project_name, c("outputs", "library")),
-    FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  ))
-  invisible(sapply(
-    X = old_outputs,
-    FUN = function(idir) {
-      if (file.copy(
-        from = idir,
-        to = file.path(working_directory, project_name, "outputs"),
-        copy.mode = TRUE,
-        recursive = TRUE,
-        overwrite = TRUE
-      )) {
-        unlink(idir, recursive = TRUE)
-      }
-    }
-  ))
-  unlink(file.path(project, "outputs"))
-  file.symlink(
-    from = file.path(working_directory, project_name, "outputs"),
-    to = file.path(project, "outputs")
-  )
-  file.symlink(
-    from = file.path(working_directory, project_name, "library"),
-    to = file.path(project, "renv", "library")
-  )
-
-  use_dependencies(project)
-
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
 
-  use_dir_structure(
-    project = project,
-    working_directory = working_directory,
-    repos = current_repos,
-    targets = targets,
-    python = python,
-    git_repository = git_repository
-  )
+  withr::with_dir(new = proj, {
+    if (dir.exists("outputs") && dir.exists("scripts")) {
+      stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
+    }
 
-  if (restart) rstudioapi::restartSession()
+    if (file.exists("renv.lock") & dir.exists("renv")) {
+      stop("`renv` setup already exists!", call. = FALSE)
+    }
+
+    dir.create(path = "renv", recursive = TRUE, showWarnings = FALSE, mode = "0775")
+
+    invisible(sapply(
+      X = file.path(proj_wd, c("outputs", "library")),
+      FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    ))
+
+    invisible(sapply(
+      X = list.files(proj_wd, full.names = TRUE),
+      FUN = function(idir) {
+        if (file.copy(
+          from = idir,
+          to = file.path(proj_wd, "outputs"),
+          copy.mode = TRUE,
+          recursive = TRUE,
+          overwrite = TRUE
+        )) {
+          unlink(idir, recursive = TRUE)
+        }
+      }
+    ))
+    unlink("outputs")
+    file.symlink(from = file.path(proj_wd, "outputs"), to = "outputs")
+    file.symlink(from = file.path(proj_wd, "library"), to = "renv/library")
+
+    use_dependencies()
+
+    use_dir_structure(
+      working_directory = working_directory,
+      repos = current_repos,
+      targets = targets,
+      python = python
+    )
+
+    use_group_permission()
+  })
 
   invisible(TRUE)
 }

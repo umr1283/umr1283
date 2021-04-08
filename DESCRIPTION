@@ -15,9 +15,10 @@ Depends:
     R (>= 4.0.0)
 Imports: 
     renv (>= 0.12.0),
-    rprojroot (>= 2.0.0),
     gert (>= 1.2.0),
-    rstudioapi (>= 0.13)
+    rstudioapi (>= 0.13),
+    withr (>= 2.4.1),
+    callr (>= 3.6.0)
 Suggests:
     targets (>= 0.3.0)
 Encoding: UTF-8

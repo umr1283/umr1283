@@ -5,7 +5,7 @@
 \title{use_python}
 \usage{
 use_python(
-  project = rprojroot::find_rstudio_root_file(),
+  project = ".",
   working_directory = "/disks/DATATMP",
   type = "virtualenv",
   ...
