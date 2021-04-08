@@ -4,11 +4,7 @@
 \alias{use_targets}
 \title{use_targets}
 \usage{
-use_targets(
-  project = rprojroot::find_rstudio_root_file(),
-  working_directory = "/disks/DATATMP",
-  ...
-)
+use_targets(project = ".", working_directory = "/disks/DATATMP", ...)
 }
 \arguments{
 \item{project}{A character string. The path a RStudio project.}

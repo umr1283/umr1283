@@ -2,7 +2,6 @@
 
 * In `DESCRIPTION`,
     + Remove `rmarkdown` templates dependencies.
-    + Add `rprojroot` to locate RStudio project root.
     + Add `targets` in `Suggests`.
     + Add `rstudioapi` to restart R session.
 * In `R/create_project.R` (previously `R/new_project.R`),

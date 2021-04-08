@@ -40,47 +40,13 @@ create_project <- function(
   restart = interactive(),
   ...
 ) {
-  old_repos <- getOption("repos")
-  on.exit(options(repos = old_repos))
-  owd <- getwd()
-  on.exit(setwd(owd), add = TRUE)
-  env_lib <- Sys.getenv("R_LIBS_USER")
-  on.exit(Sys.setenv("R_LIBS_USER" = env_lib), add = TRUE)
-
   if (path == basename(path)) {
-    project <- normalizePath(path.expand(file.path(".", path)), mustWork = FALSE)
+    project <- normalizePath(file.path(".", path), mustWork = FALSE)
   } else {
-    project <- normalizePath(path.expand(path), mustWork = FALSE)
+    project <- normalizePath(path, mustWork = FALSE)
   }
 
   if (!dir.exists(dirname(project))) stop(sprintf('"%s" does not exist!', dirname(project)))
-
-  dir.create(
-    path = project,
-    recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  )
-  invisible(sapply(
-    X = file.path(project, c("docs", "reports", "scripts", "logs", "renv")),
-    FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  ))
-
-  invisible(sapply(
-    X = file.path(working_directory, basename(project), c("outputs", "library")),
-    FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  ))
-
-  invisible(file.symlink(
-    from = file.path(working_directory, basename(project), "outputs"),
-    to = file.path(project, "outputs")
-  ))
-
-  use_rproj(project)
-
-  use_readme(project, analyst_name)
-
-  use_gitignore(project)
-
-  use_dependencies(project)
 
   if (mran) {
     current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", Sys.Date()))
@@ -88,18 +54,48 @@ create_project <- function(
     current_repos <- list(CRAN = "https://cloud.r-project.org/")
   }
 
-  use_dir_structure(
-    project = project,
-    working_directory = working_directory,
-    repos = current_repos,
-    targets = targets,
-    python = python,
-    git_repository = git_repository
+  dir.create(
+    path = project,
+    recursive = TRUE, showWarnings = FALSE, mode = "0775"
   )
 
-  cat("* Project created.\n")
+  withr::with_dir(new = project, code = {
+    invisible(sapply(
+      X = c("docs", "reports", "scripts", "logs", "renv"),
+      FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    ))
 
-  if (restart) rstudioapi::restartSession()
+    invisible(sapply(
+      X = file.path(working_directory, basename(project), c("outputs", "library")),
+      FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    ))
+
+    invisible(file.symlink(
+      from = file.path(working_directory, basename(project), "outputs"),
+      to = "outputs"
+    ))
+
+    use_rproj()
+
+    use_readme(analyst_name)
+
+    use_gitignore()
+
+    use_dependencies()
+
+    use_dir_structure(
+      working_directory = working_directory,
+      repos = current_repos,
+      targets = targets,
+      python = python
+    )
+
+    use_group_permission()
+
+    use_git(git_repository = git_repository)
+  })
+
+  message("Project created.\n")
 
   invisible(TRUE)
 }

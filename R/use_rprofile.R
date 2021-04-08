@@ -1,15 +1,20 @@
 #' @keywords internal
-use_rprofile <- function(project = rprojroot::find_rstudio_root_file()) {
-  file <- file.path(project, ".Rprofile")
-  if (!file.exists(file)) {
-    writeLines(
-      con = file,
-      text = c(
-        'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")',
-        'Sys.umask("0002")'
+use_rprofile <- function(project = ".") {
+  proj <- normalizePath(project, mustWork = FALSE)
+
+  withr::with_dir(proj, {
+    file <- ".Rprofile"
+    if (!file.exists(file)) {
+      writeLines(
+        con = file,
+        text = c(
+          'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")',
+          'Sys.umask("0002")'
+        )
       )
-    )
-  } else {
-    message(sprintf('"%s" already exists! Nothing was done!', file))
-  }
+    } else {
+      message(sprintf('"%s" already exists! Nothing was done!', file))
+    }
+  })
+  invisible(TRUE)
 }
