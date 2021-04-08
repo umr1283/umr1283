@@ -3,7 +3,7 @@ use_rproj <- function(project = ".") {
   proj <- normalizePath(project, mustWork = FALSE)
 
   withr::with_dir(proj, {
-  file <- paste0(basename(proj), ".Rproj")
+    file <- paste0(basename(proj), ".Rproj")
     if (!file.exists(file)) {
       writeLines(
         con = file,
