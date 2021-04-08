@@ -43,7 +43,7 @@ create_project
 }
 \examples{
 
-if (!interactive()) {
+if (interactive()) {
   create_project(
     path = "/disks/PROJECT/_test_project",
     analyst_name = "Analyst Name",
