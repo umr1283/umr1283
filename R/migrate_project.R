@@ -26,7 +26,7 @@ migrate_project <- function(
   proj_wd <- file.path(working_directory, basename(proj))
 
   if (missing(date)) {
-    stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), '!'), call. = FALSE)
+    stop(paste0('"date" must be filled to define MRAN snapshot to use, e.g., ', Sys.Date(), "!"), call. = FALSE)
   }
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
 
