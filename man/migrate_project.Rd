@@ -5,7 +5,7 @@
 \title{migrate_project}
 \usage{
 migrate_project(
-  project = rprojroot::find_rstudio_root_file(),
+  project = ".",
   date,
   working_directory = "/disks/DATATMP",
   targets = FALSE,
