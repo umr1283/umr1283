@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![GitHub
 tag](https://img.shields.io/github/tag/umr1283/umr1283.svg?label=latest%20tag&include_prereleases)](https://github.com/umr1283/umr1283)
+[![R-CMD-check](https://github.com/umr1283/umr1283/workflows/R-CMD-check/badge.svg)](https://github.com/umr1283/umr1283/actions)
 <!-- badges: end -->
 
 You can install `umr1283` from
