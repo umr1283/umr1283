@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.0.0
 
 * In `DESCRIPTION`,
     + Remove `rmarkdown` templates dependencies.
