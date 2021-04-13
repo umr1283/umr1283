@@ -7,7 +7,6 @@
 #'     Default is `FALSE`.
 #' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 #'     Default is `FALSE`.
-#' @param restart A boolean. If `TRUE`, restarts the RStudio session.
 #' @param ... not used
 #'
 #' @return NULL
@@ -18,7 +17,6 @@ migrate_project <- function(
   working_directory = "/disks/DATATMP",
   targets = FALSE,
   python = FALSE,
-  restart = interactive(),
   ...
 ) {
   proj <- normalizePath(project, mustWork = FALSE)
@@ -31,23 +29,22 @@ migrate_project <- function(
   current_repos <- list(CRAN = paste0("https://mran.microsoft.com/snapshot/", date))
 
   withr::with_dir(new = proj, {
-    if (dir.exists("outputs") && dir.exists("scripts")) {
+    if (!dir.exists("outputs") || !dir.exists("scripts")) {
       stop('Project structure does not have "outputs" and "scripts" directories!', call. = FALSE)
     }
 
-    if (file.exists("renv.lock") & dir.exists("renv")) {
+    if (file.exists("renv.lock") && dir.exists("renv")) {
       stop("`renv` setup already exists!", call. = FALSE)
     }
 
     dir.create(path = "renv", recursive = TRUE, showWarnings = FALSE, mode = "0775")
+    dir.create(path = file.path(proj_wd, "outputs"), recursive = TRUE, showWarnings = FALSE, mode = "0775")
 
     invisible(sapply(
-      X = file.path(proj_wd, c("outputs", "library")),
-      FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-    ))
-
-    invisible(sapply(
-      X = list.files(proj_wd, full.names = TRUE),
+      X = setdiff(
+        list.files(proj_wd, full.names = TRUE),
+        file.path(proj_wd, c("outputs", "library"))
+      ),
       FUN = function(idir) {
         if (file.copy(
           from = idir,
@@ -61,6 +58,7 @@ migrate_project <- function(
       }
     ))
     unlink("outputs")
+    dir.create(path = file.path(proj_wd, "library"), recursive = TRUE, showWarnings = FALSE, mode = "0775")
     file.symlink(from = file.path(proj_wd, "outputs"), to = "outputs")
     file.symlink(from = file.path(proj_wd, "library"), to = "renv/library")
 
