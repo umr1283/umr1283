@@ -3,7 +3,7 @@
 * In `DESCRIPTION`,
     + Remove `rmarkdown` templates dependencies.
     + Add `targets` in `Suggests`.
-    + Add `rstudioapi` to restart R session.
+    + Add `withr` and `callr` in `Imports`to handle project architecture.
 * In `R/create_project.R` (previously `R/new_project.R`),
     + Set `BiocManager` to use MRAN with new option as of `v1.30.12`.
     + Install `here` using `renv` by default.
