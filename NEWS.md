@@ -1,3 +1,8 @@
+# umr1283 1.0.1
+
+* In `R/use_python`,
+    + Remove code related to ensurepip.
+
 # umr1283 1.0.0
 
 * In `DESCRIPTION`,
