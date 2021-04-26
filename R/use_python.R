@@ -26,17 +26,6 @@ use_python <- function(project = ".", working_directory = "/disks/DATATMP", type
     )
 
     renv::use_python(type = type)
-
-    system(file.path(
-      list.dirs(
-        list.dirs(
-          path = file.path(proj, "renv/python"),
-          recursive = FALSE
-        ),
-        recursive = FALSE
-      ),
-      "bin/python -m ensurepip"
-    ))
   })
 
   invisible(TRUE)
