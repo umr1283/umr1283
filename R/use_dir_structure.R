@@ -15,7 +15,10 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
         if (targets) {
           renv::install(packages = c("targets", "visNetwork"), prompt = FALSE)
           use_targets(working_directory = working_directory)
-          cat("library(targets)\n", file = ".Rprofile", append = TRUE)
+          cat(
+            'if (interactive() & nchar(system.file(package = "targets")) > 0) library(targets)\n',
+            file = ".Rprofile", append = TRUE
+          )
         }
 
         # Python
