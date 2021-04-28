@@ -4,6 +4,12 @@
     + Add `prompt` package in `.Rprofile`,
         if in interactive session and installed 
         (locally or system-wide depending on the project setup).
+    + Add `gert` package in `.Rprofile`,
+        if in interactive session and installed 
+        (locally or system-wide depending on the project setup).
+* In `R/use_dir_structure.R`,
+    + Only load `targets`, if in interactive session and installed 
+        (locally or system-wide depending on the project setup).
 
 # umr1283 1.0.1
 
