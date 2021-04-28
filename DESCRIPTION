@@ -19,6 +19,7 @@ Imports:
     withr (>= 2.4.0),
     callr (>= 3.7.0)
 Suggests:
+    prompt (>= 1.0.0),
     targets (>= 0.4.0)
 Encoding: UTF-8
 LazyData: true

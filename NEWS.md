@@ -1,5 +1,7 @@
 # umr1283 (development version)
 
+* In `DESCRIPTION`,
+    + Add `prompt` in `Suggests`.
 * In `R/use_rprofile.R`,
     + Add `prompt` package in `.Rprofile`,
         if in interactive session and installed 
