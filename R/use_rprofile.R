@@ -10,7 +10,8 @@ use_rprofile <- function(project = ".") {
         text = c(
           'options("BiocManager.check_repositories" = FALSE, BiocManager.snapshots = "MRAN")',
           'Sys.umask("0002")',
-          'if (interactive() & nchar(system.file(package = "prompt")) > 0) prompt::set_prompt(prompt::prompt_git)'
+          'if (interactive() & nchar(system.file(package = "prompt")) > 0) prompt::set_prompt(prompt::prompt_git)',
+          'if (interactive() & nchar(system.file(package = "gert")) > 0) library(gert)'
         )
       )
     } else {
