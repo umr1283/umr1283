@@ -1,6 +1,13 @@
+# umr1283 (development version)
+
+* In `R/use_rprofile.R`,
+    + Add `prompt` package in `.Rprofile`,
+        if in interactive session and installed 
+        (locally or system-wide depending on the project setup).
+
 # umr1283 1.0.1
 
-* In `R/use_python`,
+* In `R/use_python.R`,
     + Remove code related to ensurepip.
 
 # umr1283 1.0.0
@@ -23,11 +30,11 @@
     + Set umask to `0002`.
     + Add support for `renv::use_python()`.
     + Refactoring using use_* functions.
-* In `R/use_targets`,
+* In `R/use_targets.R`,
     + Create directory structure required for `targets`. 
-* In `R/use_python`,
+* In `R/use_python.R`,
     + Create directory structure required for `reticulate` and `Python` within `renv`. 
-* In `R/use_affiliation`,
+* In `R/use_affiliation.R`,
     + Add function to get current affiliation.
 * Remove [rmarkdown templates](inst/rmarkdown/templates).
 
