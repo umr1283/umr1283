@@ -12,6 +12,8 @@
 * In `R/use_dir_structure.R`,
     + Only load `targets`, if in interactive session and installed 
         (locally or system-wide depending on the project setup).
+* In `R/fex.R`,
+    + New function to upload file(s) using fexsend.
 
 # umr1283 1.0.1
 
