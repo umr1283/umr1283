@@ -5,7 +5,7 @@
 #' @param ... One or several path to files. A zip archive is created when several path are provided,
 #' @param zip_file Name of the archive created when several path are provided.
 #'     Default `"20XX-XX-XX_archive.zip"`.
-#' @param internal_fex If internal fexsend binary should be used. Default `TRUE`.
+#' @param internal If internal fexsend binary should be used. Default `TRUE`.
 #'
 #' @return The URL of the upload file.
 #' @export
@@ -13,10 +13,10 @@
 #' @examples
 #'
 #' if (interactive()) {
-#'   fex("file1.txt", "file2.txt", internal_fex = FALSE)
+#'   fex("file1.txt", "file2.txt", internal = FALSE)
 #' }
 #'
-fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal_fex = TRUE) {
+fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal = TRUE) {
   paths <- normalizePath(unlist(list(...), recursive = TRUE))
 
   zip_file <- file.path(tempdir(), zip_file)
@@ -57,7 +57,7 @@ fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal_
     stop(sprintf('"%s" does not exist!', file_out))
   }
 
-  if (internal_fex) {
+  if (internal) {
     fexsend <- system.file("fex", "fexsend", package = "umr1283")
   } else {
     fexsend <- "fexsend"
