@@ -4,11 +4,7 @@
 \alias{fex}
 \title{Send file using fexsend}
 \usage{
-fex(
-  ...,
-  zip_file = sprintf("\%s_archive.zip", Sys.Date()),
-  internal_fex = TRUE
-)
+fex(..., zip_file = sprintf("\%s_archive.zip", Sys.Date()), internal = TRUE)
 }
 \arguments{
 \item{...}{One or several path to files. A zip archive is created when several path are provided,}
@@ -16,7 +12,7 @@ fex(
 \item{zip_file}{Name of the archive created when several path are provided.
 Default `"20XX-XX-XX_archive.zip"`.}
 
-\item{internal_fex}{If internal fexsend binary should be used. Default `TRUE`.}
+\item{internal}{If internal fexsend binary should be used. Default `TRUE`.}
 }
 \value{
 The URL of the upload file.
@@ -27,7 +23,7 @@ Documentation available at https://fex.belwue.de/fstools/fexsend.html
 \examples{
 
 if (interactive()) {
-  fex("file1.txt", "file2.txt", internal_fex = FALSE)
+  fex("file1.txt", "file2.txt", internal = FALSE)
 }
 
 }
