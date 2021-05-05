@@ -12,8 +12,7 @@ tag](https://img.shields.io/github/tag/umr1283/umr1283.svg?label=latest%20tag&in
 [![R-CMD-check](https://github.com/umr1283/umr1283/workflows/R-CMD-check/badge.svg)](https://github.com/umr1283/umr1283/actions)
 <!-- badges: end -->
 
-You can install `umr1283` from
-[GitHub](https://github.com/umr1283/umr1283) with:
+You can install `umr1283` with:
 
 ``` r
 remotes::install_github("umr1283/umr1283")
