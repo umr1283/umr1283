@@ -9,6 +9,13 @@
 #'
 #' @return The URL of the upload file.
 #' @export
+#'
+#' @examples
+#'
+#' if (interactive()) {
+#'   fex("file1.txt", "file2.txt", internal_fex = FALSE)
+#' }
+#'
 fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal_fex = TRUE) {
   paths <- normalizePath(unlist(list(...), recursive = TRUE))
 
