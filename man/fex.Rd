@@ -24,3 +24,10 @@ The URL of the upload file.
 \description{
 Documentation available at https://fex.belwue.de/fstools/fexsend.html
 }
+\examples{
+
+if (interactive()) {
+  fex("file1.txt", "file2.txt", internal_fex = FALSE)
+}
+
+}
