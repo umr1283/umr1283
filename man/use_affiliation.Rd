@@ -12,3 +12,6 @@ A character string with the current affiliation.
 \description{
 Use UMR1283-8199 Affiliation
 }
+\examples{
+use_affiliation()
+}

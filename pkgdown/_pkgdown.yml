@@ -1,10 +1,16 @@
 authors:
   Mickaël Canouil:
-    href: http://mickael.canouil.fr
+    href: https://mickael.canouil.fr/
+  Inserm U1283 / CNRS UMR 8199:
+    href: http://www.good.cnrs.fr/
 url: https://umr1283.github.io/umr1283/
 template:
   bootstrap: 4
   bootswatch: minty
+  bslib:
+    bg: "#ffffff"
+    fg: "#2a9bd3"
+    primary: "#2a9bd3"
 navbar:
   type: dark
   bg: primary
