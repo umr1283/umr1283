@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# UMR 1283 - RStudio Project Templates <img src="man/figures/logo.png" align="right" width="120" />
+# UMR 1283 - RStudio Project Templates <a href='https://umr1283.github.io/umr1283'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
