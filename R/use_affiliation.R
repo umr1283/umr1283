@@ -2,6 +2,8 @@
 #'
 #' @return A character string with the current affiliation.
 #' @export
+#' @examples
+#' use_affiliation()
 use_affiliation <- function() {
   paste(
     "Inserm U1283",
