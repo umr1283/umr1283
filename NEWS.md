@@ -1,5 +1,3 @@
-# umr1283 1.1.1
-
 ## umr1283 (development version)
 
 * In `NEWS`, 
