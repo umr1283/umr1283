@@ -1,4 +1,4 @@
-# umr1283 1.2.0
+# umr1283 1.1.1
 
 * In `R/create_project.R`, 
     + improve description.
