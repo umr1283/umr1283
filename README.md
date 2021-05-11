@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# UMR 1283 - RStudio Project Templates <a href='https://umr1283.github.io/umr1283'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# UMR 1283 - RStudio Project Template <a href='https://umr1283.github.io/umr1283'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -19,3 +19,19 @@ remotes::install_github("umr1283/umr1283")
 ```
 
 ![](man/figures/readme-project.png)
+
+------------------------------------------------------------------------
+
+## Getting help
+
+If you encounter a clear bug, please file a minimal reproducible example
+on [github](https://github.com/umr1283/umr1283/issues).  
+For questions and other discussion, please contact the package
+maintainer.
+
+## Code of Conduct
+
+Please note that the `umr1283` project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
