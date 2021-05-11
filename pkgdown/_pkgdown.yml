@@ -14,3 +14,5 @@ template:
 navbar:
   type: dark
   bg: primary
+development:
+  mode: auto
