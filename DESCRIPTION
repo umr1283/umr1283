@@ -1,5 +1,5 @@
 Package: umr1283
-Title: UMR 1283 - RStudio Project Templates
+Title: UMR 1283 - RStudio Project Template
 Version: 1.0.1.9000
 Authors@R: 
     c(person(given = "Mickaël",
@@ -9,9 +9,9 @@ Authors@R:
            comment = c(ORCID = "0000-0002-3396-4549")),
       person(given = "Inserm U1283 / CNRS UMR 8199",
            role = c("cph", "fnd")))
-Description: RStudio Project Templates for UMR 1283.
+Description: RStudio Project Template for UMR 1283.
 License: MIT + file LICENSE
-URL: https://github.com/umr1283/umr1283/
+URL: https://github.com/umr1283/umr1283/, https://umr1283.github.io/umr1283/
 BugReports: https://github.com/umr1283/umr1283/issues/
 Depends: 
     R (>= 4.0.0)
