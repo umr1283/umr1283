@@ -2,7 +2,7 @@
 % Please edit documentation in R/migrate_project.R
 \name{migrate_project}
 \alias{migrate_project}
-\title{migrate_project}
+\title{Migrate from an old version of RStudio project to renv setup}
 \usage{
 migrate_project(
   project = ".",
@@ -29,5 +29,5 @@ Default is `FALSE`.}
 \item{...}{not used}
 }
 \description{
-migrate_project
+Migrate from an old version of RStudio project to renv setup
 }

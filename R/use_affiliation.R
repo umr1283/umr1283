@@ -1,4 +1,4 @@
-#' Use UMR1283-8199 Affiliation
+#' Inserm U1283 - CNRS UMR 8199 Affiliation
 #'
 #' @return A character string with the current affiliation.
 #' @export

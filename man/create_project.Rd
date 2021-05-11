@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_project.R
 \name{create_project}
 \alias{create_project}
-\title{create_project}
+\title{Create an RStudio project specific to UMR1283 storage architecture}
 \usage{
 create_project(
   path,
@@ -36,7 +36,7 @@ Default is `FALSE`.}
 \item{...}{not used}
 }
 \description{
-create_project
+Create an RStudio project specific to UMR1283 storage architecture
 }
 \examples{
 
