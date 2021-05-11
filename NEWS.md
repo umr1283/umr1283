@@ -1,4 +1,19 @@
+# umr1283 1.1.1
+
 ## umr1283 (development version)
+
+* In `NEWS`, 
+    + increase headings level for `pkgdown`.
+* In `R/create_project.R`, 
+    + improve description.
+* In `R/migrate_project.R`, 
+    + improve description.
+* In `R/use_affiliation.R`, 
+    + improve description.
+* In `R/use_targets.R`, 
+    + improve description.
+* In `R/use_python.R`, 
+    + improve description.
 
 ## umr1283 1.1.0
 
