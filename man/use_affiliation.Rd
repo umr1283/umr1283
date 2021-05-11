@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_affiliation.R
 \name{use_affiliation}
 \alias{use_affiliation}
-\title{Use UMR1283-8199 Affiliation}
+\title{Inserm U1283 - CNRS UMR 8199 Affiliation}
 \usage{
 use_affiliation()
 }
@@ -10,7 +10,7 @@ use_affiliation()
 A character string with the current affiliation.
 }
 \description{
-Use UMR1283-8199 Affiliation
+Inserm U1283 - CNRS UMR 8199 Affiliation
 }
 \examples{
 use_affiliation()

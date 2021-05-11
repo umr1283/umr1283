@@ -1,4 +1,4 @@
-#' use_python
+#' Use Python
 #'
 #' Setup directory structure for `python`.
 #'

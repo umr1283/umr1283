@@ -1,4 +1,4 @@
-#' create_project
+#' Create an RStudio project specific to UMR1283 storage architecture
 #'
 #' @param path A character string. A path to where the project is to be created.
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
