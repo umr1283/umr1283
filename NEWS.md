@@ -143,6 +143,7 @@
 ## umr1283 0.6.0
 
 * Rename `data` to `outputs`.
+
     ```
     /disks/PROJECT/test
     ├── outputs -> /disks/DATATMP/test
@@ -169,7 +170,8 @@
 ## umr1283 0.4.0
 
 * Add a `logs` directory.
-    ```
+   
+   ```
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
     ├── docs
@@ -181,6 +183,7 @@
     ├── .gitignore
     └── test.Rproj
     ```
+    
 * Fix some style in `README.md` file.
 
 ## umr1283 0.3.0
@@ -199,6 +202,7 @@
 
 * Added a `NEWS.md` file to track changes to the package.
 * Added a RStudio project template `UMR 1283 - RStudio Project Templates`.
+    
     ```
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
@@ -210,6 +214,7 @@
     ├── .gitignore
     └── test.Rproj
     ```
+    
 * Added Rmarkdown templates for:
     - ioslides - `UMR 1283 - ioslides`.
     - PowerPoint - `UMR 1283 - PowerPoint`.
