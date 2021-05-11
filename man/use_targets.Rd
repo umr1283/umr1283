@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_targets.R
 \name{use_targets}
 \alias{use_targets}
-\title{use_targets}
+\title{Use targets package}
 \usage{
 use_targets(project = ".", working_directory = "/disks/DATATMP", ...)
 }

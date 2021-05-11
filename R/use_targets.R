@@ -1,4 +1,4 @@
-#' use_targets
+#' Use targets package
 #'
 #' Setup directory structure for `targets`.
 #'

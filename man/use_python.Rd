@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_python.R
 \name{use_python}
 \alias{use_python}
-\title{use_python}
+\title{Use Python}
 \usage{
 use_python(
   project = ".",
