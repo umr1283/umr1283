@@ -2,7 +2,6 @@
 
 * In `DESCRIPTION`,
     + Define `markdown` format for `roxygen2` documentation. 
-
 * In `R/create_project.R`, 
     + improve description.
 * In `R/migrate_project.R`, 
