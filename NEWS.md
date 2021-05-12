@@ -1,4 +1,7 @@
-# umr1283 (development version)
+# umr1283 1.1.2
+
+* In `DESCRIPTION`,
+    + Define `markdown` format for `roxygen2` documentation. 
 
 # umr1283 1.1.1
 
