@@ -24,14 +24,14 @@ create_project(
 
 \item{git_repository}{A character string. URL to the git server/repository.}
 
-\item{mran}{A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
-Default is `FALSE`.}
+\item{mran}{A boolean. If \code{TRUE}, uses \code{paste0("https://mran.microsoft.com/snapshot/", Sys.Date())} as the CRAN repository.
+Default is \code{FALSE}.}
 
-\item{targets}{A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
-Default is `TRUE`.}
+\item{targets}{A boolean. If \code{TRUE}, uses \code{use_targets()} to create directory tree for use with \code{targets}.
+Default is \code{TRUE}.}
 
-\item{python}{A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
-Default is `FALSE`.}
+\item{python}{A boolean. If \code{TRUE}, uses \code{use_python()} to create \code{renv} directory tree for use with python.
+Default is \code{FALSE}.}
 
 \item{...}{not used}
 }

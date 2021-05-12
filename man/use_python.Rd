@@ -21,5 +21,5 @@ use_python(
 \item{...}{Not used.}
 }
 \description{
-Setup directory structure for `python`.
+Setup directory structure for \code{python}.
 }
