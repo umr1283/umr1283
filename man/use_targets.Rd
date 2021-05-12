@@ -14,5 +14,5 @@ use_targets(project = ".", working_directory = "/disks/DATATMP", ...)
 \item{...}{Not used.}
 }
 \description{
-Setup directory structure for `targets`.
+Setup directory structure for \code{targets}.
 }

@@ -16,15 +16,15 @@ migrate_project(
 \arguments{
 \item{project}{A character string. The path a RStudio project.}
 
-\item{date}{A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.}
+\item{date}{A character string. The date of the MRAN to use, \emph{e.g.}, 2021-01-25.}
 
 \item{working_directory}{A character string. The root path to the working directory of the project.}
 
-\item{targets}{A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
-Default is `FALSE`.}
+\item{targets}{A boolean. If \code{TRUE}, uses \code{use_targets()} to create directory tree for use with \code{targets}.
+Default is \code{FALSE}.}
 
-\item{python}{A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
-Default is `FALSE`.}
+\item{python}{A boolean. If \code{TRUE}, uses \code{use_python()} to create \code{renv} directory tree for use with python.
+Default is \code{FALSE}.}
 
 \item{...}{not used}
 }
