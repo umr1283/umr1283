@@ -1,19 +1,22 @@
 # umr1283 (development version)
 
+* In `R/use_targets.R`, 
+    + Improve default targets R script to better work with Docker.
+
 # umr1283 1.1.1
 
 * In `DESCRIPTION`,
     + Define `markdown` format for `roxygen2` documentation. 
 * In `R/create_project.R`, 
-    + improve description.
+    + Improve description.
 * In `R/migrate_project.R`, 
-    + improve description.
+    + Improve description.
 * In `R/use_affiliation.R`, 
-    + improve description.
+    + Improve description.
 * In `R/use_targets.R`, 
-    + improve description.
+    + Improve description.
 * In `R/use_python.R`, 
-    + improve description.
+    + Improve description.
 
 # umr1283 1.1.0
 
