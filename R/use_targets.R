@@ -24,7 +24,29 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
       to = file.path(proj, "_targets")
     )
     cat("_targets\n", file = file.path(proj, ".gitignore"), append = TRUE)
-    cat("library(targets)\n", file = file.path(proj, "_targets.R"))
+
+    writeLines(
+      text = c(
+        paste(c("### global libraries ", rep("=", 79)), collapse = ""),
+        "library(targets)",
+        "# library(tarchetypes)",
+        "# library(here)",
+        "# library(data.table)",
+        "",
+        '# targets::tar_renv(extras = "visNetwork", path = "scripts/_dependencies.R")',
+        'tar_option_set(cue = tar_cue(mode = "never"))',
+        "",
+        "",
+        paste(c("### project setup ", rep("=", 79)), collapse = ""),
+        "",
+        "",
+        paste(c("### targets ", rep("=", 88)), collapse = ""),
+        "list(",
+        "  ",
+        ")"
+      ),
+      con = file.path(proj, "_targets.R")
+    )
   })
 
   invisible(TRUE)
