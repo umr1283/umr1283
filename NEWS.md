@@ -3,7 +3,7 @@
 * In `R/use_targets.R`, 
     + Improve default targets R script to better work with Docker.
 * In `inst/fex/fexsend`,
-    + Add execute permission.
+    + Fix permission.
 
 # umr1283 1.1.1
 
