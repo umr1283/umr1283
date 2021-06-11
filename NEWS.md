@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.1.2
 
 * In `R/use_targets.R`, 
     + Improve default targets R script to better work with Docker.
