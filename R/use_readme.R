@@ -11,7 +11,7 @@ use_readme <- function(analyst_name, project = ".") {
           paste("#", basename(proj)),
           paste("Created:", Sys.time()),
           paste("Analyst:", analyst_name),
-          paste("Affiliation:", use_affiliation())
+          paste(c("Affiliation:", paste("*", use_affiliation())), collapse = "\n")
         ),
         sep = "\n\n"
       )
