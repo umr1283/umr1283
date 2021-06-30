@@ -33,8 +33,9 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
         "# library(here)",
         "# library(data.table)",
         "",
+        '# tar_option_set(cue = tar_cue(mode = "never"))',
+        "",
         '# targets::tar_renv(extras = "visNetwork", path = "scripts/_dependencies.R")',
-        'tar_option_set(cue = tar_cue(mode = "never"))',
         "",
         "",
         paste(c("### project setup ", rep("=", 79)), collapse = ""),
@@ -42,7 +43,7 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
         "",
         paste(c("### targets ", rep("=", 88)), collapse = ""),
         "list(",
-        "  ",
+        '  tar_target(start, "hello!")',
         ")"
       ),
       con = file.path(proj, "_targets.R")
