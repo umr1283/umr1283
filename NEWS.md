@@ -1,5 +1,10 @@
 # umr1283 (development version)
 
+* In `R/use_affiliation.R`, 
+    + Split in two.
+* In `R/use_readme.R`,
+    + Use bullets list for affiliation.
+
 # umr1283 1.1.2
 
 * In `R/use_targets.R`, 
