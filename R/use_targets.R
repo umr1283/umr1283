@@ -27,6 +27,15 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
 
     writeLines(
       text = c(
+        "message(timestamp(quiet = TRUE))",
+        "targets::tar_make()",
+        "message(timestamp(quiet = TRUE))"
+      ),
+      con = file.path(proj, "scripts/00-targets.R")
+    )
+
+    writeLines(
+      text = c(
         paste(c("### global libraries ", rep("=", 79)), collapse = ""),
         "library(targets)",
         "# library(tarchetypes)",
@@ -44,7 +53,7 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
         "",
         paste(c("### targets ", rep("=", 88)), collapse = ""),
         "list(",
-        '  tar_target(project, gsub("(.*)_.*", "\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
+        '  tar_target(project, sub("(.*)_.*", "\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
         '  tar_target(author, "UMR1283"),',
         '  tar_target(start, "hello!")',
         ")"
