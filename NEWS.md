@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.1.4
 
 * In `R/use_targets.R`, 
     + Improve default targets R script skeleton.
