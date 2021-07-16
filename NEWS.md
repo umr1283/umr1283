@@ -3,6 +3,10 @@
 * In `R/use_targets.R`, 
     + Improve default targets R script skeleton.
     + Add default targets script launcher.
+* In `R/use_rprofile.R`,
+    + Add `targets` package in `.Rprofile`,
+        if in interactive session and installed 
+        (locally or system-wide depending on the project setup).
 
 # umr1283 1.1.3
 
