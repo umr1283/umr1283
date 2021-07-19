@@ -8,7 +8,7 @@ use_xaringan(
   project = ".",
   sub_directory = "scripts",
   url = "https://github.com/umr1283/xaringan-template",
-  overwrite
+  overwrite = TRUE
 )
 }
 \arguments{
@@ -18,7 +18,8 @@ use_xaringan(
 
 \item{url}{remote url. Typically starts with \verb{https://github.com/} for public repositories,
 and \verb{https://yourname@github.com/} or \verb{git@github.com/} for private repos.
-You will be prompted for a password or pat when needed.}
+You will be prompted for a password or pat when needed.
+@overwrite A logical. Should existing destination files be overwritten?}
 }
 \description{
 Setup directory structure for \code{targets}.
