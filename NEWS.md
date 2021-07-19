@@ -1,3 +1,14 @@
+# umr1283 (development version)
+
+* In `R/use_xaringan.R`, 
+    + Download `xaringan` (https://github.com/umr1283/xaringan-template) template to `scripts/slides`.
+* In `R/migrate_project.R`, 
+    + Fix typo.
+* In `R/use_targets.R`, 
+    + Fix typo.
+* In `R/use_python.R`, 
+    + Fix typo.
+
 # umr1283 1.1.4
 
 * In `R/use_targets.R`, 
