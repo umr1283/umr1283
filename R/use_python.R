@@ -2,7 +2,7 @@
 #'
 #' Setup directory structure for `python`.
 #'
-#' @param project A character string. The path a RStudio project.
+#' @param project A character string. The path to a RStudio project.
 #' @param working_directory Path to the working temporary directory.
 #' @param type Type of Python environment to use.
 #' @param ... Not used.
