@@ -12,7 +12,7 @@ use_python(
 )
 }
 \arguments{
-\item{project}{A character string. The path a RStudio project.}
+\item{project}{A character string. The path to a RStudio project.}
 
 \item{working_directory}{Path to the working temporary directory.}
 

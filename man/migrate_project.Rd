@@ -14,7 +14,7 @@ migrate_project(
 )
 }
 \arguments{
-\item{project}{A character string. The path a RStudio project.}
+\item{project}{A character string. The path to a RStudio project.}
 
 \item{date}{A character string. The date of the MRAN to use, \emph{e.g.}, 2021-01-25.}
 
