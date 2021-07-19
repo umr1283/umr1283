@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.2.0
 
 * In `R/use_xaringan.R`, 
     + Download `xaringan` (https://github.com/umr1283/xaringan-template) template to `scripts/slides`.
