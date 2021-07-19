@@ -7,7 +7,7 @@
 #' @param url remote url. Typically starts with `https://github.com/` for public repositories,
 #'   and `https://yourname@github.com/` or `git@github.com/` for private repos.
 #'   You will be prompted for a password or pat when needed.
-#'  @overwrite A logical. Should existing destination files be overwritten?
+#' @param overwrite A logical. Should existing destination files be overwritten?
 #'
 #' @export
 use_xaringan <- function(
