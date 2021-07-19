@@ -47,20 +47,17 @@
 
     <div id="ref-usage" class="ref-usage section level2 sourceCode">
     <pre class="sourceCode r"><code><span class="fu">use_xaringan</span><span class="op">(</span>
-  project <span class="op">=</span> <span class="st">"."</span>,
-  sub_directory <span class="op">=</span> <span class="st">"scripts"</span>,
+  path <span class="op">=</span> <span class="st">"./scripts/slides"</span>,
   url <span class="op">=</span> <span class="st">"https://github.com/umr1283/xaringan-template"</span>,
   overwrite <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre>
     </div>
 
     <h2>Arguments</h2>
-    <dl class="row" id="ref-arguments"><dt class="col-sm-3 section level2" id="pkg-arg-project">project</dt>
-      <dd class="col-sm-9" id="ref-arguments desc"><p>A character string. The path to a RStudio project.</p></dd>
-    <dt class="col-sm-3 section level2" id="pkg-arg-sub_directory">sub_directory</dt>
-      <dd class="col-sm-9" id="ref-arguments desc"><p>A character string. The path  to a directory in a RStudio project.</p></dd>
+    <dl class="row" id="ref-arguments"><dt class="col-sm-3 section level2" id="pkg-arg-path">path</dt>
+      <dd class="col-sm-9" id="ref-arguments desc"><p>A character string. The path to a directory within a RStudio project.</p></dd>
     <dt class="col-sm-3 section level2" id="pkg-arg-url">url</dt>
-      <dd class="col-sm-9" id="ref-arguments desc"><p>remote url. Typically starts with <code>https://github.com/</code> for public repositories,
+      <dd class="col-sm-9" id="ref-arguments desc"><p>A character string. A remote url, that ypically starts with <code>https://github.com/</code> for public repositories,
 and <code>https://yourname@github.com/</code> or <code>git@github.com/</code> for private repos.
 You will be prompted for a password or pat when needed.</p></dd>
     <dt class="col-sm-3 section level2" id="pkg-arg-overwrite">overwrite</dt>
