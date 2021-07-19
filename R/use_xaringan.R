@@ -2,8 +2,7 @@
 #'
 #' Setup directory structure for `targets`.
 #'
-#' @param project A character string. The path to a RStudio project.
-#' @param sub_directory A character string. The path  to a directory in a RStudio project.
+#' @param path A character string. The path to a directory within a RStudio project.
 #' @param url A character string. A remote url, that ypically starts with `https://github.com/` for public repositories,
 #'   and `https://yourname@github.com/` or `git@github.com/` for private repos.
 #'   You will be prompted for a password or pat when needed.
@@ -11,14 +10,13 @@
 #'
 #' @export
 use_xaringan <- function(
-  project = ".",
-  sub_directory = "scripts",
+  path = "./scripts/slides",
   url = "https://github.com/umr1283/xaringan-template",
   overwrite = TRUE
 ) {
-  proj <- normalizePath(file.path(project, sub_directory), mustWork = FALSE)
+  proj <- normalizePath(path, mustWork = FALSE)
 
-  dir.create(file.path(proj, "slides"), showWarnings = FALSE, mode = "0775")
+  dir.create(proj, showWarnings = FALSE, mode = "0775")
 
   temp_git_dir <- file.path(tempdir(), "slides")
   on.exit(unlink(temp_git_dir, recursive = TRUE, force = TRUE))
@@ -29,7 +27,7 @@ use_xaringan <- function(
       pattern = "assets|.Rmd$",
       full.names = TRUE
     ),
-    to = file.path(proj, "slides"),
+    to = proj,
     recursive = TRUE,
     overwrite = overwrite
   )))

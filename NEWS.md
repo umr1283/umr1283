@@ -1,8 +1,3 @@
-# umr1283 (development version)
-
-* In `R/use_xaringan.R`, 
-    + Improve roxygen documentation.
-
 # umr1283 1.2.0
 
 * In `R/use_xaringan.R`, 
