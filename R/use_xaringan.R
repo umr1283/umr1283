@@ -4,7 +4,7 @@
 #'
 #' @param project A character string. The path to a RStudio project.
 #' @param sub_directory A character string. The path  to a directory in a RStudio project.
-#' @param url remote url. Typically starts with `https://github.com/` for public repositories,
+#' @param url A character string. A remote url, that ypically starts with `https://github.com/` for public repositories,
 #'   and `https://yourname@github.com/` or `git@github.com/` for private repos.
 #'   You will be prompted for a password or pat when needed.
 #' @param overwrite A logical. Should existing destination files be overwritten?
