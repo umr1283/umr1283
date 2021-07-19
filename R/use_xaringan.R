@@ -7,13 +7,14 @@
 #' @param url remote url. Typically starts with `https://github.com/` for public repositories,
 #'   and `https://yourname@github.com/` or `git@github.com/` for private repos.
 #'   You will be prompted for a password or pat when needed.
+#'  @overwrite A logical. Should existing destination files be overwritten?
 #'
 #' @export
 use_xaringan <- function(
   project = ".",
   sub_directory = "scripts",
   url = "https://github.com/umr1283/xaringan-template",
-  overwrite
+  overwrite = TRUE
 ) {
   proj <- normalizePath(file.path(project, sub_directory), mustWork = FALSE)
 
