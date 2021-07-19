@@ -7,7 +7,7 @@
 use_affiliation()
 }
 \value{
-A character string with the current affiliation.
+A character vector string with the current affiliation.
 }
 \description{
 Inserm U1283 - CNRS UMR 8199 Affiliation
