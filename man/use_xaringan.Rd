@@ -5,18 +5,15 @@
 \title{Use Xaringan Template}
 \usage{
 use_xaringan(
-  project = ".",
-  sub_directory = "scripts",
+  path = "./scripts/slides",
   url = "https://github.com/umr1283/xaringan-template",
   overwrite = TRUE
 )
 }
 \arguments{
-\item{project}{A character string. The path to a RStudio project.}
+\item{path}{A character string. The path to a directory within a RStudio project.}
 
-\item{sub_directory}{A character string. The path  to a directory in a RStudio project.}
-
-\item{url}{remote url. Typically starts with \verb{https://github.com/} for public repositories,
+\item{url}{A character string. A remote url, that ypically starts with \verb{https://github.com/} for public repositories,
 and \verb{https://yourname@github.com/} or \verb{git@github.com/} for private repos.
 You will be prompted for a password or pat when needed.}
 
