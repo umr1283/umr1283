@@ -2,8 +2,8 @@
 #'
 #' Documentation available at https://fex.belwue.de/fstools/fexsend.html
 #'
-#' @param ... One or several path to files. A zip archive is created when several path are provided,
-#' @param zip_file Name of the archive created when several path are provided.
+#' @param ... One or several paths to files. A zip archive is created when several paths are provided,
+#' @param zip_file Name of the archive created when several paths are provided.
 #'     Default `"20XX-XX-XX_archive.zip"`.
 #' @param internal If internal fexsend binary should be used. Default `TRUE`.
 #'
