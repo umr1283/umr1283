@@ -7,9 +7,9 @@
 fex(..., zip_file = sprintf("\%s_archive.zip", Sys.Date()), internal = TRUE)
 }
 \arguments{
-\item{...}{One or several path to files. A zip archive is created when several path are provided,}
+\item{...}{One or several paths to files. A zip archive is created when several paths are provided,}
 
-\item{zip_file}{Name of the archive created when several path are provided.
+\item{zip_file}{Name of the archive created when several paths are provided.
 Default \code{"20XX-XX-XX_archive.zip"}.}
 
 \item{internal}{If internal fexsend binary should be used. Default \code{TRUE}.}
