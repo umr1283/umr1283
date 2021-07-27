@@ -23,7 +23,11 @@ Documentation available at https://fex.belwue.de/fstools/fexsend.html
 \examples{
 
 if (interactive()) {
-  fex("file1.txt", "file2.txt", internal = FALSE)
+  writeLines("file1", file.path(tempdir(), "file1.txt"))
+  writeLines("file2", file.path(tempdir(), "file2.txt"))
+
+  fex(file.path(tempdir(), "file1.txt")) # File sent as-is
+  fex(file.path(tempdir(), c("file1.txt", "file2.txt")) # Files sent as a ZIP archive
 }
 
 }
