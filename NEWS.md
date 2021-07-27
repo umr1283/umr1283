@@ -2,6 +2,7 @@
 
 * In `R/fex.R`,
     + Fix output when only one file is provided.
+    + Improve example.
 
 # umr1283 1.2.0
 
