@@ -19,9 +19,10 @@
 fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal = TRUE) {
   paths <- normalizePath(unlist(list(...), recursive = TRUE))
 
-  zip_file <- file.path(tempdir(), zip_file)
-
   if (length(paths) > 1) {
+    zip_file <- file.path(tempdir(), zip_file)
+    on.exit(unlink(zip_file, force = TRUE))
+
     if (.Platform$OS.type == "windows") {
       parent_directory <- unique(sub(
         pattern = sprintf(
@@ -86,8 +87,7 @@ fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal 
   ) == 0
   if (!is_fex_configured) stop("fexsend must be configured!")
 
-  fex_out <- system(sprintf("%s %s .", fexsend, zip_file), intern = TRUE)
-  unlink(zip_file, force = TRUE)
+  fex_out <- system(sprintf("%s %s .", fexsend, file_out), intern = TRUE)
 
   fex_url <- gsub("Location: ", "", grep("Location:", fex_out, value = TRUE))
   message(fex_url, appendLF = TRUE)
