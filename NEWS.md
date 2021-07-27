@@ -1,3 +1,8 @@
+# umr1283 1.2.1
+
+* In `R/fex.R`,
+    + Fix output when only one file is provided.
+
 # umr1283 1.2.0
 
 * In `R/use_xaringan.R`, 
