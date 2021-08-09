@@ -70,7 +70,7 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
         "",
         paste(c("### targets setup ", rep("=", 82)), collapse = ""),
         "tar_setup <- list(",
-        '  tar_target(project, sub("\\.Rproj$", "\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
+        '  tar_target(project, sub("(.*)_[^_]*\\\\.Rproj$", "\\\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
         '  tar_target(author, "UMR1283")',
         ")",
         "",
