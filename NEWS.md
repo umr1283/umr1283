@@ -1,5 +1,9 @@
 # umr1283 (development version)
 
+* In `R/use_targets.R`, 
+    + Fix typo/bug in `_targets.R` template script.
+    + Edit `.Rprofile` (if it exists) with shortcut for targets.
+
 # umr1283 1.2.1
 
 * In `R/fex.R`,
