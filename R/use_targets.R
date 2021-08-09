@@ -34,6 +34,19 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
       con = file.path(proj, "scripts/00-targets.R")
     )
 
+    if (file.exists(file.path(proj, ".Rprofile"))) {
+      cat(
+        'if (interactive() & nchar(system.file(package = "targets")) > 0) {',
+        '  library(targets)',
+        '  tvn <- function(targets_only = TRUE, ...) targets::tar_visnetwork(targets_only = targets_only, ...)',
+        '}',
+        '',
+        sep = "\n",
+        file = file.path(proj, ".Rprofile"),
+        append = TRUE
+      )
+    }
+
     writeLines(
       text = c(
         paste(c("### global libraries ", rep("=", 79)), collapse = ""),
@@ -57,14 +70,14 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
         "",
         paste(c("### targets setup ", rep("=", 82)), collapse = ""),
         "tar_setup <- list(",
-        '  tar_target(project, sub("(.*)_.*", "\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
+        '  tar_target(project, sub("\\.Rproj$", "\\1", list.files(here(), pattern = ".Rproj$")), packages = "here"),',
         '  tar_target(author, "UMR1283")',
         ")",
         "",
         "",
         paste(c("### targets ", rep("=", 88)), collapse = ""),
         "list(",
-        '  tar_setup',
+        '  tar_setup,',
         '  tar_target(start, "hello!")',
         ")"
       ),
