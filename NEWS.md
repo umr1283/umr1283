@@ -1,5 +1,7 @@
 # umr1283 (development version)
 
+* In `DESCRIPTION`,
+    + Remove unnecessary `LazyData` field.
 * In `R/use_targets.R`, 
     + Fix typo/bug in `_targets.R` template script.
     + Edit `.Rprofile` (if it exists) with shortcut for targets.
