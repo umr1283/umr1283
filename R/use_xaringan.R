@@ -24,7 +24,7 @@ use_xaringan <- function(
   stopifnot(all(file.copy(
     from = list.files(
       path = temp_git_dir,
-      pattern = "assets|.Rmd$",
+      pattern = "assets|umr1283_8199.Rmd$",
       full.names = TRUE
     ),
     to = proj,

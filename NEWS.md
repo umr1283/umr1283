@@ -1,5 +1,8 @@
 # umr1283 (development version)
 
+* In `R/use_xaringan.R`, 
+    + Avoid copying `README.Rmd`.
+
 # umr1283 1.2.2
 
 * In `DESCRIPTION`,
