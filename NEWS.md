@@ -1,13 +1,16 @@
 # umr1283 (development version)
 
-* In `R/use_xaringan.R`, 
+* In `DESCRIPTION`,
+    + Remove "RStudio" from title.
+
+* In `R/use_xaringan.R`,
     + Avoid copying `README.Rmd`.
 
 # umr1283 1.2.2
 
 * In `DESCRIPTION`,
     + Remove unnecessary `LazyData` field.
-* In `R/use_targets.R`, 
+* In `R/use_targets.R`,
     + Fix typo/bug in `_targets.R` template script.
     + Edit `.Rprofile` (if it exists) with shortcut for targets.
 
@@ -19,35 +22,35 @@
 
 # umr1283 1.2.0
 
-* In `R/use_xaringan.R`, 
+* In `R/use_xaringan.R`,
     + Download `xaringan` (https://github.com/umr1283/xaringan-template) template to `scripts/slides`.
-* In `R/migrate_project.R`, 
+* In `R/migrate_project.R`,
     + Fix typo.
-* In `R/use_targets.R`, 
+* In `R/use_targets.R`,
     + Fix typo.
-* In `R/use_python.R`, 
+* In `R/use_python.R`,
     + Fix typo.
 
 # umr1283 1.1.4
 
-* In `R/use_targets.R`, 
+* In `R/use_targets.R`,
     + Improve default targets R script skeleton.
     + Add default targets script launcher.
 * In `R/use_rprofile.R`,
     + Add `targets` package in `.Rprofile`,
-        if in interactive session and installed 
+        if in interactive session and installed
         (locally or system-wide depending on the project setup).
 
 # umr1283 1.1.3
 
-* In `R/use_affiliation.R`, 
+* In `R/use_affiliation.R`,
     + Split in two.
 * In `R/use_readme.R`,
     + Use bullets list for affiliation.
 
 # umr1283 1.1.2
 
-* In `R/use_targets.R`, 
+* In `R/use_targets.R`,
     + Improve default targets R script to better work with Docker.
 * In `inst/fex/fexsend`,
     + Fix permission.
@@ -55,16 +58,16 @@
 # umr1283 1.1.1
 
 * In `DESCRIPTION`,
-    + Define `markdown` format for `roxygen2` documentation. 
-* In `R/create_project.R`, 
+    + Define `markdown` format for `roxygen2` documentation.
+* In `R/create_project.R`,
     + Improve description.
-* In `R/migrate_project.R`, 
+* In `R/migrate_project.R`,
     + Improve description.
-* In `R/use_affiliation.R`, 
+* In `R/use_affiliation.R`,
     + Improve description.
-* In `R/use_targets.R`, 
+* In `R/use_targets.R`,
     + Improve description.
-* In `R/use_python.R`, 
+* In `R/use_python.R`,
     + Improve description.
 
 # umr1283 1.1.0
@@ -73,13 +76,13 @@
     + Add `prompt` in `Suggests`.
 * In `R/use_rprofile.R`,
     + Add `prompt` package in `.Rprofile`,
-        if in interactive session and installed 
+        if in interactive session and installed
         (locally or system-wide depending on the project setup).
     + Add `gert` package in `.Rprofile`,
-        if in interactive session and installed 
+        if in interactive session and installed
         (locally or system-wide depending on the project setup).
 * In `R/use_dir_structure.R`,
-    + Only load `targets`, if in interactive session and installed 
+    + Only load `targets`, if in interactive session and installed
         (locally or system-wide depending on the project setup).
 * In `R/fex.R`,
     + New function to upload file(s) using fexsend.
@@ -111,9 +114,9 @@
     + Add support for `renv::use_python()`.
     + Refactoring using use_* functions.
 * In `R/use_targets.R`,
-    + Create directory structure required for `targets`. 
+    + Create directory structure required for `targets`.
 * In `R/use_python.R`,
-    + Create directory structure required for `reticulate` and `Python` within `renv`. 
+    + Create directory structure required for `reticulate` and `Python` within `renv`.
 * In `R/use_affiliation.R`,
     + Add function to get current affiliation.
 * Remove [rmarkdown templates](inst/rmarkdown/templates).
@@ -224,7 +227,7 @@
 # umr1283 0.4.0
 
 * Add a `logs` directory.
-   
+
    ```
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
@@ -237,7 +240,7 @@
     ├── .gitignore
     └── test.Rproj
     ```
-    
+
 * Fix some style in `README.md` file.
 
 # umr1283 0.3.0
@@ -256,7 +259,7 @@
 
 * Added a `NEWS.md` file to track changes to the package.
 * Added a RStudio project template `UMR 1283 - RStudio Project Templates`.
-    
+
     ```
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
@@ -268,7 +271,7 @@
     ├── .gitignore
     └── test.Rproj
     ```
-    
+
 * Added Rmarkdown templates for:
     - ioslides - `UMR 1283 - ioslides`.
     - PowerPoint - `UMR 1283 - PowerPoint`.
