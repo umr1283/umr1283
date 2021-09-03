@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.2.3
 
 * In `DESCRIPTION`,
     + Remove "RStudio" from title.
