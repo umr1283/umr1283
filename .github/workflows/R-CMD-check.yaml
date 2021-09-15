@@ -39,6 +39,10 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - name: Install macOS system dependencies
+        if: runner.os == 'macOS'
+        run: brew install libgit2
+
       - name: Install pak and query dependencies
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
