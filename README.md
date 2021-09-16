@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![GitHub
 tag](https://img.shields.io/github/tag/umr1283/umr1283.svg?label=latest%20tag&include_prereleases)](https://github.com/umr1283/umr1283)
-[![R-CMD-check](https://github.com/umr1283/umr1283/workflows/R-CMD-check/badge.svg)](https://github.com/umr1283/umr1283/actions)
+[![R-CMD-check](https://github.com/umr1283/umr1283/actions/workflows/check-pak.yaml/badge.svg)](https://github.com/umr1283/umr1283/actions/workflows/check-pak.yaml)
 <!-- badges: end -->
 
 You can install `umr1283` with:
@@ -20,7 +20,7 @@ remotes::install_github("umr1283/umr1283")
 
 ![](man/figures/readme-project.png)
 
-------------------------------------------------------------------------
+-----
 
 ## Getting help
 
