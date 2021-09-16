@@ -1,5 +1,10 @@
 # umr1283 (development version)
 
+* In `DESCRIPTION`,
+    + Tweak description and title.
+    + Tidy dependencies.
+    + Update packages.
+
 # umr1283 1.2.3
 
 * In `DESCRIPTION`,
