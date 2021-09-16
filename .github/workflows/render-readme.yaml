@@ -23,7 +23,7 @@ jobs:
         run: Rscript -e 'install.packages("rmarkdown")'
 
       - name: Render README.Rmd
-        run: Rscript -e 'if (file.exists("README.Rmd") && file.mtime("README.Rmd") > file.mtime("README.md")) rmarkdown::render("README.Rmd")'
+        run: Rscript -e 'if (file.exists("README.Rmd")) rmarkdown::render("README.Rmd")'
 
       - name: Commit results
         run: |
