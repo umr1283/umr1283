@@ -2,12 +2,12 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    paths: ['**.Rmd', '**/render-rmarkdown.yaml']
+    paths: ['**.Rmd', '**/render-readme.yaml']
 
-name: render-rmarkdown
+name: render-readme
 
 jobs:
-  render-rmarkdown:
+  render-rmarkreadmedown:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -22,18 +22,14 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
 
       - name: Install rmarkdown
-        run: install.packages("rmarkdown")
-        shell: Rscript {0}
-
-      - name: Render Rmarkdown files
         run: |
-          RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '[.]Rmd$'))
-          Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f)' ${RMD_PATH[*]}
+          install.packages("rmarkdown")
+          if (file.exists("README.Rmd") && file.mtime("README.Rmd") < file.mtime("README.md")) rmarkdown::render("README.Rmd")
+        shell: Rscript {0}
 
       - name: Commit results
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add ${RMD_PATH[*]/.Rmd/.md} || echo "No files to add"
-          git commit ${RMD_PATH[*]/.Rmd/.md} -m 'Re-build Rmarkdown files' || echo "No changes to commit"
+          git commit README.md -m 'Re-build README files' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
