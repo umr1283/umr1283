@@ -2,7 +2,7 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    paths: ['**.Rmd', '**/render-readme.yaml']
+    paths: ['README.Rmd', '**/render-readme.yaml']
 
 name: render-readme
 
@@ -14,23 +14,20 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       - uses: r-lib/actions/setup-pandoc@v1
 
       - uses: r-lib/actions/setup-r@v1
 
-      - name: Install rmarkdown and render README.Rmd
-        run: |
-          install.packages("rmarkdown")
-          if (file.exists("README.Rmd") && file.mtime("README.Rmd") < file.mtime("README.md")) rmarkdown::render("README.Rmd")
-        shell: Rscript {0}
+      - name: Install rmarkdown
+        run: Rscript -e 'install.packages("rmarkdown")''
+
+      - name: Render README.Rmd
+        run: Rscript -r 'if (file.exists("README.Rmd") && file.mtime("README.Rmd") > file.mtime("README.md")) rmarkdown::render("README.Rmd")'
 
       - name: Commit results
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add README.md || echo "No file to add"
-          git commit README.md -m 'Re-build README files' || echo "No changes to commit"
+          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
