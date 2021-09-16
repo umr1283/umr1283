@@ -20,7 +20,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
 
       - name: Install rmarkdown
-        run: Rscript -e 'install.packages("rmarkdown")''
+        run: Rscript -e 'install.packages("rmarkdown")'
 
       - name: Render README.Rmd
         run: Rscript -r 'if (file.exists("README.Rmd") && file.mtime("README.Rmd") > file.mtime("README.md")) rmarkdown::render("README.Rmd")'
