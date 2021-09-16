@@ -21,7 +21,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r@v1
 
-      - name: Install rmarkdown
+      - name: Install rmarkdown and render README.Rmd
         run: |
           install.packages("rmarkdown")
           if (file.exists("README.Rmd") && file.mtime("README.Rmd") < file.mtime("README.md")) rmarkdown::render("README.Rmd")
@@ -31,5 +31,6 @@ jobs:
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add README.md || echo "No file to add"
           git commit README.md -m 'Re-build README files' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
