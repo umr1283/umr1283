@@ -9,7 +9,6 @@
 
 * In `DESCRIPTION`,
     + Remove "RStudio" from title.
-
 * In `R/use_xaringan.R`,
     + Avoid copying `README.Rmd`.
 
