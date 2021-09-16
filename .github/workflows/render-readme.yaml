@@ -7,7 +7,7 @@ on:
 name: render-readme
 
 jobs:
-  render-rmarkreadmedown:
+  render-readme:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
