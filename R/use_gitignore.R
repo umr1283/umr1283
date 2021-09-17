@@ -14,7 +14,8 @@ use_gitignore <- function(project = ".") {
           "_targets",
           "outputs",
           "logs",
-          "reports"
+          "reports",
+          "core"
         )
       )
     } else {

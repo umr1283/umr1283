@@ -4,6 +4,8 @@
     + Tweak description and title.
     + Tidy dependencies.
     + Update packages.
+* In `R/use_gitignore.R`,
+    + Add "core".
 
 # umr1283 1.2.3
 
