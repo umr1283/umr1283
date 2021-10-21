@@ -58,7 +58,7 @@ create_project <- function(
 
   withr::with_dir(new = project, code = {
     invisible(sapply(
-      X = c("docs", "reports", "scripts", "logs", "renv"),
+      X = c("data", "docs", "reports", "scripts", "logs", "renv"),
       FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
     ))
 
