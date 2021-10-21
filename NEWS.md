@@ -6,6 +6,12 @@
     + Update packages.
 * In `R/use_gitignore.R`,
     + Add "core".
+* In `R/use_git.R`,
+    + Do not do anything if `.git` directory exists.
+* In `R/use_dir_structure.R`,
+    + Do not do anything if `.Rprofile` contains `source("renv/activate.R")`.
+* In `R/create_project.R`,
+    + Add "data" directory.
 
 # umr1283 1.2.3
 
