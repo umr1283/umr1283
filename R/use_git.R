@@ -3,6 +3,10 @@ use_git <- function(project = ".", git_repository) {
   proj <- normalizePath(project, mustWork = FALSE)
 
   withr::with_dir(new = proj, {
+    if (dir.exists(".git"))  {
+      message('".git" already exists! Nothing was done!')
+      return(TRUE)
+    }
     if (dir.exists("renv")) {
       if (nchar(system.file(package = "gert")) == 0) {
         renv::install("gert", prompt = FALSE)
