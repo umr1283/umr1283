@@ -5,6 +5,13 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
   callr::r(
     func = function(.project, working_directory, targets, python, git_repository, repos, use_targets, use_python, use_rprofile) {
       withr::with_dir(.project, {
+        if (
+          file.exists(file.path(.project, ".Rprofile")) &&
+            grepl('source("renv/activate.R")', readLines(file.path(.project, ".Rprofile")))
+        ) {
+          message('".Rprofile" already exists! Nothing was done!')
+          return(TRUE)
+        }
         use_rprofile()
 
         renv::scaffold(repos = repos)
