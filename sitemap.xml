@@ -1,54 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://umr1283.github.io/umr1283/404.html</loc>
+    <loc>https://umr1283.github.io/umr1283//index.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/CODE_OF_CONDUCT.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/create_project.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/CONTRIBUTING.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/fex.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/LICENSE-text.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/migrate_project.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/LICENSE.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/use_affiliation.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/SUPPORT.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/use_python.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/authors.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/use_targets.html</loc>
   </url>
   <url>
-    <loc>https://umr1283.github.io/umr1283/index.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/create_project.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/fex.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/migrate_project.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/use_affiliation.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/use_python.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/use_targets.html</loc>
-  </url>
-  <url>
-    <loc>https://umr1283.github.io/umr1283/reference/use_xaringan.html</loc>
+    <loc>https://umr1283.github.io/umr1283//reference/use_xaringan.html</loc>
   </url>
 </urlset>
