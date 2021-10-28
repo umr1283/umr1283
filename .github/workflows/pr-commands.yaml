@@ -4,7 +4,7 @@ on:
   issue_comment:
     types: [created]
 
-name: Commands
+name: PR-Commands
 
 jobs:
   document:
