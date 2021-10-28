@@ -4,7 +4,6 @@ on:
   push:
     branches: [main, master]
     tags: ['*']
-    paths: ['README.md']
   workflow_dispatch:
 
 name: pkgdown
