@@ -5,7 +5,7 @@ authors:
     href: http://www.good.cnrs.fr/
 url: https://umr1283.github.io/umr1283/
 template:
-  bootstrap: 4
+  bootstrap: 5
   bootswatch: minty
   bslib:
     bg: "#ffffff"
