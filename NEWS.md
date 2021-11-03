@@ -1,3 +1,8 @@
+# umr1283 1.3.1
+
+* In `inst/fex/fexsend`,
+    + Updated `fexsend` (http://fex.belwue.de/download/fexsend).
+
 # umr1283 1.3.0
 
 * In `DESCRIPTION`,
