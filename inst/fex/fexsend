@@ -15,7 +15,6 @@ use Config;
 use Socket;
 use IO::Handle;
 use IO::Socket::INET;
-use IO::Socket::SSL;
 use Getopt::Std;
 use File::Basename;
 use Term::ReadLine;
