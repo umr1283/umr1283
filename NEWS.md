@@ -2,6 +2,8 @@
 
 * In `inst/fex/fexsend`,
     + Updated `fexsend` (http://fex.belwue.de/download/fexsend).
+* In `DESCRIPTION`,
+    + Add `SystemRequirements` for fexsend.
 
 # umr1283 1.3.0
 
