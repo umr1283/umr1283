@@ -1,3 +1,11 @@
+# umr1283 (development version)
+
+* In `R/use_dir_structure.R`,
+    + No longer try to install `BiocManager` or `here` by default.
+    + Install `here` and `tarchetypes` by default when `targets` is required.
+* In `R/use_ependencies.R`,
+    + Create empty file, i.e., without `# library("BiocManager")`.
+
 # umr1283 1.3.1
 
 * In `inst/fex/fexsend`,
