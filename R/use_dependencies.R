@@ -5,7 +5,7 @@ use_dependencies <- function(project = ".") {
   withr::with_dir(proj, {
     file <- "scripts/_dependencies.R"
     if (!file.exists(file)) {
-      writeLines(con = file, text = '# library("BiocManager")')
+      file.create(file)
     } else {
       message(sprintf('"%s" already exists! Nothing was done!', file))
     }
