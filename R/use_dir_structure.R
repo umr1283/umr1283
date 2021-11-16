@@ -16,7 +16,6 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
 
         renv::scaffold(repos = repos)
         renv::activate()
-        renv::install(packages = c("here", "BiocManager"), prompt = FALSE)
 
         # Targets
         if (targets) {
