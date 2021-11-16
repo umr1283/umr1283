@@ -16,7 +16,7 @@ use_readme <- function(analyst_name, project = ".") {
         sep = "\n\n"
       )
     } else {
-      message(sprintf('"%s" already exists! Nothing was done!', file))
+      message(sprintf("\"%s\" already exists! Nothing was done!", file))
     }
   })
   invisible(TRUE)

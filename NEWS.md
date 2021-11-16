@@ -1,5 +1,7 @@
 # umr1283 (development version)
 
+* In `R/*`,
+    + Fix `lintr` warnings.
 * In `R/use_dir_structure.R`,
     + No longer try to install `BiocManager` or `here` by default.
     + Install `here` and `tarchetypes` by default when `targets` is required.

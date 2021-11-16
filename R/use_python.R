@@ -13,7 +13,7 @@ use_python <- function(project = ".", working_directory = "/disks/DATATMP", type
 
   withr::with_dir(proj, {
     if (nchar(system.file(package = "renv")) == 0) {
-      stop('"renv" is not installed!\ninstall.packages("renv") to install it.')
+      stop("\"renv\" is not installed!\ninstall.packages(\"renv\") to install it.")
     }
 
     dir.create(

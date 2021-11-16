@@ -4,7 +4,7 @@ use_git <- function(project = ".", git_repository) {
 
   withr::with_dir(new = proj, {
     if (dir.exists(".git"))  {
-      message('".git" already exists! Nothing was done!')
+      message("\".git\" already exists! Nothing was done!")
       return(TRUE)
     }
     if (dir.exists("renv")) {
@@ -19,7 +19,7 @@ use_git <- function(project = ".", git_repository) {
 
     gert::git_add(files = "*")
     if (!gert::user_is_configured()) {
-      stop('"user.name" and/or "user.email" are not set locally or globally. See ?gert::git_config().')
+      stop("\"user.name\" and/or \"user.email\" are not set locally or globally. See ?gert::git_config().")
     }
 
     gert::git_commit_all(message = "create project")

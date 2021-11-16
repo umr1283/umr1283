@@ -7,7 +7,7 @@ use_dependencies <- function(project = ".") {
     if (!file.exists(file)) {
       file.create(file)
     } else {
-      message(sprintf('"%s" already exists! Nothing was done!', file))
+      message(sprintf("\"%s\" already exists! Nothing was done!", file))
     }
   })
   invisible(TRUE)

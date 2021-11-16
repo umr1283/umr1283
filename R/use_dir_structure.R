@@ -3,7 +3,17 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
   proj <- normalizePath(project, mustWork = FALSE)
 
   callr::r(
-    func = function(.project, working_directory, targets, python, git_repository, repos, use_targets, use_python, use_rprofile) {
+    func = function(
+      .project,
+      working_directory,
+      targets,
+      python,
+      git_repository,
+      repos,
+      use_targets,
+      use_python,
+      use_rprofile
+    ) {
       withr::with_dir(.project, {
         if (
           file.exists(file.path(.project, ".Rprofile")) &&
