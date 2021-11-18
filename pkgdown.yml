@@ -1,8 +1,8 @@
 pandoc: 2.7.3
 pkgdown: 1.9000.9000.9000
-pkgdown_sha: 0bc5310814c9c7781c315f7f5c3f6e97a3135540
+pkgdown_sha: e72fc30f333dc4f50f3f9d1f274fc29d67e34974
 articles: {}
-last_built: 2021-11-16T14:44Z
+last_built: 2021-11-18T11:16Z
 urls:
   reference: https://umr1283.github.io/umr1283/reference
   article: https://umr1283.github.io/umr1283/articles
