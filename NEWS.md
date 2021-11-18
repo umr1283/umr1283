@@ -1,3 +1,13 @@
+# umr1283 (development version)
+
+* In `R/create_project.R`,
+    + Remove library symbolic link.
+* In `R/use_gitignore.R`,
+    + No longer exclude reports directory by default.
+    + Exclude renv directory properly.
+* In `R/use_rprofile.R`,
+    + No longer load `gert` by default (if installed).
+
 # umr1283 1.4.0
 
 * In `R/*`,
