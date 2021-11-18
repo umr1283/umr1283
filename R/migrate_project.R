@@ -58,9 +58,8 @@ migrate_project <- function(
       }
     ))
     unlink("outputs")
-    dir.create(path = file.path(proj_wd, "library"), recursive = TRUE, showWarnings = FALSE, mode = "0775")
+    dir.create(path = proj_wd, recursive = TRUE, showWarnings = FALSE, mode = "0775")
     file.symlink(from = file.path(proj_wd, "outputs"), to = "outputs")
-    file.symlink(from = file.path(proj_wd, "library"), to = "renv/library")
 
     use_dependencies()
 
