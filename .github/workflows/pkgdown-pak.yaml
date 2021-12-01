@@ -23,16 +23,9 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v1
-
-      # TODO: remove this when https://github.com/r-lib/actions/issues/386 is fixed
-      - name: Install website dependencies
-        shell: Rscript {0}
-        run: |
-          needs <- pak::local_dev_deps(dependencies = "Config/Needs/website")[["ref"]]
-          for (dep in needs) {
-            pak::pkg_system_requirements(dep, execute = TRUE)
-          }
-          pak::pkg_install(needs)
+        with:
+          extra-packages: pkgdown
+          needs: website
 
       - name: Deploy package
         run: |
