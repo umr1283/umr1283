@@ -1,3 +1,19 @@
+# umr1283 1.5.1
+
+* In `R/create_project.R`,
+    + Add check before creating symbolic link.
+* In `R/migrate_project.R`,
+    + Add check before creating symbolic link.
+* In `R/use_dir_structure.R`,
+    + Add check before creating symbolic link.
+    + No longer install R packages, but add a message to install them manually.
+* In `R/use_git.R`,
+    + Add check before creating symbolic link.
+* In `R/use_python.R`,
+    + Add check before creating symbolic link.
+* In `R/targets.R`,
+    + Add check before creating symbolic link.
+
 # umr1283 1.5.0
 
 * In `R/create_project.R`,

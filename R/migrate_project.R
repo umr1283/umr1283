@@ -59,7 +59,9 @@ migrate_project <- function(
     ))
     unlink("outputs")
     dir.create(path = proj_wd, recursive = TRUE, showWarnings = FALSE, mode = "0775")
-    file.symlink(from = file.path(proj_wd, "outputs"), to = "outputs")
+    if (!dir.exists("outputs")) {
+      file.symlink(from = file.path(proj_wd, "outputs"), to = "outputs")
+    }
 
     use_dependencies()
 

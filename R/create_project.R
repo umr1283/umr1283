@@ -51,10 +51,12 @@ create_project <- function(
     current_repos <- list(CRAN = "https://cloud.r-project.org/")
   }
 
-  dir.create(
-    path = project,
-    recursive = TRUE, showWarnings = FALSE, mode = "0775"
-  )
+  if (!dir.exists(project)) {
+    dir.create(
+      path = project,
+      recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    )
+  }
 
   withr::with_dir(new = project, code = {
     invisible(sapply(
@@ -67,10 +69,12 @@ create_project <- function(
       FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
     ))
 
-    invisible(file.symlink(
-      from = file.path(working_directory, basename(project), "outputs"),
-      to = "outputs"
-    ))
+    if (!dir.exists("outputs")) {
+      invisible(file.symlink(
+        from = file.path(working_directory, basename(project), "outputs"),
+        to = "outputs"
+      ))
+    }
 
     use_rproj()
 

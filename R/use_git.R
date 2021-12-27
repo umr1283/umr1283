@@ -9,7 +9,9 @@ use_git <- function(project = ".", git_repository) {
     }
     if (dir.exists("renv")) {
       if (nchar(system.file(package = "gert")) == 0) {
+        message("Installing `gert` ...")
         renv::install("gert", prompt = FALSE)
+        message("`gert` installed!")
         renv::snapshot(type = "all", prompt = FALSE)
       }
     }

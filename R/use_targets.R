@@ -19,10 +19,12 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
       path = file.path(working_directory, basename(proj), "_targets"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
-    file.symlink(
-      from = file.path(working_directory, basename(proj), "_targets"),
-      to = file.path(proj, "_targets")
-    )
+    if (!dir.exists(file.path(proj, "_targets"))) {
+      file.symlink(
+        from = file.path(working_directory, basename(proj), "_targets"),
+        to = file.path(proj, "_targets")
+      )
+    }
     cat("_targets\n", file = file.path(proj, ".gitignore"), append = TRUE)
 
     writeLines(

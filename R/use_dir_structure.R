@@ -29,7 +29,8 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
 
         # Targets
         if (targets) {
-          renv::install(packages = c("here", "targets", "tarchetypes", "visNetwork"), prompt = FALSE)
+          message("Please install the following R packages within the project ...")
+          message('  renv::install(packages = c("here", "targets", "tarchetypes", "visNetwork"), prompt = FALSE)')
           use_targets(working_directory = working_directory)
         }
 

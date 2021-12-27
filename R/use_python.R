@@ -20,10 +20,12 @@ use_python <- function(project = ".", working_directory = "/disks/DATATMP", type
       path = file.path(working_directory, basename(proj), "python"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
-    file.symlink(
-      from = file.path(working_directory, basename(proj), "python"),
-      to = file.path(".", "renv", "python")
-    )
+    if (!dir.exists(file.path(".", "renv", "python"))) {
+      file.symlink(
+        from = file.path(working_directory, basename(proj), "python"),
+        to = file.path(".", "renv", "python")
+      )
+    }
 
     renv::use_python(type = type)
   })
