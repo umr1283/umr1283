@@ -3,14 +3,16 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body>
-    <a href="#container" class="visually-hidden-focusable">Skip to contents</a>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    
     <a class="navbar-brand me-2" href="../index.html">umr1283</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.1.9000</small>
 
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,17 +34,56 @@
   </a>
 </li>
       </ul></div>
+
+    
   </div>
-</nav><div class="container template-news" id="container">
+</nav><div class="container template-news">
 <div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
       <small>Source: <a href="https://github.com/umr1283/umr1283/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="umr1283-development-version">umr1283 (development version)<a class="anchor" aria-label="anchor" href="#umr1283-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.1" id="umr1283-151">umr1283 1.5.1<a class="anchor" aria-label="anchor" href="#umr1283-151"></a></h2>
+<ul><li>In <code>R/create_project.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+</ul></li>
+<li>In <code>R/migrate_project.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+</ul></li>
+<li>In <code>R/use_dir_structure.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+<li>No longer install R packages, but add a message to install them manually.</li>
+</ul></li>
+<li>In <code>R/use_git.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+</ul></li>
+<li>In <code>R/use_python.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+</ul></li>
+<li>In <code>R/targets.R</code>,
+<ul><li>Add check before creating symbolic link.</li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.0" id="umr1283-150">umr1283 1.5.0<a class="anchor" aria-label="anchor" href="#umr1283-150"></a></h2>
+<ul><li>In <code>R/create_project.R</code>,
+<ul><li>Remove library symbolic link.</li>
+</ul></li>
+<li>In <code>R/use_gitignore.R</code>,
+<ul><li>No longer exclude reports directory by default.</li>
+<li>Exclude renv directory properly.</li>
+</ul></li>
+<li>In <code>R/use_rprofile.R</code>,
+<ul><li>No longer load <code>gert</code> by default (if installed).</li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.0" id="umr1283-140">umr1283 1.4.0<a class="anchor" aria-label="anchor" href="#umr1283-140"></a></h2>
 <ul><li>In <code>R/*</code>,
 <ul><li>Fix <code>lintr</code> warnings.</li>
 </ul></li>
@@ -50,7 +91,7 @@
 <ul><li>No longer try to install <code>BiocManager</code> or <code>here</code> by default.</li>
 <li>Install <code>here</code> and <code>tarchetypes</code> by default when <code>targets</code> is required.</li>
 </ul></li>
-<li>In <code>R/use_ependencies.R</code>,
+<li>In <code>R/use_dependencies.R</code>,
 <ul><li>Create empty file, i.e., without <code># library("BiocManager")</code>.</li>
 </ul></li>
 </ul></div>
@@ -210,14 +251,14 @@
 <li>Allow to not use MRAN for new project (default).</li>
 <li>Add support for <code><a href="https://rstudio.github.io/renv/reference/use_python.html" class="external-link">renv::use_python()</a></code>.</li>
 <li>Add support for <code>targets</code>.</li>
-<li>Refactoring using use_* functions.</li>
+<li>Refactoring using use_- functions.</li>
 </ul></li>
 <li>In <code>R/migrate_project.R</code>,
 <ul><li>Set <code>BiocManager</code> to use MRAN with new option as of <code>v1.30.12</code>.</li>
 <li>Install <code>here</code> using <code>renv</code> by default.</li>
 <li>Set umask to <code>0002</code>.</li>
 <li>Add support for <code><a href="https://rstudio.github.io/renv/reference/use_python.html" class="external-link">renv::use_python()</a></code>.</li>
-<li>Refactoring using use_* functions.</li>
+<li>Refactoring using use_- functions.</li>
 </ul></li>
 <li>In <code>R/use_targets.R</code>,
 <ul><li>Create directory structure required for <code>targets</code>.</li>
@@ -351,16 +392,16 @@
 <h2 class="pkg-version" data-toc-text="0.4.0" id="umr1283-040">umr1283 0.4.0<a class="anchor" aria-label="anchor" href="#umr1283-040"></a></h2>
 <ul><li>
 <p>Add a <code>logs</code> directory.</p>
-<pre><code> /disks/PROJECT/test
- ├── data -&gt; /disks/DATATMP/test
- ├── docs
- ├── logs
- ├── reports
- ├── scripts
- ├── README.md
- ├── .git
- ├── .gitignore
- └── test.Rproj</code></pre>
+<pre><code>/disks/PROJECT/test
+├── data -&gt; /disks/DATATMP/test
+├── docs
+├── logs
+├── reports
+├── scripts
+├── README.md
+├── .git
+├── .gitignore
+└── test.Rproj</code></pre>
 </li>
 <li><p>Fix some style in <code>README.md</code> file.</p></li>
 </ul></div>
@@ -403,13 +444,8 @@
 <li>qc_impute - <code>UMR 1283 - QC Imputation (VCF)</code>.</li>
 </ul></li>
 </ul></div>
-  </div>
-
-  <div class="col-md-3" id="pkgdown-sidebar">
-    <nav id="toc"><h2>On this page</h2>
-    </nav></div>
-
-</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
@@ -417,7 +453,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
     </footer></div>
