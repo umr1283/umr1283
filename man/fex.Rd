@@ -18,7 +18,7 @@ Default \code{"20XX-XX-XX_archive.zip"}.}
 The URL of the upload file.
 }
 \description{
-Documentation available at https://fex.belwue.de/fstools/fexsend.html
+Documentation available at \url{https://fex.belwue.de/fstools/fexsend.html}
 }
 \examples{
 

@@ -1,5 +1,8 @@
 # umr1283 (development version)
 
+- In `R/fex.R`,
+  - Fix URL for `pkgdown` website.
+
 # umr1283 1.5.1
 
 - In `R/create_project.R`,
