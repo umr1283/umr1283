@@ -65,7 +65,7 @@ create_project <- function(
     ))
 
     dir.create(
-      path =  file.path(working_directory, basename(project), "library"), 
+      path = file.path(working_directory, basename(project), "outputs"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
 
