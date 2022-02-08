@@ -9,7 +9,7 @@
 #' @export
 use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...) {
   if (nchar(system.file(package = "targets")) == 0) {
-    warning('"targets" is not installed!\nrenv::install(c("targets", "visNetwork")) to install it.')
+    warning('"targets" is not installed!\nrenv::install(c("targets", "gittargets", "visNetwork")) to install it.')
   }
 
   proj <- normalizePath(project, mustWork = FALSE)
