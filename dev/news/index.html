@@ -50,8 +50,23 @@
 <ul><li>Fix URL for <code>pkgdown</code> website.</li>
 </ul></li>
 <li>In <code>R/create_project.R</code>,
-<ul><li>No longer create external <code>renv</code> “library” directory.</li>
-<li>Use a dedicated directory for <code>slides</code>.</li>
+<ul><li><p>No longer create external <code>renv</code> “library” directory.</p></li>
+<li>
+<p>Use a dedicated directory for <code>slides</code>.</p>
+<pre class="text"><code>/disks/PROJECT/project
+├── data
+├── docs
+├── scripts
+│   └── _dependencies.R
+├── reports
+├── slides
+├── outputs (symlink to /disks/DATATMP/project/outputs)
+├── logs
+├── renv
+├── README.md
+├── renv.lock
+└── project.Rproj</code></pre>
+</li>
 </ul></li>
 <li>In <code>R/use_targets.R</code>,
 <ul><li>Add <code>gittargets</code>.</li>
@@ -383,7 +398,7 @@
 <h2 class="pkg-version" data-toc-text="0.6.0" id="umr1283-060">umr1283 0.6.0<a class="anchor" aria-label="anchor" href="#umr1283-060"></a></h2>
 <ul><li>
 <p>Rename <code>data</code> to <code>outputs</code>.</p>
-<pre><code>/disks/PROJECT/test
+<pre class="text"><code>/disks/PROJECT/test
 ├── outputs -&gt; /disks/DATATMP/test
 ├── docs
 ├── logs
@@ -409,7 +424,7 @@
 <h2 class="pkg-version" data-toc-text="0.4.0" id="umr1283-040">umr1283 0.4.0<a class="anchor" aria-label="anchor" href="#umr1283-040"></a></h2>
 <ul><li>
 <p>Add a <code>logs</code> directory.</p>
-<pre><code>/disks/PROJECT/test
+<pre class="text"><code>/disks/PROJECT/test
 ├── data -&gt; /disks/DATATMP/test
 ├── docs
 ├── logs
@@ -441,7 +456,7 @@
 <ul><li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
 <li>
 <p>Added a RStudio project template <code>UMR 1283 - RStudio Project Templates</code>.</p>
-<pre><code>/disks/PROJECT/test
+<pre class="text"><code>/disks/PROJECT/test
 ├── data -&gt; /disks/DATATMP/test
 ├── docs
 ├── reports
