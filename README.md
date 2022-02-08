@@ -21,19 +21,21 @@ remotes::install_github("umr1283/umr1283")
 The default project directory from `umr1283::create_project` (compatible
 with RStudio Project Wizard) is as follow:
 
-    .
-    ├── data
-    ├── docs
-    ├── scripts
-    │   └── _dependencies.R
-    ├── reports
-    ├── slides
-    ├── outputs (symlink)
-    ├── logs
-    ├── renv
-    ├── README.md
-    ├── renv.lock
-    └── project.Rproj
+``` text
+/disks/PROJECT/project
+├── data
+├── docs
+├── scripts
+│   └── _dependencies.R
+├── reports
+├── slides
+├── outputs (symlink to /disks/DATATMP/project/outputs)
+├── logs
+├── renv
+├── README.md
+├── renv.lock
+└── project.Rproj
+```
 
 ------------------------------------------------------------------------
 

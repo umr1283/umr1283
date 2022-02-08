@@ -5,6 +5,23 @@
 - In `R/create_project.R`,
   - No longer create external `renv` "library" directory.
   - Use a dedicated directory for `slides`.
+
+    ```text
+    /disks/PROJECT/project
+    ├── data
+    ├── docs
+    ├── scripts
+    │   └── _dependencies.R
+    ├── reports
+    ├── slides
+    ├── outputs (symlink to /disks/DATATMP/project/outputs)
+    ├── logs
+    ├── renv
+    ├── README.md
+    ├── renv.lock
+    └── project.Rproj
+    ```
+
 - In `R/use_targets.R`,
   - Add `gittargets`.
   - No longer use symbolic link for targets store.
@@ -273,7 +290,7 @@
 
 - Rename `data` to `outputs`.
 
-    ```
+    ```text
     /disks/PROJECT/test
     ├── outputs -> /disks/DATATMP/test
     ├── docs
@@ -300,7 +317,7 @@
 
 - Add a `logs` directory.
 
-    ```
+    ```text
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
     ├── docs
@@ -332,7 +349,7 @@
 - Added a `NEWS.md` file to track changes to the package.
 - Added a RStudio project template `UMR 1283 - RStudio Project Templates`.
 
-    ```
+    ```text
     /disks/PROJECT/test
     ├── data -> /disks/DATATMP/test
     ├── docs
