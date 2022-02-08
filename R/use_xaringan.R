@@ -10,7 +10,7 @@
 #'
 #' @export
 use_xaringan <- function(
-  path = "./scripts/slides",
+  path = "./slides",
   url = "https://github.com/umr1283/xaringan-template",
   overwrite = TRUE
 ) {
