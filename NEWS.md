@@ -2,6 +2,16 @@
 
 - In `R/fex.R`,
   - Fix URL for `pkgdown` website.
+- In `R/create_project.R`,
+  - No longer create external `renv` "library" directory.
+  - Use a dedicated directory for `slides`.
+- In `R/use_targets.R`,
+  - Add `gittargets`.
+  - No longer use symbolic link for targets store.
+- In `R/use_python.R`,
+  - No longer use symbolic link for python library.
+- In `R/use_xaringan.R`,
+  - Default directory to `slides` in the current working directory.
 
 # umr1283 1.5.1
 
