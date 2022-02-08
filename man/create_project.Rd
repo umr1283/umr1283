@@ -45,10 +45,10 @@ if (interactive()) {
     path = "/disks/PROJECT/_test_project",
     analyst_name = "Analyst Name",
     working_directory = "/disks/DATATMP",
-    git_repository = "http://gitlab.egid.local/BioStats",
+    git_repository = "http://gitlab.local/BioStats",
     mran = FALSE,
     targets = TRUE,
-    python = TRUE
+    python = FALSE
   )
 }
 }
