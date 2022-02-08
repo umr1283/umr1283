@@ -18,24 +18,22 @@ You can install `umr1283` with:
 remotes::install_github("umr1283/umr1283")
 ```
 
-![](man/figures/readme-project.png)
+The default project directory from `umr1283::create_project` (compatible
+with RStudio Project Wizard) is as follow:
 
     .
-    ├── README.md
     ├── data
     ├── docs
-    ├── logs
-    ├── outputs
-    ├── renv
-    │   ├── activate.R
-    │   ├── library
-    │   ├── local
-    │   └── staging
-    ├── renv.lock
-    ├── reports
     ├── scripts
     │   └── _dependencies.R
-    └── a_project.Rproj
+    ├── reports
+    ├── slides
+    ├── outputs
+    ├── logs
+    ├── renv
+    ├── README.md
+    ├── renv.lock
+    └── project.Rproj
 
 ------------------------------------------------------------------------
 
