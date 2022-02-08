@@ -16,15 +16,9 @@ use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...
 
   withr::with_dir(proj, {
     dir.create(
-      path = file.path(working_directory, basename(proj), "_targets"),
+      path = file.path(proj, "_targets"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
-    if (!dir.exists(file.path(proj, "_targets"))) {
-      file.symlink(
-        from = file.path(working_directory, basename(proj), "_targets"),
-        to = file.path(proj, "_targets")
-      )
-    }
     cat("_targets\n", file = file.path(proj, ".gitignore"), append = TRUE)
 
     writeLines(
