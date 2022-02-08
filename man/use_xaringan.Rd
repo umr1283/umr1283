@@ -5,7 +5,7 @@
 \title{Use Xaringan Template}
 \usage{
 use_xaringan(
-  path = "./scripts/slides",
+  path = "./slides",
   url = "https://github.com/umr1283/xaringan-template",
   overwrite = TRUE
 )
