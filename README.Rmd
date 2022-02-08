@@ -38,7 +38,7 @@ The default project directory from `umr1283::create_project` (compatible with RS
 │   └── _dependencies.R
 ├── reports
 ├── slides
-├── outputs
+├── outputs (symlink)
 ├── logs
 ├── renv
 ├── README.md

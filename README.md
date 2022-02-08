@@ -28,7 +28,7 @@ with RStudio Project Wizard) is as follow:
     │   └── _dependencies.R
     ├── reports
     ├── slides
-    ├── outputs
+    ├── outputs (symlink)
     ├── logs
     ├── renv
     ├── README.md
