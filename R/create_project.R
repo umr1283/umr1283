@@ -64,10 +64,10 @@ create_project <- function(
       FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
     ))
 
-    invisible(sapply(
-      X = file.path(working_directory, basename(project), c("outputs", "library")),
-      FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
-    ))
+    dir.create(
+      path =  file.path(working_directory, basename(project), "library"), 
+      recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    )
 
     if (!dir.exists("outputs")) {
       invisible(file.symlink(
