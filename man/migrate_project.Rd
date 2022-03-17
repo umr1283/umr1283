@@ -4,14 +4,7 @@
 \alias{migrate_project}
 \title{\strong{CAUTION REQUIRED}: Migrate from an old version of project to renv setup}
 \usage{
-migrate_project(
-  project = ".",
-  date,
-  working_directory,
-  targets = FALSE,
-  python = FALSE,
-  ...
-)
+migrate_project(project = ".", date, working_directory, targets = FALSE, ...)
 }
 \arguments{
 \item{project}{A character string. The path to a project.}
@@ -21,9 +14,6 @@ migrate_project(
 \item{working_directory}{A character string. The root path to the working directory of the project.}
 
 \item{targets}{A boolean. If \code{TRUE}, uses \code{use_targets()} to create directory tree for use with \code{targets}.
-Default is \code{FALSE}.}
-
-\item{python}{A boolean. If \code{TRUE}, uses \code{use_python()} to create \code{renv} directory tree for use with python.
 Default is \code{FALSE}.}
 
 \item{...}{not used}

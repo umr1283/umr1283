@@ -5,8 +5,6 @@
 #' @param working_directory A character string. The root path to the working directory of the project.
 #' @param targets A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
 #'     Default is `FALSE`.
-#' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
-#'     Default is `FALSE`.
 #' @param ... not used
 #'
 #' @return NULL
@@ -16,7 +14,6 @@ migrate_project <- function(
   date,
   working_directory,
   targets = FALSE,
-  python = FALSE,
   ...
 ) {
   warning("Please use this function with extreme caution!")
@@ -68,8 +65,7 @@ migrate_project <- function(
 
     use_dir_structure(
       repos = current_repos,
-      targets = targets,
-      python = python
+      targets = targets
     )
 
     use_group_permission()

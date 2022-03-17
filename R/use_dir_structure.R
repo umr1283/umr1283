@@ -1,16 +1,14 @@
 #' @keywords internal
-use_dir_structure <- function(project = ".", repos, targets, python) {
+use_dir_structure <- function(project = ".", repos, targets) {
   proj <- normalizePath(project, mustWork = FALSE)
 
   callr::r(
     func = function(
       .project,
       targets,
-      python,
       git_repository,
       repos,
       use_targets,
-      use_python,
       use_rprofile
     ) {
       withr::with_dir(.project, {
@@ -33,19 +31,14 @@ use_dir_structure <- function(project = ".", repos, targets, python) {
           use_targets()
         }
 
-        # Python
-        if (python) use_python()
-
         renv::snapshot(prompt = FALSE, type = "all")
       })
     },
     args = list(
       .project = proj,
       targets = targets,
-      python = python,
       repos = repos,
       use_targets = use_targets,
-      use_python = use_python,
       use_rprofile = use_rprofile
     ),
     repos = repos

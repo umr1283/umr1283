@@ -10,7 +10,6 @@ create_project(
   git_repository,
   mran = FALSE,
   targets = TRUE,
-  python = FALSE,
   xaringan = FALSE,
   working_directory = NULL,
   ...
@@ -28,9 +27,6 @@ Default is \code{FALSE}.}
 
 \item{targets}{A boolean. If \code{TRUE}, uses \code{use_targets()} to create directory tree for use with \code{targets}.
 Default is \code{TRUE}.}
-
-\item{python}{A boolean. If \code{TRUE}, uses \code{use_python()} to create \code{renv} directory tree for use with python.
-Default is \code{FALSE}.}
 
 \item{xaringan}{A boolean. If \code{TRUE}, uses \code{use_xaringan()} to create directory tree for use with \code{xaringan} template (\emph{i.e.}, "https://github.com/umr1283/xaringan-template").
 Default is \code{FALSE}.}
@@ -51,7 +47,6 @@ if (interactive()) {
     git_repository = "http://gitlab.local/BioStats",
     mran = FALSE,
     targets = TRUE,
-    python = FALSE,
     xaringan = FALSE,
     working_directory = NULL
   )

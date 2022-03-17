@@ -7,8 +7,6 @@
 #'     Default is `FALSE`.
 #' @param targets A boolean. If `TRUE`, uses `use_targets()` to create directory tree for use with `targets`.
 #'     Default is `TRUE`.
-#' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
-#'     Default is `FALSE`.
 #' @param xaringan A boolean. If `TRUE`, uses `use_xaringan()` to create directory tree for use with `xaringan` template (*i.e.*, "https://github.com/umr1283/xaringan-template").
 #'     Default is `FALSE`.
 #' @param working_directory A character string. If specified, a symbolic link to the working directory will be created in the project directory under `outputs`, otherwise (default), `outputs` is a directory.
@@ -25,7 +23,6 @@
 #'     git_repository = "http://gitlab.local/BioStats",
 #'     mran = FALSE,
 #'     targets = TRUE,
-#'     python = FALSE,
 #'     xaringan = FALSE,
 #'     working_directory = NULL
 #'   )
@@ -36,7 +33,6 @@ create_project <- function(
   git_repository,
   mran = FALSE,
   targets = TRUE,
-  python = FALSE,
   xaringan = FALSE,
   working_directory = NULL,
   ...
@@ -110,8 +106,7 @@ create_project <- function(
 
     use_dir_structure(
       repos = current_repos,
-      targets = targets,
-      python = python
+      targets = targets
     )
 
     use_group_permission()

@@ -23,12 +23,6 @@ Label: Use targets
 Default: On
 Position: right
 
-Parameter: python
-Widget: CheckboxInput
-Label: Use python
-Default: Off
-Position: right
-
 Parameter: xaringan
 Widget: CheckboxInput
 Label: Use xaringan
