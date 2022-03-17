@@ -2,7 +2,7 @@
 % Please edit documentation in R/migrate_project.R
 \name{migrate_project}
 \alias{migrate_project}
-\title{Migrate from an old version of project to renv setup}
+\title{\strong{CAUTION REQUIRED}: Migrate from an old version of project to renv setup}
 \usage{
 migrate_project(
   project = ".",
@@ -29,5 +29,5 @@ Default is \code{FALSE}.}
 \item{...}{not used}
 }
 \description{
-Migrate from an old version of project to renv setup
+\strong{CAUTION REQUIRED}: Migrate from an old version of project to renv setup
 }
