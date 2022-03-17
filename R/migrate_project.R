@@ -14,7 +14,7 @@
 migrate_project <- function(
   project = ".",
   date,
-  working_directory = "/disks/DATATMP",
+  working_directory,
   targets = FALSE,
   python = FALSE,
   ...
