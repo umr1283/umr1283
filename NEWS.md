@@ -1,3 +1,8 @@
+# umr1283 (development version)
+
+- In `R/use_rprofile.R`,
+  - Fix duplicated `targets` lines in `.Rprofile` (2f8c90b78749a02861fdaf7285364899abc10ec4).
+
 # umr1283 1.6.0
 
 - In `R/fex.R`,
