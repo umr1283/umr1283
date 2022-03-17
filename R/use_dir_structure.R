@@ -1,11 +1,10 @@
 #' @keywords internal
-use_dir_structure <- function(project = ".", working_directory, repos, targets, python) {
+use_dir_structure <- function(project = ".", repos, targets, python) {
   proj <- normalizePath(project, mustWork = FALSE)
 
   callr::r(
     func = function(
       .project,
-      working_directory,
       targets,
       python,
       git_repository,
@@ -31,7 +30,7 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
         if (targets) {
           message("Please install the following R packages within the project ...")
           message('  renv::install(packages = c("here", "targets", "tarchetypes", "visNetwork"), prompt = FALSE)')
-          use_targets(working_directory = working_directory)
+          use_targets()
         }
 
         # Python
@@ -42,7 +41,6 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
     },
     args = list(
       .project = proj,
-      working_directory = working_directory,
       targets = targets,
       python = python,
       repos = repos,
