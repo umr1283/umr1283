@@ -2,6 +2,9 @@
 
 - In `R/use_rprofile.R`,
   - Fix duplicated `targets` lines in `.Rprofile` (2f8c90b78749a02861fdaf7285364899abc10ec4).
+- In `R/use_rprofile.R`,
+  - Fix duplicated `.gitignore` entry for `targets` (c2cc1d51ee7b564fe27223a1e838637b8c096869).
+  - No longer exclude "outputs" and "logs" (c2cc1d51ee7b564fe27223a1e838637b8c096869).
 
 # umr1283 1.6.0
 
