@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.7.0
 
 ## Features
 
