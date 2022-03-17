@@ -2,7 +2,7 @@
 #'
 #' Setup directory structure for `targets`.
 #'
-#' @param path A character string. The path to a directory within a RStudio project.
+#' @param path A character string. The path to a directory within a project.
 #' @param url A character string. A remote url, that ypically starts with `https://github.com/` for public repositories,
 #'   and `https://yourname@github.com/` or `git@github.com/` for private repos.
 #'   You will be prompted for a password or pat when needed.

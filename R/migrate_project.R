@@ -1,4 +1,4 @@
-#' Migrate from an old version of RStudio project to renv setup
+#' Migrate from an old version of project to renv setup
 #'
 #' @param project A character string. The path to a RStudio project.
 #' @param date A character string. The date of the MRAN to use, *e.g.*, 2021-01-25.

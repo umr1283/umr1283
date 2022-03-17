@@ -2,7 +2,7 @@
 #'
 #' Setup directory structure for `python`.
 #'
-#' @param project A character string. The path to a (RStudio) project.
+#' @param project A character string. The path to a project.
 #' @param type Type of Python environment to use, see `renv::use_python` for details.
 #'
 #' @export
