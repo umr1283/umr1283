@@ -67,7 +67,6 @@ migrate_project <- function(
     use_dependencies()
 
     use_dir_structure(
-      working_directory = working_directory,
       repos = current_repos,
       targets = targets,
       python = python
