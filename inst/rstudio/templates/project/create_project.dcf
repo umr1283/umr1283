@@ -6,7 +6,6 @@ Parameter: working_directory
 Widget: TextInput
 Label: Working Directory
 Width: 100%
-Default: /disks/DATATMP
 
 Parameter: analyst_name
 Widget: TextInput
@@ -27,6 +26,12 @@ Position: right
 Parameter: python
 Widget: CheckboxInput
 Label: Use python
+Default: Off
+Position: right
+
+Parameter: xaringan
+Widget: CheckboxInput
+Label: Use xaringan
 Default: Off
 Position: right
 

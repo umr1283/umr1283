@@ -80,7 +80,7 @@ create_project <- function(
       )
     }
 
-    if (missing(working_directory)) {
+    if (is.null(working_directory) || working_directory == "") {
       dir.create(
         path = "outputs",
         recursive = TRUE, showWarnings = FALSE, mode = "0775"
