@@ -1,3 +1,13 @@
+# umr1283 (development version)
+
+## Breaking change
+
+- Remove Python wrapper. (3fedb3a961984d7b165a258e08e11d366794cb78)
+  - In `R/use_python.R`.
+  - In `R/create_project.R`.
+  - In `R/use_dir_structure.R`.
+  - In `R/migrate_project.R`.
+
 # umr1283 1.7.0
 
 ## Features
