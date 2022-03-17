@@ -5,6 +5,18 @@
 - In `R/use_rprofile.R`,
   - Fix duplicated `.gitignore` entry for `targets` (c2cc1d51ee7b564fe27223a1e838637b8c096869).
   - No longer exclude "outputs" and "logs" (c2cc1d51ee7b564fe27223a1e838637b8c096869).
+- In `R/use_python.R`,
+  - Fix unused arguments (fa21f5fbed0638c65da16c8146854b87bb8d73d2).
+- In `R/use_targets.R`,
+  - Fix unused arguments (13055f3cc8d3a0b5bee609cb4085329698824d42).
+- In `R/use_dir_structure.R`,
+  - Fix unused arguments (ab94c2499b4cb989f09adf0434c04c5b20719f51).
+- In `R/migrate_project.R`,
+  - Add a warning message to "discourage" the use of `migrate_project` (416e79a0d7499433efde68a13809cb8923e5bbe4).
+  - Remove default parameter value for `working_directory` (fc34b29d999ad1e631e5c37e4649b2ac4ff682fb).
+- In `R/create_project.R`,
+  - Allows to use directory within the project (when `working_directory` is `NULL` or `""`) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).
+  - Allows to install `slide` template when creating a project (37a417c20c391a1c66b4648fe55b5c7ea4d2bf7f).
 
 # umr1283 1.6.0
 
