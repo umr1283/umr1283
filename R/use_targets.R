@@ -3,11 +3,10 @@
 #' Setup directory structure for `targets`.
 #'
 #' @param project A character string. The path to a RStudio project.
-#' @param working_directory Path to the working temporary directory.
 #' @param ... Not used.
 #'
 #' @export
-use_targets <- function(project = ".", working_directory = "/disks/DATATMP", ...) {
+use_targets <- function(project = ".", ...) {
   if (nchar(system.file(package = "targets")) == 0) {
     warning('"targets" is not installed!\nrenv::install(c("targets", "gittargets", "visNetwork")) to install it.')
   }
