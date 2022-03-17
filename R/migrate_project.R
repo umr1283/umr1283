@@ -19,6 +19,7 @@ migrate_project <- function(
   python = FALSE,
   ...
 ) {
+  warning("Please use this function with extreme caution!")
   proj <- normalizePath(project, mustWork = FALSE)
 
   proj_wd <- file.path(working_directory, basename(proj))
