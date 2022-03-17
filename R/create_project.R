@@ -9,6 +9,8 @@
 #'     Default is `TRUE`.
 #' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 #'     Default is `FALSE`.
+#' @param xaringan A boolean. If `TRUE`, uses `use_xaringan()` to create directory tree for use with `xaringan` template (*i.e.*, "https://github.com/umr1283/xaringan-template").
+#'     Default is `FALSE`.
 #' @param working_directory A character string. If specified, a symbolic link to the working directory will be created in the project directory under `outputs`, otherwise (default), `outputs` is a directory.
 #' @param ... not used
 #'
@@ -24,6 +26,7 @@
 #'     mran = FALSE,
 #'     targets = TRUE,
 #'     python = FALSE,
+#'     xaringan = FALSE,
 #'     working_directory = NULL
 #'   )
 #' }
@@ -34,6 +37,7 @@ create_project <- function(
   mran = FALSE,
   targets = TRUE,
   python = FALSE,
+  xaringan = FALSE,
   working_directory = NULL,
   ...
 ) {
@@ -60,9 +64,21 @@ create_project <- function(
 
   withr::with_dir(new = project, code = {
     invisible(sapply(
-      X = c("data", "docs", "reports", "scripts", "logs", "renv", "slides"),
+      X = c("data", "docs", "reports", "scripts", "logs", "renv"),
       FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
     ))
+
+    if (xaringan) {
+      dir.create(
+        path = "slides",
+        recursive = TRUE, showWarnings = FALSE, mode = "0775"
+      )
+      use_xaringan(
+        path = "slides",
+        url = "https://github.com/umr1283/xaringan-template",
+        overwrite = TRUE
+      )
+    }
 
     if (missing(working_directory)) {
       dir.create(
