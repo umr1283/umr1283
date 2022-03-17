@@ -2,7 +2,7 @@
 #'
 #' Setup directory structure for `targets`.
 #'
-#' @param project A character string. The path to a RStudio project.
+#' @param project A character string. The path to a project.
 #' @param ... Not used.
 #'
 #' @export
