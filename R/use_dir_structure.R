@@ -35,9 +35,7 @@ use_dir_structure <- function(project = ".", working_directory, repos, targets, 
         }
 
         # Python
-        if (python) {
-          use_python(working_directory = working_directory)
-        }
+        if (python) use_python()
 
         renv::snapshot(prompt = FALSE, type = "all")
       })
