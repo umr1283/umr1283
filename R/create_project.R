@@ -1,8 +1,7 @@
-#' Create an RStudio project specific to UMR1283 storage architecture
+#' Create a project specific to UMR1283 storage architecture
 #'
 #' @param path A character string. A path to where the project is to be created.
 #' @param analyst_name A character string. The name of the analyst in charge of that project.
-#' @param working_directory A character string. A path to where outputs is to be generated.
 #' @param git_repository A character string. URL to the git server/repository.
 #' @param mran A boolean. If `TRUE`, uses `paste0("https://mran.microsoft.com/snapshot/", Sys.Date())` as the CRAN repository.
 #'     Default is `FALSE`.
@@ -10,6 +9,7 @@
 #'     Default is `TRUE`.
 #' @param python A boolean. If `TRUE`, uses `use_python()` to create `renv` directory tree for use with python.
 #'     Default is `FALSE`.
+#' @param working_directory A character string. If specified, a symbolic link to the working directory will be created in the project directory under `outputs`, otherwise (default), `outputs` is a directory.
 #' @param ... not used
 #'
 #' @return NULL
@@ -18,23 +18,23 @@
 #'
 #' if (interactive()) {
 #'   create_project(
-#'     path = "/disks/PROJECT/_test_project",
+#'     path = "_test_project",
 #'     analyst_name = "Analyst Name",
-#'     working_directory = "/disks/DATATMP",
 #'     git_repository = "http://gitlab.local/BioStats",
 #'     mran = FALSE,
 #'     targets = TRUE,
-#'     python = FALSE
+#'     python = FALSE,
+#'     working_directory = NULL
 #'   )
 #' }
 create_project <- function(
   path,
   analyst_name,
-  working_directory,
   git_repository,
   mran = FALSE,
   targets = TRUE,
   python = FALSE,
+  working_directory = NULL,
   ...
 ) {
   if (path == basename(path)) {
@@ -64,16 +64,24 @@ create_project <- function(
       FUN = dir.create, recursive = TRUE, showWarnings = FALSE, mode = "0775"
     ))
 
-    dir.create(
-      path = file.path(working_directory, basename(project), "outputs"),
-      recursive = TRUE, showWarnings = FALSE, mode = "0775"
-    )
-
-    if (!dir.exists("outputs")) {
-      invisible(file.symlink(
-        from = file.path(working_directory, basename(project), "outputs"),
-        to = "outputs"
-      ))
+    if (missing(working_directory)) {
+      dir.create(
+        path = "outputs",
+        recursive = TRUE, showWarnings = FALSE, mode = "0775"
+      )
+      working_directory <- "outputs"
+    } else {
+      normalizePath(path = working_directory, mustWork = TRUE)
+      dir.create(
+        path = file.path(working_directory, basename(project), "outputs"),
+        recursive = TRUE, showWarnings = FALSE, mode = "0775"
+      )
+      if (!dir.exists("outputs")) {
+        invisible(file.symlink(
+          from = file.path(working_directory, basename(project), "outputs"),
+          to = "outputs"
+        ))
+      }
     }
 
     use_rproj()
