@@ -4,21 +4,12 @@
 \alias{use_python}
 \title{Use Python}
 \usage{
-use_python(
-  project = ".",
-  working_directory = "/disks/DATATMP",
-  type = "virtualenv",
-  ...
-)
+use_python(project = ".", type = "virtualenv")
 }
 \arguments{
-\item{project}{A character string. The path to a RStudio project.}
+\item{project}{A character string. The path to a (RStudio) project.}
 
-\item{working_directory}{Path to the working temporary directory.}
-
-\item{type}{Type of Python environment to use.}
-
-\item{...}{Not used.}
+\item{type}{Type of Python environment to use, see \code{renv::use_python} for details.}
 }
 \description{
 Setup directory structure for \code{python}.

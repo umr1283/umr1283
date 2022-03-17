@@ -2,13 +2,11 @@
 #'
 #' Setup directory structure for `python`.
 #'
-#' @param project A character string. The path to a RStudio project.
-#' @param working_directory Path to the working temporary directory.
-#' @param type Type of Python environment to use.
-#' @param ... Not used.
+#' @param project A character string. The path to a (RStudio) project.
+#' @param type Type of Python environment to use, see `renv::use_python` for details.
 #'
 #' @export
-use_python <- function(project = ".", working_directory = "/disks/DATATMP", type = "virtualenv", ...) {
+use_python <- function(project = ".", type = "virtualenv") {
   proj <- normalizePath(project, mustWork = FALSE)
 
   withr::with_dir(proj, {
