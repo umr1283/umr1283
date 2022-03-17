@@ -1,5 +1,13 @@
 # umr1283 (development version)
 
+## Features
+
+- In `R/create_project.R`,
+  - Allows to use directory within the project (when `working_directory` is `NULL` or `""`) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).
+  - Allows to install `xaringan` template when creating a project (37a417c20c391a1c66b4648fe55b5c7ea4d2bf7f).
+
+## Fixes
+
 - In `R/use_rprofile.R`,
   - Fix duplicated `targets` lines in `.Rprofile` (2f8c90b78749a02861fdaf7285364899abc10ec4).
 - In `R/use_rprofile.R`,
@@ -14,9 +22,6 @@
 - In `R/migrate_project.R`,
   - Add a warning message to "discourage" the use of `migrate_project` (416e79a0d7499433efde68a13809cb8923e5bbe4).
   - Remove default parameter value for `working_directory` (fc34b29d999ad1e631e5c37e4649b2ac4ff682fb).
-- In `R/create_project.R`,
-  - Allows to use directory within the project (when `working_directory` is `NULL` or `""`) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).
-  - Allows to install `slide` template when creating a project (37a417c20c391a1c66b4648fe55b5c7ea4d2bf7f).
 
 # umr1283 1.6.0
 
