@@ -4,12 +4,10 @@
 \alias{use_targets}
 \title{Use targets package}
 \usage{
-use_targets(project = ".", working_directory = "/disks/DATATMP", ...)
+use_targets(project = ".", ...)
 }
 \arguments{
-\item{project}{A character string. The path to a RStudio project.}
-
-\item{working_directory}{Path to the working temporary directory.}
+\item{project}{A character string. The path to a project.}
 
 \item{...}{Not used.}
 }

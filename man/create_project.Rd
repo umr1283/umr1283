@@ -2,16 +2,17 @@
 % Please edit documentation in R/create_project.R
 \name{create_project}
 \alias{create_project}
-\title{Create an RStudio project specific to UMR1283 storage architecture}
+\title{Create a project specific to UMR1283 storage architecture}
 \usage{
 create_project(
   path,
   analyst_name,
-  working_directory,
   git_repository,
   mran = FALSE,
   targets = TRUE,
   python = FALSE,
+  xaringan = FALSE,
+  working_directory = NULL,
   ...
 )
 }
@@ -19,8 +20,6 @@ create_project(
 \item{path}{A character string. A path to where the project is to be created.}
 
 \item{analyst_name}{A character string. The name of the analyst in charge of that project.}
-
-\item{working_directory}{A character string. A path to where outputs is to be generated.}
 
 \item{git_repository}{A character string. URL to the git server/repository.}
 
@@ -33,22 +32,28 @@ Default is \code{TRUE}.}
 \item{python}{A boolean. If \code{TRUE}, uses \code{use_python()} to create \code{renv} directory tree for use with python.
 Default is \code{FALSE}.}
 
+\item{xaringan}{A boolean. If \code{TRUE}, uses \code{use_xaringan()} to create directory tree for use with \code{xaringan} template (\emph{i.e.}, "https://github.com/umr1283/xaringan-template").
+Default is \code{FALSE}.}
+
+\item{working_directory}{A character string. If specified, a symbolic link to the working directory will be created in the project directory under \code{outputs}, otherwise (default), \code{outputs} is a directory.}
+
 \item{...}{not used}
 }
 \description{
-Create an RStudio project specific to UMR1283 storage architecture
+Create a project specific to UMR1283 storage architecture
 }
 \examples{
 
 if (interactive()) {
   create_project(
-    path = "/disks/PROJECT/_test_project",
+    path = "_test_project",
     analyst_name = "Analyst Name",
-    working_directory = "/disks/DATATMP",
     git_repository = "http://gitlab.local/BioStats",
     mran = FALSE,
     targets = TRUE,
-    python = FALSE
+    python = FALSE,
+    xaringan = FALSE,
+    working_directory = NULL
   )
 }
 }

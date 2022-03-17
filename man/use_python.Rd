@@ -7,7 +7,7 @@
 use_python(project = ".", type = "virtualenv")
 }
 \arguments{
-\item{project}{A character string. The path to a (RStudio) project.}
+\item{project}{A character string. The path to a project.}
 
 \item{type}{Type of Python environment to use, see \code{renv::use_python} for details.}
 }

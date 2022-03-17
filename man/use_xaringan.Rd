@@ -11,7 +11,7 @@ use_xaringan(
 )
 }
 \arguments{
-\item{path}{A character string. The path to a directory within a RStudio project.}
+\item{path}{A character string. The path to a directory within a project.}
 
 \item{url}{A character string. A remote url, that ypically starts with \verb{https://github.com/} for public repositories,
 and \verb{https://yourname@github.com/} or \verb{git@github.com/} for private repos.

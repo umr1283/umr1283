@@ -2,19 +2,19 @@
 % Please edit documentation in R/migrate_project.R
 \name{migrate_project}
 \alias{migrate_project}
-\title{Migrate from an old version of RStudio project to renv setup}
+\title{Migrate from an old version of project to renv setup}
 \usage{
 migrate_project(
   project = ".",
   date,
-  working_directory = "/disks/DATATMP",
+  working_directory,
   targets = FALSE,
   python = FALSE,
   ...
 )
 }
 \arguments{
-\item{project}{A character string. The path to a RStudio project.}
+\item{project}{A character string. The path to a project.}
 
 \item{date}{A character string. The date of the MRAN to use, \emph{e.g.}, 2021-01-25.}
 
@@ -29,5 +29,5 @@ Default is \code{FALSE}.}
 \item{...}{not used}
 }
 \description{
-Migrate from an old version of RStudio project to renv setup
+Migrate from an old version of project to renv setup
 }
