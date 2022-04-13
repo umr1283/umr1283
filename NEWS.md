@@ -1,3 +1,10 @@
+# umr1283 1.8.1
+
+## Fixes
+
+- In `R/use_rprofile.R`,
+  - No longer hardcode settings, instead source `~/.Rprofile` if it exists and in interactive mode.
+
 # umr1283 1.8.0
 
 ## Breaking change

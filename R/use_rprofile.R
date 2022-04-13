@@ -9,8 +9,7 @@ use_rprofile <- function(project = ".") {
         con = file,
         text = c(
           "Sys.umask(\"0002\")",
-          "if (interactive()) options(width = 140)",
-          "if (interactive() & nchar(system.file(package = \"prompt\")) > 0) prompt::set_prompt(prompt::prompt_git)"
+          "if (interactive() && file.exists(\"~/.Rprofile\")) source(\"~/.Rprofile\")"
         )
       )
     } else {
