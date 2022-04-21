@@ -1,3 +1,12 @@
+# umr1283 (development version)
+
+## Fixes
+
+- In `R/use_gitignore.R`.
+  - Fix: `*.Rproj` is now excluded from versionning.
+- In `R/use_targets.R`,
+  - Fix: default `targets` script no longer rely on `*.Rproj`.
+
 # umr1283 1.8.1
 
 ## Fixes
