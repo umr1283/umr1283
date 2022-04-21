@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">umr1283</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.6.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.8.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,14 +47,50 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="umr1283-development-version">umr1283 (development version)<a class="anchor" aria-label="anchor" href="#umr1283-development-version"></a></h2>
 <div class="section level3">
-<h3 id="features-development-version">Features<a class="anchor" aria-label="anchor" href="#features-development-version"></a></h3>
+<h3 id="fixes-development-version">Fixes<a class="anchor" aria-label="anchor" href="#fixes-development-version"></a></h3>
+<ul><li>In <code>R/use_gitignore.R</code>.
+<ul><li>Fix: <code>*.Rproj</code> is now excluded from versionning.</li>
+</ul></li>
+<li>In <code>R/use_targets.R</code>,
+<ul><li>Fix: default <code>targets</code> script no longer rely on <code>*.Rproj</code>.</li>
+</ul></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.8.1" id="umr1283-181">umr1283 1.8.1<a class="anchor" aria-label="anchor" href="#umr1283-181"></a></h2>
+<div class="section level3">
+<h3 id="fixes-1-8-1">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-8-1"></a></h3>
+<ul><li>In <code>R/use_rprofile.R</code>,
+<ul><li>No longer hardcode settings, instead source <code>~/.Rprofile</code> if it exists and in interactive mode.</li>
+</ul></li>
+<li>In <code>DESCRIPTION</code>,
+<ul><li>Bump (minor) version of dependencies.</li>
+</ul></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.8.0" id="umr1283-180">umr1283 1.8.0<a class="anchor" aria-label="anchor" href="#umr1283-180"></a></h2>
+<div class="section level3">
+<h3 id="breaking-change-1-8-0">Breaking change<a class="anchor" aria-label="anchor" href="#breaking-change-1-8-0"></a></h3>
+<ul><li>Remove Python wrapper. (3fedb3a961984d7b165a258e08e11d366794cb78)
+<ul><li>In <code>R/use_python.R</code>.</li>
+<li>In <code>R/create_project.R</code>.</li>
+<li>In <code>R/use_dir_structure.R</code>.</li>
+<li>In <code>R/migrate_project.R</code>.</li>
+</ul></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.7.0" id="umr1283-170">umr1283 1.7.0<a class="anchor" aria-label="anchor" href="#umr1283-170"></a></h2>
+<div class="section level3">
+<h3 id="features-1-7-0">Features<a class="anchor" aria-label="anchor" href="#features-1-7-0"></a></h3>
 <ul><li>In <code>R/create_project.R</code>,
 <ul><li>Allows to use directory within the project (when <code>working_directory</code> is <code>NULL</code> or <code>""</code>) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).</li>
 <li>Allows to install <code>xaringan</code> template when creating a project (37a417c20c391a1c66b4648fe55b5c7ea4d2bf7f).</li>
 </ul></li>
 </ul></div>
 <div class="section level3">
-<h3 id="fixes-development-version">Fixes<a class="anchor" aria-label="anchor" href="#fixes-development-version"></a></h3>
+<h3 id="fixes-1-7-0">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-7-0"></a></h3>
 <ul><li>In <code>R/use_rprofile.R</code>,
 <ul><li>Fix duplicated <code>targets</code> lines in <code>.Rprofile</code> (2f8c90b78749a02861fdaf7285364899abc10ec4).</li>
 </ul></li>
