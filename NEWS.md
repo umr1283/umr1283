@@ -1,4 +1,4 @@
-# umr1283 (development version)
+# umr1283 1.8.2
 
 ## Fixes
 
