@@ -71,7 +71,7 @@ use_targets <- function(project = ".", ...) {
         "",
         paste(c("### targets setup ", rep("=", 82)), collapse = ""),
         "tar_setup <- list(",
-        "  tar_target(project, sub(\"(.*)_[^_]*\\\\.Rproj$\", \"\\\\1\", list.files(here(), pattern = \".Rproj$\")), packages = \"here\"),",
+        "  tar_target(project, dirname(here()), packages = \"here\"),",
         "  tar_target(author, \"UMR1283\")",
         ")",
         "",
