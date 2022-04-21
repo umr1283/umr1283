@@ -9,6 +9,7 @@ use_gitignore <- function(project = ".") {
         con = file,
         text = c(
           ".Rproj.user",
+          "**.Rproj",
           "**.Rhistory",
           "**.Rdata",
           "renv",
