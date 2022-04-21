@@ -5,6 +5,10 @@ on:
     workflows: "R-CMD-check"
     branches: main
     types: completed
+  workflow_run:
+    workflows: "render-readme"
+    branches: main
+    types: completed
   release:
     types: [published]
   workflow_dispatch:
