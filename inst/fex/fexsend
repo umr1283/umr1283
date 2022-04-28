@@ -49,7 +49,7 @@ our ($anonymous,$public);
 our ($frecipient); # first recipient
 our ($FEXID,$FEXXX,$HOME);
 our (%alias);
-our $version = 20211027;
+our $version = 20220420;
 our $_0 = $0;
 our $prg = $0;
 our $FEXOPT = $ENV{FEXOPT}||'';
@@ -611,6 +611,8 @@ if ($xx) {
   if ($macos and not @ARGV) {
     &ask_file;
   }
+  # $opt_l : list sent files
+  # $opt_L : list received files
   $opt_h = $opt_v = $opt_m = $opt_c = $opt_d = $opt_l = $opt_I = 0;
   $opt_H = $opt_K = $opt_D = $opt_R = $opt_M = $opt_L = $opt_Q = $opt_0 = 0;
   $opt_x = $opt_o = $opt_g = $opt_V = $opt_U = $opt_F = $opt_n = $opt_q = 0;
@@ -630,14 +632,14 @@ if ($xx) {
     $useragent =~ /fexsend-(.+)/;
     print "Version: $1\n";
     if ("@ARGV" ne '.' and abs_path($_0) !~ m:/sw/:) {
-      print "Upgrade: wget fex.belwue.de/download/fex.pl && perl fex.pl\n";
+      print "Upgrade: wget https://fex.belwue.de/download/fex.pl && perl fex.pl\n";
     }
     exit;
     if (not @ARGV and -w $_0) {
       print "Update fexsend? "; # ex "upgrade fexsend"
       $_ = <STDIN>||'';
       if (/^y/i) {
-        my $url = 'http://fex.belwue.de/download/fexsend';
+        my $url = 'https://fex.belwue.de/download/fexsend';
         warn "$prg: downloading $url\n";
         my $new = `wget -qO- $url`;
         if ($new !~ /update fexsend/) { die "fexsend: bad update\n" }
@@ -1003,8 +1005,8 @@ if (${'opt_.'}) {
   $opt_C = "!SHORTMAIL! $opt_C";
 }
 
-if ($opt_n or $opt_C =~ /^(NOMAIL|!#!)/) {
-  $opt_C = $nomail = 'NOMAIL';
+if ($opt_n and $opt_C !~ /^(NOMAIL|!#!)/) {
+  $nomail = $opt_C = "!#!$opt_C";
 }
 
 if ((not ($opt_q||$skey||$gkey||$okey||$anonymous) and ($opt_i||${'opt_/'}
@@ -1102,7 +1104,7 @@ sub init_id {
     if ($tag =~ /^FEXID=(\S+)$/) {
       $FEXID = $1;
       if (-f $idf) {
-        die "$prg: $idf does already exist\n".
+        die "$prg: $idf already exists\n".
             "$prg: use \"$prg -I .\" to edit it\n";
       }
       ($fexcgi,$from,$id) = split(/\s+/,decode_b64($FEXID));
@@ -1240,7 +1242,7 @@ sub register {
   my $port;
   my ($server,$user,$id);
 
-  die "$prg: $idf does already exist\n" if -e $idf;
+  die "$prg: $idf already exists\n" if -e $idf;
 
   if ($fs =~ /^https/) {
     die "$prg: cannot handle https at this time\n";
@@ -1356,7 +1358,7 @@ sub menu {
         next;
       }
       $new = $prg.'.new';
-      system qw'wget -nv -O',$new,'http://fex.belwue.de/download/fexsend';
+      system qw'wget -nv -O',$new,'https://fex.belwue.de/download/fexsend';
       chmod 0755,$new;
       system qw'perl -c',$new;
       if ($? == 0) {
@@ -1863,6 +1865,7 @@ sub query_quotas {
 }
 
 
+# send command to fexserver (from option -~)
 sub command {
   my (@r,$r);
   my ($psp,$owner,$share,$archive,$avt,$dkey);
@@ -2196,7 +2199,6 @@ sub query_settings {
 
   @r = formdatapost(
     from	=> $from,
-    to		=> $from,
     id		=> $sid,
     command	=> $command,
   );
@@ -2861,7 +2863,7 @@ sub send_fex {
     } elsif ($atype eq '7z') {
       print "Making fex archive ($opt_a):\n" unless $opt_q;
       # http://www.7-zip.org/
-      my @sz = qw'7z a -t7z -l';
+      my @sz = qw'7z a -t7z -l -bb1';
 #      push @sz,'-l' if $deref;
       push @sz,'-mx0' if $opt_0 or not compressible(@ARGV);
       foreach my $x (split('#',$xlist)) { push @sz,"-xr!$x" }
@@ -5229,7 +5231,7 @@ sub xxx {
     $xi .= "$_\n" foreach (
       'FEXBIN=/tmp/$USER/.fex/tmp;',
       'mkdir -p $FEXBIN && cd $FEXBIN &&',
-      'wget -qO - fex.belwue.de/download/xxx.tgz | tar xzf -;',
+      'wget -qO - https://fex.belwue.de/download/xxx.tgz | tar xzf -;',
       'test "$UID" = 0 && chown -h root:root $FEXBIN/*;',
       'PATH="$FEXBIN:$PATH";',
       "export FEXID='$FEXID';",
