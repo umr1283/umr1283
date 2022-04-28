@@ -1,5 +1,10 @@
 # umr1283 1.8.2
 
+## Chore
+
+- In `inst/fex/fexsend`,
+  - chore: update fexsend client.
+
 ## Fixes
 
 - In `R/fex.R`.
