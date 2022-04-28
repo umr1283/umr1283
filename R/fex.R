@@ -31,7 +31,7 @@ fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal 
       parent_directory <- unique(sub(
         pattern = sprintf(
           "((([^\\\\]*\\\\){%s})(.*))",
-          min(sapply(strsplit(x = paths, split = "\\\\"), length)) - 1
+          min(sapply(strsplit(x = sub("^/|/$", "", paths), split = "\\\\"), length)) - 1
         ),
         replacement = "\\2",
         x = paths
@@ -40,7 +40,7 @@ fex <- function(..., zip_file = sprintf("%s_archive.zip", Sys.Date()), internal 
       parent_directory <- unique(sub(
         pattern = sprintf(
           "((/*([^/]*/){%s})(.*))",
-          min(sapply(strsplit(x = paths, split = "/"), length)) - (any(grepl("^/", paths)) + 1)
+          min(sapply(strsplit(x = sub("^/|/$", "", paths), split = "/"), length)) - (any(grepl("^/", paths)) + 1)
         ),
         replacement = "\\2",
         x = paths

@@ -2,6 +2,15 @@
 
 ## Fixes
 
+- In `R/fex.R`.
+  - Fix: parent directory detection.
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.3...v1.8.3
+
+# umr1283 1.8.2
+
+## Fixes
+
 - In `R/use_gitignore.R`.
   - Fix: `*.Rproj` is now excluded from versionning.
 - In `R/use_targets.R`,
