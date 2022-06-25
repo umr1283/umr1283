@@ -1,8 +1,8 @@
 pandoc: 2.14.2
-pkgdown: 2.0.2
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-04-21T10:25Z
+last_built: 2022-06-25T17:10Z
 urls:
   reference: https://umr1283.github.io/umr1283/reference
   article: https://umr1283.github.io/umr1283/articles

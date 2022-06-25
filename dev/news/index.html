@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">umr1283</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.8.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.9.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,82 +44,79 @@
       <small>Source: <a href="https://github.com/umr1283/umr1283/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2"><h2 class="pkg-version" data-toc-text="development version" id="umr1283-development-version">umr1283 (development version)<a class="anchor" aria-label="anchor" href="#umr1283-development-version"></a></h2></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="umr1283-development-version">umr1283 (development version)<a class="anchor" aria-label="anchor" href="#umr1283-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.9.0" id="umr1283-190">umr1283 1.9.0<a class="anchor" aria-label="anchor" href="#umr1283-190"></a></h2>
 <div class="section level3">
-<h3 id="fixes-development-version">Fixes<a class="anchor" aria-label="anchor" href="#fixes-development-version"></a></h3>
-<ul><li>In <code>R/use_gitignore.R</code>.
-<ul><li>Fix: <code>*.Rproj</code> is now excluded from versionning.</li>
-</ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Fix: default <code>targets</code> script no longer rely on <code>*.Rproj</code>.</li>
-</ul></li>
-</ul></div>
+<h3 id="feature-1-9-0">Feature<a class="anchor" aria-label="anchor" href="#feature-1-9-0"></a></h3>
+<ul><li>In <code>R/create_project.R</code>,<ul><li>Feat: add devcontainer definition files for VSCode (<a href="https://github.com/umr1283/umr1283/issues/3" class="external-link">#3</a>).</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.8.3" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.8.3</a>…v1.9.0</p>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.8.3" id="umr1283-183">umr1283 1.8.3<a class="anchor" aria-label="anchor" href="#umr1283-183"></a></h2>
+<div class="section level3">
+<h3 id="chore-1-8-3">Chore<a class="anchor" aria-label="anchor" href="#chore-1-8-3"></a></h3>
+<ul><li>In <code>inst/fex/fexsend</code>,<ul><li>chore: update fexsend client.</li></ul></li></ul></div>
+<div class="section level3">
+<h3 id="fixes-1-8-3">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-8-3"></a></h3>
+<ul><li>In <code>R/fex.R</code>.<ul><li>Fix: parent directory detection.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.8.2" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.8.2</a>…v1.8.3</p>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.8.2" id="umr1283-182">umr1283 1.8.2<a class="anchor" aria-label="anchor" href="#umr1283-182"></a></h2>
+<div class="section level3">
+<h3 id="fixes-1-8-2">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-8-2"></a></h3>
+<ul><li>In <code>R/use_gitignore.R</code>.<ul><li>Fix: <code>*.Rproj</code> is now excluded from versionning.</li></ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Fix: default <code>targets</code> script no longer rely on <code>*.Rproj</code>.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.8.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.8.1</a>…v1.8.2</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.1" id="umr1283-181">umr1283 1.8.1<a class="anchor" aria-label="anchor" href="#umr1283-181"></a></h2>
 <div class="section level3">
 <h3 id="fixes-1-8-1">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-8-1"></a></h3>
-<ul><li>In <code>R/use_rprofile.R</code>,
-<ul><li>No longer hardcode settings, instead source <code>~/.Rprofile</code> if it exists and in interactive mode.</li>
-</ul></li>
-<li>In <code>DESCRIPTION</code>,
-<ul><li>Bump (minor) version of dependencies.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/use_rprofile.R</code>,<ul><li>No longer hardcode settings, instead source <code>~/.Rprofile</code> if it exists and in interactive mode.</li></ul></li>
+<li>In <code>DESCRIPTION</code>,<ul><li>Bump (minor) version of dependencies.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.8.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.8.0</a>…v1.8.1</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.0" id="umr1283-180">umr1283 1.8.0<a class="anchor" aria-label="anchor" href="#umr1283-180"></a></h2>
 <div class="section level3">
 <h3 id="breaking-change-1-8-0">Breaking change<a class="anchor" aria-label="anchor" href="#breaking-change-1-8-0"></a></h3>
-<ul><li>Remove Python wrapper. (3fedb3a961984d7b165a258e08e11d366794cb78)
-<ul><li>In <code>R/use_python.R</code>.</li>
+<ul><li>Remove Python wrapper. (3fedb3a961984d7b165a258e08e11d366794cb78)<ul><li>In <code>R/use_python.R</code>.</li>
 <li>In <code>R/create_project.R</code>.</li>
 <li>In <code>R/use_dir_structure.R</code>.</li>
 <li>In <code>R/migrate_project.R</code>.</li>
-</ul></li>
-</ul></div>
+</ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.7.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.7.0</a>…v1.8.0</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.7.0" id="umr1283-170">umr1283 1.7.0<a class="anchor" aria-label="anchor" href="#umr1283-170"></a></h2>
 <div class="section level3">
 <h3 id="features-1-7-0">Features<a class="anchor" aria-label="anchor" href="#features-1-7-0"></a></h3>
-<ul><li>In <code>R/create_project.R</code>,
-<ul><li>Allows to use directory within the project (when <code>working_directory</code> is <code>NULL</code> or <code>""</code>) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).</li>
+<ul><li>In <code>R/create_project.R</code>,<ul><li>Allows to use directory within the project (when <code>working_directory</code> is <code>NULL</code> or <code>""</code>) or symbolic link (058ade53e66482426a8ded231fe2e3553a6dc4a2).</li>
 <li>Allows to install <code>xaringan</code> template when creating a project (37a417c20c391a1c66b4648fe55b5c7ea4d2bf7f).</li>
-</ul></li>
-</ul></div>
+</ul></li></ul></div>
 <div class="section level3">
 <h3 id="fixes-1-7-0">Fixes<a class="anchor" aria-label="anchor" href="#fixes-1-7-0"></a></h3>
-<ul><li>In <code>R/use_rprofile.R</code>,
-<ul><li>Fix duplicated <code>targets</code> lines in <code>.Rprofile</code> (2f8c90b78749a02861fdaf7285364899abc10ec4).</li>
-</ul></li>
-<li>In <code>R/use_rprofile.R</code>,
-<ul><li>Fix duplicated <code>.gitignore</code> entry for <code>targets</code> (c2cc1d51ee7b564fe27223a1e838637b8c096869).</li>
+<ul><li>In <code>R/use_rprofile.R</code>,<ul><li>Fix duplicated <code>targets</code> lines in <code>.Rprofile</code> (2f8c90b78749a02861fdaf7285364899abc10ec4).</li></ul></li>
+<li>In <code>R/use_rprofile.R</code>,<ul><li>Fix duplicated <code>.gitignore</code> entry for <code>targets</code> (c2cc1d51ee7b564fe27223a1e838637b8c096869).</li>
 <li>No longer exclude “outputs” and “logs” (c2cc1d51ee7b564fe27223a1e838637b8c096869).</li>
 </ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>Fix unused arguments (fa21f5fbed0638c65da16c8146854b87bb8d73d2).</li>
-</ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Fix unused arguments (13055f3cc8d3a0b5bee609cb4085329698824d42).</li>
-</ul></li>
-<li>In <code>R/use_dir_structure.R</code>,
-<ul><li>Fix unused arguments (ab94c2499b4cb989f09adf0434c04c5b20719f51).</li>
-</ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>Add a warning message to “discourage” the use of <code>migrate_project</code> (416e79a0d7499433efde68a13809cb8923e5bbe4).</li>
+<li>In <code>R/use_python.R</code>,<ul><li>Fix unused arguments (fa21f5fbed0638c65da16c8146854b87bb8d73d2).</li></ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Fix unused arguments (13055f3cc8d3a0b5bee609cb4085329698824d42).</li></ul></li>
+<li>In <code>R/use_dir_structure.R</code>,<ul><li>Fix unused arguments (ab94c2499b4cb989f09adf0434c04c5b20719f51).</li></ul></li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>Add a warning message to “discourage” the use of <code>migrate_project</code> (416e79a0d7499433efde68a13809cb8923e5bbe4).</li>
 <li>Remove default parameter value for <code>working_directory</code> (fc34b29d999ad1e631e5c37e4649b2ac4ff682fb).</li>
 </ul></li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.6.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.6.0</a>…v1.7.0</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.6.0" id="umr1283-160">umr1283 1.6.0<a class="anchor" aria-label="anchor" href="#umr1283-160"></a></h2>
-<ul><li>In <code>R/fex.R</code>,
-<ul><li>Fix URL for <code>pkgdown</code> website.</li>
-</ul></li>
-<li>In <code>R/create_project.R</code>,
-<ul><li><p>No longer create external <code>renv</code> “library” directory.</p></li>
+<ul><li>In <code>R/fex.R</code>,<ul><li>Fix URL for <code>pkgdown</code> website.</li></ul></li>
+<li>In <code>R/create_project.R</code>,<ul><li><p>No longer create external <code>renv</code> “library” directory.</p></li>
 <li>
 <p>Use a dedicated directory for <code>slides</code>.</p>
 <pre class="text"><code>/disks/PROJECT/project
@@ -137,216 +134,141 @@
 └── project.Rproj</code></pre>
 </li>
 </ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Add <code>gittargets</code>.</li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Add <code>gittargets</code>.</li>
 <li>No longer use symbolic link for targets store.</li>
 </ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>No longer use symbolic link for python library.</li>
-</ul></li>
-<li>In <code>R/use_xaringan.R</code>,
-<ul><li>Default directory to <code>slides</code> in the current working directory.</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_python.R</code>,<ul><li>No longer use symbolic link for python library.</li></ul></li>
+<li>In <code>R/use_xaringan.R</code>,<ul><li>Default directory to <code>slides</code> in the current working directory.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.5.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.5.1</a>…v1.6.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.1" id="umr1283-151">umr1283 1.5.1<a class="anchor" aria-label="anchor" href="#umr1283-151"></a></h2>
-<ul><li>In <code>R/create_project.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
-</ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
-</ul></li>
-<li>In <code>R/use_dir_structure.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
+<ul><li>In <code>R/create_project.R</code>,<ul><li>Add check before creating symbolic link.</li></ul></li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>Add check before creating symbolic link.</li></ul></li>
+<li>In <code>R/use_dir_structure.R</code>,<ul><li>Add check before creating symbolic link.</li>
 <li>No longer install R packages, but add a message to install them manually.</li>
 </ul></li>
-<li>In <code>R/use_git.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
-</ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
-</ul></li>
-<li>In <code>R/targets.R</code>,
-<ul><li>Add check before creating symbolic link.</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_git.R</code>,<ul><li>Add check before creating symbolic link.</li></ul></li>
+<li>In <code>R/use_python.R</code>,<ul><li>Add check before creating symbolic link.</li></ul></li>
+<li>In <code>R/targets.R</code>,<ul><li>Add check before creating symbolic link.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.5.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.5.0</a>…v1.5.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.0" id="umr1283-150">umr1283 1.5.0<a class="anchor" aria-label="anchor" href="#umr1283-150"></a></h2>
-<ul><li>In <code>R/create_project.R</code>,
-<ul><li>Remove library symbolic link.</li>
-</ul></li>
-<li>In <code>R/use_gitignore.R</code>,
-<ul><li>No longer exclude reports directory by default.</li>
+<ul><li>In <code>R/create_project.R</code>,<ul><li>Remove library symbolic link.</li></ul></li>
+<li>In <code>R/use_gitignore.R</code>,<ul><li>No longer exclude reports directory by default.</li>
 <li>Exclude renv directory properly.</li>
 </ul></li>
-<li>In <code>R/use_rprofile.R</code>,
-<ul><li>No longer load <code>gert</code> by default (if installed).</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_rprofile.R</code>,<ul><li>No longer load <code>gert</code> by default (if installed).</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.4.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.4.0</a>…v1.5.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.0" id="umr1283-140">umr1283 1.4.0<a class="anchor" aria-label="anchor" href="#umr1283-140"></a></h2>
-<ul><li>In <code>R/*</code>,
-<ul><li>Fix <code>lintr</code> warnings.</li>
-</ul></li>
-<li>In <code>R/use_dir_structure.R</code>,
-<ul><li>No longer try to install <code>BiocManager</code> or <code>here</code> by default.</li>
+<ul><li>In <code>R/*</code>,<ul><li>Fix <code>lintr</code> warnings.</li></ul></li>
+<li>In <code>R/use_dir_structure.R</code>,<ul><li>No longer try to install <code>BiocManager</code> or <code>here</code> by default.</li>
 <li>Install <code>here</code> and <code>tarchetypes</code> by default when <code>targets</code> is required.</li>
 </ul></li>
-<li>In <code>R/use_dependencies.R</code>,
-<ul><li>Create empty file, i.e., without <code># library("BiocManager")</code>.</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_dependencies.R</code>,<ul><li>Create empty file, i.e., without <code># library("BiocManager")</code>.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.3.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.3.1</a>…v1.4.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.1" id="umr1283-131">umr1283 1.3.1<a class="anchor" aria-label="anchor" href="#umr1283-131"></a></h2>
-<ul><li>In <code>inst/fex/fexsend</code>,
-<ul><li>Updated <code>fexsend</code> (<a href="http://fex.belwue.de/download/fexsend" class="external-link uri">http://fex.belwue.de/download/fexsend</a>).</li>
-</ul></li>
-<li>In <code>DESCRIPTION</code>,
-<ul><li>Add <code>SystemRequirements</code> for fexsend.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>inst/fex/fexsend</code>,<ul><li>Updated <code>fexsend</code> (<a href="http://fex.belwue.de/download/fexsend" class="external-link uri">http://fex.belwue.de/download/fexsend</a>).</li></ul></li>
+<li>In <code>DESCRIPTION</code>,<ul><li>Add <code>SystemRequirements</code> for fexsend.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.3.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.3.0</a>…v1.3.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.0" id="umr1283-130">umr1283 1.3.0<a class="anchor" aria-label="anchor" href="#umr1283-130"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Tweak description and title.</li>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Tweak description and title.</li>
 <li>Tidy dependencies.</li>
 <li>Update packages.</li>
 </ul></li>
-<li>In <code>R/use_gitignore.R</code>,
-<ul><li>Add “core”.</li>
-</ul></li>
-<li>In <code>R/use_git.R</code>,
-<ul><li>Do not do anything if <code>.git</code> directory exists.</li>
-</ul></li>
-<li>In <code>R/use_dir_structure.R</code>,
-<ul><li>Do not do anything if <code>.Rprofile</code> contains <code>source("renv/activate.R")</code>.</li>
-</ul></li>
-<li>In <code>R/create_project.R</code>,
-<ul><li>Add “data” directory.</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_gitignore.R</code>,<ul><li>Add “core”.</li></ul></li>
+<li>In <code>R/use_git.R</code>,<ul><li>Do not do anything if <code>.git</code> directory exists.</li></ul></li>
+<li>In <code>R/use_dir_structure.R</code>,<ul><li>Do not do anything if <code>.Rprofile</code> contains <code>source("renv/activate.R")</code>.</li></ul></li>
+<li>In <code>R/create_project.R</code>,<ul><li>Add “data” directory.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.2.3" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.2.3</a>…v1.3.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.3" id="umr1283-123">umr1283 1.2.3<a class="anchor" aria-label="anchor" href="#umr1283-123"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Remove “RStudio” from title.</li>
-</ul></li>
-<li>In <code>R/use_xaringan.R</code>,
-<ul><li>Avoid copying <code>README.Rmd</code>.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Remove “RStudio” from title.</li></ul></li>
+<li>In <code>R/use_xaringan.R</code>,<ul><li>Avoid copying <code>README.Rmd</code>.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.2.2" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.2.2</a>…v1.2.3</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.2" id="umr1283-122">umr1283 1.2.2<a class="anchor" aria-label="anchor" href="#umr1283-122"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Remove unnecessary <code>LazyData</code> field.</li>
-</ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Fix typo/bug in <code>_targets.R</code> template script.</li>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Remove unnecessary <code>LazyData</code> field.</li></ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Fix typo/bug in <code>_targets.R</code> template script.</li>
 <li>Edit <code>.Rprofile</code> (if it exists) with shortcut for targets.</li>
 </ul></li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.2.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.2.1</a>…v1.2.2</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.1" id="umr1283-121">umr1283 1.2.1<a class="anchor" aria-label="anchor" href="#umr1283-121"></a></h2>
-<ul><li>In <code>R/fex.R</code>,
-<ul><li>Fix output when only one file is provided.</li>
+<ul><li>In <code>R/fex.R</code>,<ul><li>Fix output when only one file is provided.</li>
 <li>Improve example.</li>
-</ul></li>
-</ul></div>
+</ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.2.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.2.0</a>…v1.2.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.0" id="umr1283-120">umr1283 1.2.0<a class="anchor" aria-label="anchor" href="#umr1283-120"></a></h2>
-<ul><li>In <code>R/use_xaringan.R</code>,
-<ul><li>Download <code>xaringan</code> (<a href="https://github.com/umr1283/xaringan-template" class="external-link uri">https://github.com/umr1283/xaringan-template</a>) template to <code>scripts/slides</code>.</li>
-</ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>Fix typo.</li>
-</ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Fix typo.</li>
-</ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>Fix typo.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/use_xaringan.R</code>,<ul><li>Download <code>xaringan</code> (<a href="https://github.com/umr1283/xaringan-template" class="external-link uri">https://github.com/umr1283/xaringan-template</a>) template to <code>scripts/slides</code>.</li></ul></li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>Fix typo.</li></ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Fix typo.</li></ul></li>
+<li>In <code>R/use_python.R</code>,<ul><li>Fix typo.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.1.4" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.1.4</a>…v1.2.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.4" id="umr1283-114">umr1283 1.1.4<a class="anchor" aria-label="anchor" href="#umr1283-114"></a></h2>
-<ul><li>In <code>R/use_targets.R</code>,
-<ul><li>Improve default targets R script skeleton.</li>
+<ul><li>In <code>R/use_targets.R</code>,<ul><li>Improve default targets R script skeleton.</li>
 <li>Add default targets script launcher.</li>
 </ul></li>
-<li>In <code>R/use_rprofile.R</code>,
-<ul><li>Add <code>targets</code> package in <code>.Rprofile</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/use_rprofile.R</code>,<ul><li>Add <code>targets</code> package in <code>.Rprofile</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.1.3" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.1.3</a>…v1.1.4</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.3" id="umr1283-113">umr1283 1.1.3<a class="anchor" aria-label="anchor" href="#umr1283-113"></a></h2>
-<ul><li>In <code>R/use_affiliation.R</code>,
-<ul><li>Split in two.</li>
-</ul></li>
-<li>In <code>R/use_readme.R</code>,
-<ul><li>Use bullets list for affiliation.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/use_affiliation.R</code>,<ul><li>Split in two.</li></ul></li>
+<li>In <code>R/use_readme.R</code>,<ul><li>Use bullets list for affiliation.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.1.2" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.1.2</a>…v1.1.3</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.2" id="umr1283-112">umr1283 1.1.2<a class="anchor" aria-label="anchor" href="#umr1283-112"></a></h2>
-<ul><li>In <code>R/use_targets.R</code>,
-<ul><li>Improve default targets R script to better work with Docker.</li>
-</ul></li>
-<li>In <code>inst/fex/fexsend</code>,
-<ul><li>Fix permission.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/use_targets.R</code>,<ul><li>Improve default targets R script to better work with Docker.</li></ul></li>
+<li>In <code>inst/fex/fexsend</code>,<ul><li>Fix permission.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.1.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.1.1</a>…v1.1.2</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.1" id="umr1283-111">umr1283 1.1.1<a class="anchor" aria-label="anchor" href="#umr1283-111"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Define <code>markdown</code> format for <code>roxygen2</code> documentation.</li>
-</ul></li>
-<li>In <code>R/create_project.R</code>,
-<ul><li>Improve description.</li>
-</ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>Improve description.</li>
-</ul></li>
-<li>In <code>R/use_affiliation.R</code>,
-<ul><li>Improve description.</li>
-</ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Improve description.</li>
-</ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>Improve description.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Define <code>markdown</code> format for <code>roxygen2</code> documentation.</li></ul></li>
+<li>In <code>R/create_project.R</code>,<ul><li>Improve description.</li></ul></li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>Improve description.</li></ul></li>
+<li>In <code>R/use_affiliation.R</code>,<ul><li>Improve description.</li></ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Improve description.</li></ul></li>
+<li>In <code>R/use_python.R</code>,<ul><li>Improve description.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.1.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.1.0</a>…v1.1.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="umr1283-110">umr1283 1.1.0<a class="anchor" aria-label="anchor" href="#umr1283-110"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Add <code>prompt</code> in <code>Suggests</code>.</li>
-</ul></li>
-<li>In <code>R/use_rprofile.R</code>,
-<ul><li>Add <code>prompt</code> package in <code>.Rprofile</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Add <code>prompt</code> in <code>Suggests</code>.</li></ul></li>
+<li>In <code>R/use_rprofile.R</code>,<ul><li>Add <code>prompt</code> package in <code>.Rprofile</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li>
 <li>Add <code>gert</code> package in <code>.Rprofile</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li>
 </ul></li>
-<li>In <code>R/use_dir_structure.R</code>,
-<ul><li>Only load <code>targets</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li>
-</ul></li>
-<li>In <code>R/fex.R</code>,
-<ul><li>New function to upload file(s) using fexsend.</li>
-</ul></li>
+<li>In <code>R/use_dir_structure.R</code>,<ul><li>Only load <code>targets</code>, if in interactive session and installed (locally or system-wide depending on the project setup).</li></ul></li>
+<li>In <code>R/fex.R</code>,<ul><li>New function to upload file(s) using fexsend.</li></ul></li>
 <li>Add <code>pkgdown</code>.</li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.0.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.0.1</a>…v1.1.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="umr1283-101">umr1283 1.0.1<a class="anchor" aria-label="anchor" href="#umr1283-101"></a></h2>
-<ul><li>In <code>R/use_python.R</code>,
-<ul><li>Remove code related to <code>ensurepip</code>.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/use_python.R</code>,<ul><li>Remove code related to <code>ensurepip</code>.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v1.0.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v1.0.0</a>…v1.0.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="umr1283-100">umr1283 1.0.0<a class="anchor" aria-label="anchor" href="#umr1283-100"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Remove <code>rmarkdown</code> templates dependencies.</li>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Remove <code>rmarkdown</code> templates dependencies.</li>
 <li>Add <code>targets</code> in <code>Suggests</code>.</li>
 <li>Add <code>withr</code> and <code>callr</code> in <code>Imports</code>to handle project architecture.</li>
 </ul></li>
-<li>In <code>R/create_project.R</code> (previously <code>R/new_project.R</code>),
-<ul><li>Set <code>BiocManager</code> to use MRAN with new option as of <code>v1.30.12</code>.</li>
+<li>In <code>R/create_project.R</code> (previously <code>R/new_project.R</code>),<ul><li>Set <code>BiocManager</code> to use MRAN with new option as of <code>v1.30.12</code>.</li>
 <li>Install <code>here</code> using <code>renv</code> by default.</li>
 <li>Set umask to <code>0002</code>.</li>
 <li>Allow to not use MRAN for new project (default).</li>
@@ -354,115 +276,87 @@
 <li>Add support for <code>targets</code>.</li>
 <li>Refactoring using use_- functions.</li>
 </ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>Set <code>BiocManager</code> to use MRAN with new option as of <code>v1.30.12</code>.</li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>Set <code>BiocManager</code> to use MRAN with new option as of <code>v1.30.12</code>.</li>
 <li>Install <code>here</code> using <code>renv</code> by default.</li>
 <li>Set umask to <code>0002</code>.</li>
 <li>Add support for <code><a href="https://rstudio.github.io/renv/reference/use_python.html" class="external-link">renv::use_python()</a></code>.</li>
 <li>Refactoring using use_- functions.</li>
 </ul></li>
-<li>In <code>R/use_targets.R</code>,
-<ul><li>Create directory structure required for <code>targets</code>.</li>
-</ul></li>
-<li>In <code>R/use_python.R</code>,
-<ul><li>Create directory structure required for <code>reticulate</code> and <code>Python</code> within <code>renv</code>.</li>
-</ul></li>
-<li>In <code>R/use_affiliation.R</code>,
-<ul><li>Add function to get current affiliation.</li>
-</ul></li>
+<li>In <code>R/use_targets.R</code>,<ul><li>Create directory structure required for <code>targets</code>.</li></ul></li>
+<li>In <code>R/use_python.R</code>,<ul><li>Create directory structure required for <code>reticulate</code> and <code>Python</code> within <code>renv</code>.</li></ul></li>
+<li>In <code>R/use_affiliation.R</code>,<ul><li>Add function to get current affiliation.</li></ul></li>
 <li>Remove <a href="inst/rmarkdown/templates">rmarkdown templates</a>.</li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.8.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.8.1</a>…v1.0.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.1" id="umr1283-081">umr1283 0.8.1<a class="anchor" aria-label="anchor" href="#umr1283-081"></a></h2>
-<ul><li>In <code>R/new_project.R</code>,
-<ul><li>Add missing documentation.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>R/new_project.R</code>,<ul><li>Add missing documentation.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.8.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.8.0</a>…v0.8.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.0" id="umr1283-080">umr1283 0.8.0<a class="anchor" aria-label="anchor" href="#umr1283-080"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Add <code>renv</code> in <code>Suggests</code>.</li>
-</ul></li>
-<li>In <code>R/new_project.R</code>,
-<ul><li>Add <code>renv</code> directory structure.</li>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Add <code>renv</code> in <code>Suggests</code>.</li></ul></li>
+<li>In <code>R/new_project.R</code>,<ul><li>Add <code>renv</code> directory structure.</li>
 <li>Improve project README.</li>
 <li>Add push to gitlab.</li>
 <li>Ensure project directory is in <code>0775</code>.</li>
 <li>Default <code>BiocManager</code> install.</li>
 </ul></li>
-<li>In <code>R/migrate_project.R</code>,
-<ul><li>New function to migrate old project to <code>renv</code> project-like.</li>
+<li>In <code>R/migrate_project.R</code>,<ul><li>New function to migrate old project to <code>renv</code> project-like.</li>
 <li>Default <code>BiocManager</code> install.</li>
 </ul></li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.9" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.9</a>…v0.8.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.9" id="umr1283-079">umr1283 0.7.9<a class="anchor" aria-label="anchor" href="#umr1283-079"></a></h2>
-<ul><li>In <code>DESCRIPTION</code>,
-<ul><li>Update dependencies.</li>
-</ul></li>
-<li>In <code>R/ioslides_presentation.R</code>,
-<ul><li>Update not exported function from <code>rmarkdown</code>.</li>
-</ul></li>
-<li>In <a href="inst/rmarkdown/templates/ioslides/resources">rmarkdown templates</a>,
-<ul><li>Update affiliation.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <code>DESCRIPTION</code>,<ul><li>Update dependencies.</li></ul></li>
+<li>In <code>R/ioslides_presentation.R</code>,<ul><li>Update not exported function from <code>rmarkdown</code>.</li></ul></li>
+<li>In <a href="inst/rmarkdown/templates/ioslides/resources">rmarkdown templates</a>,<ul><li>Update affiliation.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.8" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.8</a>…v0.7.9</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.8" id="umr1283-078">umr1283 0.7.8<a class="anchor" aria-label="anchor" href="#umr1283-078"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates/ioslides/resources">rmarkdown templates</a>,
-<ul><li>Add Font-Awesome 5.14.0 icons to ioslides.</li>
-</ul></li>
-<li>In <code>ioslides_presentation.R</code>,
-<ul><li>Update to include Font-Awesome 5.14.0 icons.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <a href="inst/rmarkdown/templates/ioslides/resources">rmarkdown templates</a>,<ul><li>Add Font-Awesome 5.14.0 icons to ioslides.</li></ul></li>
+<li>In <code>ioslides_presentation.R</code>,<ul><li>Update to include Font-Awesome 5.14.0 icons.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.7" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.7</a>…v0.7.8</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.7" id="umr1283-077">umr1283 0.7.7<a class="anchor" aria-label="anchor" href="#umr1283-077"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,
-<ul><li>Update ggplot2 template code.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,<ul><li>Update ggplot2 template code.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.6" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.6</a>…v0.7.7</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.6" id="umr1283-076">umr1283 0.7.6<a class="anchor" aria-label="anchor" href="#umr1283-076"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,
-<ul><li>Remove default subdirectory for intermediate Rmarkdown files.</li>
+<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,<ul><li>Remove default subdirectory for intermediate Rmarkdown files.</li>
 <li>Update affiliation.</li>
 </ul></li>
-<li>In <code>R/new_project.R</code>,
-<ul><li>Add “reports” to <code>.gitignore</code>.</li>
-</ul></li>
-</ul></div>
+<li>In <code>R/new_project.R</code>,<ul><li>Add “reports” to <code>.gitignore</code>.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.5" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.5</a>…v0.7.6</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.5" id="umr1283-075">umr1283 0.7.5<a class="anchor" aria-label="anchor" href="#umr1283-075"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,
-<ul><li>Minor code change.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,<ul><li>Minor code change.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.4" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.4</a>…v0.7.5</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.4" id="umr1283-074">umr1283 0.7.4<a class="anchor" aria-label="anchor" href="#umr1283-074"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,
-<ul><li>Remove css style for tables.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,<ul><li>Remove css style for tables.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.3" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.3</a>…v0.7.4</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.3" id="umr1283-073">umr1283 0.7.3<a class="anchor" aria-label="anchor" href="#umr1283-073"></a></h2>
-<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,
-<ul><li>Reorder code in setup chunk.</li>
-</ul></li>
-</ul></div>
+<ul><li>In <a href="inst/rmarkdown/templates">rmarkdown templates</a>,<ul><li>Reorder code in setup chunk.</li></ul></li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.2" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.2</a>…v0.7.3</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.2" id="umr1283-072">umr1283 0.7.2<a class="anchor" aria-label="anchor" href="#umr1283-072"></a></h2>
-<ul><li>Fix knitr hook in templates.</li>
-</ul></div>
+<ul><li>Fix knitr hook in templates.</li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.1</a>…v0.7.2</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="umr1283-071">umr1283 0.7.1<a class="anchor" aria-label="anchor" href="#umr1283-071"></a></h2>
-<ul><li>Fix outputs directory in templates.</li>
-</ul></div>
+<ul><li>Fix outputs directory in templates.</li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.7.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.7.0</a>…v0.7.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.0" id="umr1283-070">umr1283 0.7.0<a class="anchor" aria-label="anchor" href="#umr1283-070"></a></h2>
 <ul><li>Fix ioslide templates.</li>
 <li>Update setup chunks in all templates.</li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.6.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.6.0</a>…v0.7.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.0" id="umr1283-060">umr1283 0.6.0<a class="anchor" aria-label="anchor" href="#umr1283-060"></a></h2>
 <ul><li>
@@ -477,18 +371,20 @@
 ├── .git
 ├── .gitignore
 └── test.Rproj</code></pre>
-</li>
-</ul></div>
+</li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.5.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.5.0</a>…v0.6.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="umr1283-050">umr1283 0.5.0<a class="anchor" aria-label="anchor" href="#umr1283-050"></a></h2>
 <ul><li>Update rmarkdown templates according to project directory tree structure.</li>
 <li>Fix obsolete parameters in chunks of the rmarkdown templates.</li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.4.1" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.4.1</a>…v0.5.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="umr1283-041">umr1283 0.4.1<a class="anchor" aria-label="anchor" href="#umr1283-041"></a></h2>
 <ul><li>Update report template.</li>
 <li>Fix ressources in ioslide template.</li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.4.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.4.0</a>…v0.4.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="umr1283-040">umr1283 0.4.0<a class="anchor" aria-label="anchor" href="#umr1283-040"></a></h2>
 <ul><li>
@@ -505,21 +401,20 @@
 └── test.Rproj</code></pre>
 </li>
 <li><p>Fix some style in <code>README.md</code> file.</p></li>
-</ul></div>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.3.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.3.0</a>…v0.4.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="umr1283-030">umr1283 0.3.0<a class="anchor" aria-label="anchor" href="#umr1283-030"></a></h2>
-<ul><li>Set 775 permissions for files and directories</li>
-</ul></div>
+<ul><li>Set 775 permissions for files and directories</li></ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.2.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.2.0</a>…v0.3.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="umr1283-020">umr1283 0.2.0<a class="anchor" aria-label="anchor" href="#umr1283-020"></a></h2>
-<ul><li>Remove Rmarkdown templates, now in <code>dgapaq</code>:
-<ul><li>qc_impute - <code>UMR 1283 - QC Imputation (VCF)</code>.</li>
+<ul><li>Remove Rmarkdown templates, now in <code>dgapaq</code>:<ul><li>qc_impute - <code>UMR 1283 - QC Imputation (VCF)</code>.</li>
 <li>qc_plink - <code>UMR 1283 - QC PLINK</code>.</li>
 </ul></li>
-<li>Remove Rmarkdown templates, now in <code>dmapaq</code>:
-<ul><li>qc_idats - <code>UMR 1283 - QC idats</code>.</li>
-</ul></li>
-</ul></div>
+<li>Remove Rmarkdown templates, now in <code>dmapaq</code>:<ul><li>qc_idats - <code>UMR 1283 - QC idats</code>.</li></ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/umr1283/umr1283/compare/v0.1.0" class="external-link uri">https://github.com/umr1283/umr1283/compare/v0.1.0</a>…v0.2.0</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="umr1283-010">umr1283 0.1.0<a class="anchor" aria-label="anchor" href="#umr1283-010"></a></h2>
 <ul><li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
@@ -554,7 +449,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>
