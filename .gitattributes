@@ -1,1 +1,1 @@
-inst  -linguist-detectable
+inst/*  -linguist-detectable
