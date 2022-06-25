@@ -1,6 +1,3 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # UMR 1283 - Project Template <a href='https://umr1283.github.io/umr1283'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
@@ -23,6 +20,9 @@ with RStudio Project Wizard) is as follow:
 
 ``` text
 .
+├── .devcontainer
+│   ├── Dockerfile
+│   └── devcontainer.json
 ├── data
 ├── docs
 ├── logs
