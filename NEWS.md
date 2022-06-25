@@ -1,3 +1,10 @@
+# umr1283 1.9.0
+
+## Feature
+
+- In `R/create_project.R`,
+  - Feat: add devcontainer definition files for VSCode ([#3](https://github.com/umr1283/umr1283/issues/3)).
+
 # umr1283 1.8.3
 
 ## Chore
