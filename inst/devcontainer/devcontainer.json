@@ -1,0 +1,72 @@
+{
+	"name": "UMR1283",
+	"remoteUser": "${localEnv:USER}",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"IMAGE": "docker.io/umr1283/umr1283:4.2.0",
+			"USERNAME": "${localEnv:USER}"
+		}
+	},
+	"containerEnv": {
+		"RENV_PATHS_CACHE": "/renv_cache"
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/disks/PROJECT/${localWorkspaceFolderBasename},type=bind",
+	"workspaceFolder": "/disks/PROJECT/${localWorkspaceFolderBasename}",
+	"mounts": [
+		"source=/Isiprod1/user,target=/home,type=bind,consistency=cached",
+		"source=/Isiprod1,target=/media,type=bind,consistency=cached",
+		"source=/Isiprod1,target=/Isiprod1,type=bind,consistency=cached",
+		"source=/Isiprod1/archive,target=/disks/ARCHIVE,type=bind,consistency=cached",
+		"source=/Isiprod1/run,target=/disks/RUN,type=bind,consistency=cached",
+		"source=/Isiprod1/data,target=/disks/DATA,type=bind,consistency=cached",
+		"source=/Isiprod1/project,target=/disks/PROJECT,type=bind,consistency=cached",
+		"source=/Isiprod1/datatmp,target=/disks/DATATMP,type=bind,consistency=cached",
+		"source=/Isiprod1/datatmp/dockertmp/renv_pkgs_cache,target=/renv_cache,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.tabSize": 2,
+				"files.trimFinalNewlines": true,
+				"files.insertFinalNewline": true,
+				"files.watcherExclude": {
+						"**.Rproj": true,
+						"**/.cache/**": true,
+						"**/.local/**": true,
+						"**/.Rproj.user/**": true,
+						"**/.vscode/**": true
+				},
+				"files.exclude": {
+						"**.Rproj": true,
+						"**/.Rproj.user": true
+				},
+				"files.eol": "\n",
+				"r.plot.useHttpgd": true,
+				"r.rterm.option": [
+					"--no-save",
+					"--no-restore-data",
+					"--quiet"
+				],
+				"r.rmarkdown.knit.defaults.knitWorkingDirectory": "workspace root",
+				"r.plot.defaults.fullWindowMode": true,
+				"path-autocomplete.triggerOutsideStrings": true,
+				"path-autocomplete.pathMappings": {
+						"/": "/",
+						"./": "${folder}"
+				},
+				"gitlab.instanceUrl": "http://gitlab.egid.local/"
+			},
+			"extensions": [
+				"reditorsupport.r",
+				"rdebugger.r-debugger",
+				"quarto.quarto",
+				"gitlab.gitlab-workflow",
+				"usernamehw.errorlens",
+				"eamodio.gitlens",
+				"ms-vscode.live-server",
+				"ionutvmi.path-autocomplete"
+			]
+		}
+	}
+}

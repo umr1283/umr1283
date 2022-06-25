@@ -109,6 +109,8 @@ create_project <- function(
       targets = targets
     )
 
+    use_devcontainer()
+
     use_group_permission()
 
     use_git(git_repository = git_repository)
