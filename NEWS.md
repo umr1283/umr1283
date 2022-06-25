@@ -5,6 +5,8 @@
 - In `R/create_project.R`,
   - Feat: add devcontainer definition files for VSCode ([#3](https://github.com/umr1283/umr1283/issues/3)).
 
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.3...v1.9.0
+
 # umr1283 1.8.3
 
 ## Chore
@@ -17,7 +19,7 @@
 - In `R/fex.R`.
   - Fix: parent directory detection.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.3...v1.8.3
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.2...v1.8.3
 
 # umr1283 1.8.2
 
