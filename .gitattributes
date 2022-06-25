@@ -1,4 +1,3 @@
-inst/*  -linguist-detectable
 *.Rdata binary
 *.RData binary
 *.rda binary
@@ -10,3 +9,6 @@ inst/*  -linguist-detectable
 *.R text
 *.Rproj text
 *.[Rr]md linguist-detectable
+
+inst/*  -linguist-detectable
+inst/fex/fexsend  -linguist-detectable
