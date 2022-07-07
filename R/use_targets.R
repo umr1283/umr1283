@@ -18,7 +18,6 @@ use_targets <- function(project = ".", ...) {
       path = file.path(proj, "_targets"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
-    cat("_targets\n", file = file.path(proj, ".gitignore"), append = TRUE)
 
     writeLines(
       text = c(

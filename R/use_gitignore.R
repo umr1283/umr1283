@@ -12,7 +12,6 @@ use_gitignore <- function(project = ".") {
           "**.Rproj",
           "**.Rhistory",
           "**.Rdata",
-          "renv",
           "core"
         )
       )
