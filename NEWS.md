@@ -1,5 +1,16 @@
 # umr1283 (development version)
 
+## Fixes
+
+- In `R/use_gitignore.R` and `R/use_targets.R`,
+  - Fix: no longer ignore `_targets` and `renv` directories.
+
+## Chores
+
+- Chore: update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.0...v1.9.1
+
 # umr1283 1.9.0
 
 ## Feature
