@@ -1,5 +1,6 @@
 {
 	"name": "UMR1283",
+	"runArgs": ["--name", "${localEnv:USER}--${localWorkspaceFolderBasename}--devcontainer"],
 	"remoteUser": "${localEnv:USER}",
 	"build": {
 		"dockerfile": "Dockerfile",
@@ -22,7 +23,8 @@
 		"source=/Isiprod1/data,target=/disks/DATA,type=bind,consistency=cached",
 		"source=/Isiprod1/project,target=/disks/PROJECT,type=bind,consistency=cached",
 		"source=/Isiprod1/datatmp,target=/disks/DATATMP,type=bind,consistency=cached",
-		"source=/Isiprod1/datatmp/dockertmp/renv_pkgs_cache,target=/renv_cache,type=bind,consistency=cached"
+		"source=/Isiprod1/datatmp/dockertmp/renv_pkgs_cache,target=/renv_cache,type=bind,consistency=cached",
+		"source=/etc/localtime,target=/etc/localtime,type=bind,consistency=cached"
 	],
 	"customizations": {
 		"vscode": {
@@ -50,6 +52,10 @@
 				],
 				"r.rmarkdown.knit.defaults.knitWorkingDirectory": "workspace root",
 				"r.plot.defaults.fullWindowMode": true,
+				"r.libPaths": [
+					"/usr/local/lib/R/site-library",
+					"/usr/local/lib/R/library"
+				],
 				"path-autocomplete.triggerOutsideStrings": true,
 				"path-autocomplete.pathMappings": {
 						"/": "/",
