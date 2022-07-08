@@ -15,7 +15,7 @@ RUN if [[ -d /home/${USERNAME} ]]; then CH="--no-create-home"; else CH="--create
         --groups staff \
         ${USERNAME} \
     && usermod -aG sudo ${USERNAME} \
-    && echo 'username  ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 RUN Rscript -e 'pak::pkg_install(c("languageserver", "httpgd"))'
 
