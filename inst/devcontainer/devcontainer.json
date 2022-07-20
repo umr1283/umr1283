@@ -64,14 +64,15 @@
 				"gitlab.instanceUrl": "http://gitlab.egid.local/"
 			},
 			"extensions": [
-				"reditorsupport.r",
-				"rdebugger.r-debugger",
 				"quarto.quarto",
 				"gitlab.gitlab-workflow",
 				"usernamehw.errorlens",
 				"eamodio.gitlens",
 				"ms-vscode.live-server",
-				"ionutvmi.path-autocomplete"
+				"ionutvmi.path-autocomplete",
+				"DavidAnson.vscode-markdownlint",
+				"REditorSupport.r",
+				"RDebugger.r-debugger"
 			]
 		}
 	}
