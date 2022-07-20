@@ -29,7 +29,7 @@ use_dir_structure <- function(project = ".", repos, targets) {
           message("Please install the following R packages within the project ...")
           message(paste(
             '  renv::install(packages = c("here", "targets",',
-            '"gittargets", "tarchetypes", "visNetwork"), prompt = FALSE)'
+            '"gittargets", "visNetwork"), prompt = FALSE)'
           ))
           use_targets()
         }
