@@ -1,3 +1,12 @@
+# umr1283 1.9.2
+
+- Fix(R/use_dir_structure.R): mention `gittargets` earlier.
+- Fix(R/use_dir_structure.R): remove `tarchetypes`.
+- Fix(R/use_targets.R): remove `tarchetypes` and `future.callr`.
+- Chore(inst/devcontainer): update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.1...v1.9.2
+
 # umr1283 1.9.1
 
 ## Fixes
