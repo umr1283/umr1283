@@ -1,6 +1,6 @@
 Package: umr1283
 Title: UMR 1283 - Project Template
-Version: 1.9.2
+Version: 1.10.10
 Authors@R:
     c(person(given = "Mickaël",
              family = "Canouil",
