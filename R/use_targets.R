@@ -18,11 +18,19 @@ use_targets <- function(project = ".", ...) {
       path = file.path(proj, "_targets"),
       recursive = TRUE, showWarnings = FALSE, mode = "0775"
     )
+    dir.create(
+      path = file.path(proj, "scripts", "tar-utils"),
+      recursive = TRUE, showWarnings = FALSE, mode = "0775"
+    )
 
     writeLines(
       text = c(
         "message(timestamp(quiet = TRUE))",
         "targets::tar_make()",
+        "system(paste(",
+        "  c(\"chown\", \"-R\", \"1000:staff\", targets::tar_store()),",
+        "  collapse = \" \"",
+        "))",
         "message(timestamp(quiet = TRUE))"
       ),
       con = file.path(proj, "scripts/00-targets.R")
@@ -54,7 +62,7 @@ use_targets <- function(project = ".", ...) {
         "",
         paste(c("### project setup ", rep("=", 82)), collapse = ""),
         "invisible(sapply(",
-        "  X = list.files(here(\"scripts\"), pattern = \"^tar-.*R$\", full.names = TRUE),",
+        "  X = list.files(here(\"scripts\", \"tar-utils\"), pattern = \"^tar-.*R$\", full.names = TRUE),",
         "  FUN = source, echo = FALSE",
         "))",
         "",
