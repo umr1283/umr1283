@@ -20,7 +20,7 @@ Imports:
     utils,
     callr (>= 3.7.0),
     gert (>= 1.6.0),
-    renv (>= 0.15.4),
+    renv (>= 0.15.5),
     withr (>= 2.5.0)
 Suggests:
     prompt (>= 1.0.1),
