@@ -1,3 +1,11 @@
+# umr1283 1.10.0
+
+- Fix(R/use_targets.R): add tar-utils directory, ensure permission after targets is ran.
+- Feat(R/create_project.R): get function call to use it in README.md file.
+- Feat(R/use_readme.R): add function call and docker bash command.
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.2...v1.10.0
+
 # umr1283 1.9.2
 
 - Fix(R/use_dir_structure.R): mention `gittargets` earlier.

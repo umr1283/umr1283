@@ -37,6 +37,7 @@ create_project <- function(
   working_directory = NULL,
   ...
 ) {
+  cp_call <- match.call()
   if (path == basename(path)) {
     project <- normalizePath(file.path(".", path), mustWork = FALSE)
   } else {
@@ -98,7 +99,7 @@ create_project <- function(
 
     use_rproj()
 
-    use_readme(analyst_name)
+    use_readme(analyst_name = analyst_name, project_call = cp_call)
 
     use_gitignore()
 

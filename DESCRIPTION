@@ -1,6 +1,6 @@
 Package: umr1283
 Title: UMR 1283 - Project Template
-Version: 1.9.2
+Version: 1.10.10
 Authors@R:
     c(person(given = "Mickaël",
              family = "Canouil",
@@ -20,12 +20,12 @@ Imports:
     utils,
     callr (>= 3.7.0),
     gert (>= 1.6.0),
-    renv (>= 0.15.4),
+    renv (>= 0.15.5),
     withr (>= 2.5.0)
 Suggests:
     prompt (>= 1.0.1),
     targets (>= 0.11.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 SystemRequirements: libio-socket-ssl-perl (deb)
