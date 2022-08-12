@@ -20,17 +20,13 @@
 #'   create_project(
 #'     path = "_test_project",
 #'     analyst_name = "Analyst Name",
-#'     git_repository = "http://gitlab.local/BioStats",
-#'     mran = FALSE,
-#'     targets = TRUE,
-#'     xaringan = FALSE,
-#'     working_directory = NULL
+#'     git_repository = "http://<hostname>/<namespace>"
 #'   )
 #' }
 create_project <- function(
   path,
   analyst_name,
-  git_repository,
+  git_repository = NULL,
   mran = FALSE,
   targets = TRUE,
   xaringan = FALSE,
@@ -114,7 +110,7 @@ create_project <- function(
 
     use_group_permission()
 
-    use_git(git_repository = git_repository)
+    if (!is.null(git_repository)) use_git(git_repository = git_repository)
   })
 
   message("Project created.\n")

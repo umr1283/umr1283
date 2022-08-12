@@ -1,6 +1,7 @@
 # umr1283 1.10.1
 
 - fix(R/use_targets.R): uses anonymous function with `on.exit` behaviour for `00-targets.R` to make changes even on errors.
+- fix(R/create_project.R): allows to create a project without git.
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.0...v1.10.1
 
