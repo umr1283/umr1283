@@ -1,17 +1,24 @@
+# umr1283 1.10.1
+
+- fix(R/use_targets.R): uses anonymous function with `on.exit` behaviour for `00-targets.R` to make changes even on errors.
+- fix(R/create_project.R): allows to create a project without git.
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.0...v1.10.1
+
 # umr1283 1.10.0
 
-- Fix(R/use_targets.R): add tar-utils directory, ensure permission after targets is ran.
-- Feat(R/create_project.R): get function call to use it in README.md file.
-- Feat(R/use_readme.R): add function call and docker bash command.
+- fix(R/use_targets.R): add tar-utils directory, ensure permission after targets is ran.
+- feat(R/create_project.R): get function call to use it in README.md file.
+- feat(R/use_readme.R): add function call and docker bash command.
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.2...v1.10.0
 
 # umr1283 1.9.2
 
-- Fix(R/use_dir_structure.R): mention `gittargets` earlier.
-- Fix(R/use_dir_structure.R): remove `tarchetypes`.
-- Fix(R/use_targets.R): remove `tarchetypes` and `future.callr`.
-- Chore(inst/devcontainer): update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
+- fix(R/use_dir_structure.R): mention `gittargets` earlier.
+- fix(R/use_dir_structure.R): remove `tarchetypes`.
+- fix(R/use_targets.R): remove `tarchetypes` and `future.callr`.
+- chore(inst/devcontainer): update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.1...v1.9.2
 
@@ -20,11 +27,11 @@
 ## Fixes
 
 - In `R/use_gitignore.R` and `R/use_targets.R`,
-  - Fix: no longer ignore `_targets` and `renv` directories.
+  - fix: no longer ignore `_targets` and `renv` directories.
 
 ## Chores
 
-- Chore: update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
+- chore: update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.0...v1.9.1
 
@@ -33,7 +40,7 @@
 ## Feature
 
 - In `R/create_project.R`,
-  - Feat: add devcontainer definition files for VSCode ([#3](https://github.com/umr1283/umr1283/issues/3)).
+  - feat: add devcontainer definition files for VSCode ([#3](https://github.com/umr1283/umr1283/issues/3)).
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.3...v1.9.0
 
@@ -47,7 +54,7 @@
 ## Fixes
 
 - In `R/fex.R`.
-  - Fix: parent directory detection.
+  - fix: parent directory detection.
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.2...v1.8.3
 
@@ -56,9 +63,9 @@
 ## Fixes
 
 - In `R/use_gitignore.R`.
-  - Fix: `*.Rproj` is now excluded from versionning.
+  - fix: `*.Rproj` is now excluded from versionning.
 - In `R/use_targets.R`,
-  - Fix: default `targets` script no longer rely on `*.Rproj`.
+  - fix: default `targets` script no longer rely on `*.Rproj`.
 
 **Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.1...v1.8.2
 

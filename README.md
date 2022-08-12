@@ -12,26 +12,38 @@ You can install `umr1283` with:
 remotes::install_github("umr1283/umr1283")
 ```
 
-The default project directory from `umr1283::create_project` (compatible
+The default project directory architecture from `umr1283::create_project` (compatible
 with RStudio Project Wizard) is as follow:
 
-``` text
-.
-├── .devcontainer
-│   ├── Dockerfile
-│   └── devcontainer.json
-├── data
-├── docs
-├── logs
-├── outputs
-├── renv
-├── reports
-├── scripts
-│   └── _dependencies.R
-├── slides (`xaringan = TRUE`)
-├── README.md
-├── renv.lock
-└── project.Rproj
+```r
+library(umr1283)
+create_project(path = "my-project", analyst_name = "UMR1283")
+```
+
+```bash
+tree -a my-project
+#> my-project/
+#> ├── data
+#> ├── .devcontainer
+#> │   ├── devcontainer.json
+#> │   └── Dockerfile
+#> ├── docs
+#> ├── .gitignore
+#> ├── logs
+#> ├── my-project.Rproj
+#> ├── outputs
+#> ├── README.md
+#> ├── renv
+#> ├── reports
+#> ├── .Rprofile
+#> ├── scripts
+#> │   ├── 00-targets.R
+#> │   ├── _dependencies.R
+#> │   └── tar-utils
+#> ├── _targets
+#> └── _targets.R
+#> 
+#> 10 directories, 9 files
 ```
 
 ------------------------------------------------------------------------
