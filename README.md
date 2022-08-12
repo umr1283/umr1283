@@ -17,25 +17,33 @@ with RStudio Project Wizard) is as follow:
 
 ```r
 library(umr1283)
-create_project(path = "my-project")
+create_project(path = "my-project", analyst_name = "UMR1283")
 ```
 
 ```bash
-.
-├── README.md
-├── _targets
-├── _targets.R
-├── my-project.Rproj
-├── data
-├── docs
-├── logs
-├── outputs
-├── renv
-├── reports
-└── scripts
-    ├── 00-targets.R
-    ├── _dependencies.R
-    └── tar-utils
+tree -a my-project
+#> my-project/
+#> ├── data
+#> ├── .devcontainer
+#> │   ├── devcontainer.json
+#> │   └── Dockerfile
+#> ├── docs
+#> ├── .gitignore
+#> ├── logs
+#> ├── my-project.Rproj
+#> ├── outputs
+#> ├── README.md
+#> ├── renv
+#> ├── reports
+#> ├── .Rprofile
+#> ├── scripts
+#> │   ├── 00-targets.R
+#> │   ├── _dependencies.R
+#> │   └── tar-utils
+#> ├── _targets
+#> └── _targets.R
+#> 
+#> 10 directories, 9 files
 ```
 
 ------------------------------------------------------------------------
