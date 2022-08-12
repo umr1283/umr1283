@@ -25,13 +25,12 @@ use_targets <- function(project = ".", ...) {
 
     writeLines(
       text = c(
-        "message(timestamp(quiet = TRUE))",
-        "targets::tar_make()",
-        "system(paste(",
-        "  c(\"chown\", \"-R\", \"1000:staff\", targets::tar_store()),",
-        "  collapse = \" \"",
-        "))",
-        "message(timestamp(quiet = TRUE))"
+        "(function() {",
+        "  message(timestamp(quiet = TRUE))",
+        "  on.exit(system(paste(\"chown\", \"-R\", \"1000:staff\", targets::tar_store())))",
+        "  on.exit(message(timestamp(quiet = TRUE)), add = TRUE)",
+        "  targets::tar_make()",
+        "})()"
       ),
       con = file.path(proj, "scripts/00-targets.R")
     )
