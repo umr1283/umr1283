@@ -1,3 +1,9 @@
+# umr1283 1.10.2
+
+- fix(R/use_readme.R): backslashes are now escaped.
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.1...v1.10.2
+
 # umr1283 1.10.1
 
 - fix(R/use_targets.R): uses anonymous function with `on.exit` behaviour for `00-targets.R` to make changes even on errors.
