@@ -5,26 +5,22 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"IMAGE": "docker.io/umr1283/umr1283:4.2.0",
+			"IMAGE": "docker.io/umr1283/umr1283:4.2.1",
 			"USERNAME": "${localEnv:USER}"
 		}
 	},
 	"containerEnv": {
-		"RENV_PATHS_CACHE": "/renv_cache"
+		"RENV_PATHS_CACHE": "/renv_cache",
+		"NOT_CRAN": "TRUE"
 	},
-	"workspaceMount": "source=${localWorkspaceFolder},target=/disks/PROJECT/${localWorkspaceFolderBasename},type=bind",
-	"workspaceFolder": "/disks/PROJECT/${localWorkspaceFolderBasename}",
+	"workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}",
 	"mounts": [
+		"source=/etc/localtime,target=/etc/localtime,type=bind,consistency=cached",
+		"source=/Isiprod1/datatmp/dockertmp/renv_pkgs_cache,target=/renv_cache,type=bind,consistency=cached",
 		"source=/Isiprod1/user,target=/home,type=bind,consistency=cached",
 		"source=/Isiprod1,target=/media,type=bind,consistency=cached",
-		"source=/Isiprod1,target=/Isiprod1,type=bind,consistency=cached",
-		"source=/Isiprod1/archive,target=/disks/ARCHIVE,type=bind,consistency=cached",
-		"source=/Isiprod1/run,target=/disks/RUN,type=bind,consistency=cached",
-		"source=/Isiprod1/data,target=/disks/DATA,type=bind,consistency=cached",
-		"source=/Isiprod1/project,target=/disks/PROJECT,type=bind,consistency=cached",
-		"source=/Isiprod1/datatmp,target=/disks/DATATMP,type=bind,consistency=cached",
-		"source=/Isiprod1/datatmp/dockertmp/renv_pkgs_cache,target=/renv_cache,type=bind,consistency=cached",
-		"source=/etc/localtime,target=/etc/localtime,type=bind,consistency=cached"
+		"source=/Isiprod1,target=/Isiprod1,type=bind,consistency=cached"
 	],
 	"customizations": {
 		"vscode": {
@@ -55,25 +51,8 @@
 				"r.libPaths": [
 					"/usr/local/lib/R/site-library",
 					"/usr/local/lib/R/library"
-				],
-				"path-autocomplete.triggerOutsideStrings": true,
-				"path-autocomplete.pathMappings": {
-						"/": "/",
-						"./": "${folder}"
-				},
-				"gitlab.instanceUrl": "http://gitlab.egid.local/"
-			},
-			"extensions": [
-				"quarto.quarto",
-				"gitlab.gitlab-workflow",
-				"usernamehw.errorlens",
-				"eamodio.gitlens",
-				"ms-vscode.live-server",
-				"ionutvmi.path-autocomplete",
-				"DavidAnson.vscode-markdownlint",
-				"REditorSupport.r",
-				"RDebugger.r-debugger"
-			]
+				]
+			}
 		}
 	}
 }
