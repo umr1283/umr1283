@@ -1,3 +1,9 @@
+# umr1283 1.10.3
+
+- chore(inst/devcontainer): update devcontainer definition files for VSCode
+
+**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.2...v1.10.3
+
 # umr1283 1.10.2
 
 - fix(R/use_readme.R): backslashes are now escaped.
