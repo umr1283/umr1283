@@ -1,11 +1,11 @@
 Package: umr1283
 Title: UMR 1283 - Project Template
-Version: 1.10.3
+Version: 1.10.4
 Authors@R:
     c(person(given = "Mickaël",
              family = "Canouil",
              role = c("aut", "cre"),
-             email = "mickael.canouil@cnrs.fr",
+             email = "mickael@canouil.dev",
              comment = c(ORCID = "0000-0002-3396-4549")),
       person(given = "Inserm U1283 / CNRS UMR 8199",
              role = c("cph", "fnd")))
