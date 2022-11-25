@@ -1,21 +1,27 @@
+# umr1283 1.10.4
+
+- chore(DESCRIPTION): update email address.
+
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.10.3...v1.10.4>
+
 # umr1283 1.10.3
 
-- chore(inst/devcontainer): update devcontainer definition files for VSCode
+- chore(inst/devcontainer): update devcontainer definition files for VSCode.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.2...v1.10.3
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.10.2...v1.10.3>
 
 # umr1283 1.10.2
 
 - fix(R/use_readme.R): backslashes are now escaped.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.1...v1.10.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.10.1...v1.10.2>
 
 # umr1283 1.10.1
 
 - fix(R/use_targets.R): uses anonymous function with `on.exit` behaviour for `00-targets.R` to make changes even on errors.
 - fix(R/create_project.R): allows to create a project without git.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.10.0...v1.10.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.10.0...v1.10.1>
 
 # umr1283 1.10.0
 
@@ -23,7 +29,7 @@
 - feat(R/create_project.R): get function call to use it in README.md file.
 - feat(R/use_readme.R): add function call and docker bash command.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.2...v1.10.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.9.2...v1.10.0>
 
 # umr1283 1.9.2
 
@@ -32,7 +38,7 @@
 - fix(R/use_targets.R): remove `tarchetypes` and `future.callr`.
 - chore(inst/devcontainer): update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.1...v1.9.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.9.1...v1.9.2>
 
 # umr1283 1.9.1
 
@@ -45,7 +51,7 @@
 
 - chore: update devcontainer definition files for VSCode (https://github.com/mcanouil/vscode-dev-containers/tree/main/umr1283).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.9.0...v1.9.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.9.0...v1.9.1>
 
 # umr1283 1.9.0
 
@@ -54,7 +60,7 @@
 - In `R/create_project.R`,
   - feat: add devcontainer definition files for VSCode ([#3](https://github.com/umr1283/umr1283/issues/3)).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.3...v1.9.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.8.3...v1.9.0>
 
 # umr1283 1.8.3
 
@@ -68,7 +74,7 @@
 - In `R/fex.R`.
   - fix: parent directory detection.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.2...v1.8.3
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.8.2...v1.8.3>
 
 # umr1283 1.8.2
 
@@ -79,7 +85,7 @@
 - In `R/use_targets.R`,
   - fix: default `targets` script no longer rely on `*.Rproj`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.1...v1.8.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.8.1...v1.8.2>
 
 # umr1283 1.8.1
 
@@ -90,7 +96,7 @@
 - In `DESCRIPTION`,
   - Bump (minor) version of dependencies.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.8.0...v1.8.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.8.0...v1.8.1>
 
 # umr1283 1.8.0
 
@@ -102,7 +108,7 @@
   - In `R/use_dir_structure.R`.
   - In `R/migrate_project.R`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.7.0...v1.8.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.7.0...v1.8.0>
 
 # umr1283 1.7.0
 
@@ -129,7 +135,7 @@
   - Add a warning message to "discourage" the use of `migrate_project` (416e79a0d7499433efde68a13809cb8923e5bbe4).
   - Remove default parameter value for `working_directory` (fc34b29d999ad1e631e5c37e4649b2ac4ff682fb).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.6.0...v1.7.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.6.0...v1.7.0>
 
 # umr1283 1.6.0
 
@@ -163,7 +169,7 @@
 - In `R/use_xaringan.R`,
   - Default directory to `slides` in the current working directory.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.5.1...v1.6.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.5.1...v1.6.0>
 
 # umr1283 1.5.1
 
@@ -181,7 +187,7 @@
 - In `R/targets.R`,
   - Add check before creating symbolic link.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.5.0...v1.5.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.5.0...v1.5.1>
 
 # umr1283 1.5.0
 
@@ -193,7 +199,7 @@
 - In `R/use_rprofile.R`,
   - No longer load `gert` by default (if installed).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.4.0...v1.5.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.4.0...v1.5.0>
 
 # umr1283 1.4.0
 
@@ -205,7 +211,7 @@
 - In `R/use_dependencies.R`,
   - Create empty file, i.e., without `# library("BiocManager")`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.3.1...v1.4.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.3.1...v1.4.0>
 
 # umr1283 1.3.1
 
@@ -214,7 +220,7 @@
 - In `DESCRIPTION`,
   - Add `SystemRequirements` for fexsend.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.3.0...v1.3.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.3.0...v1.3.1>
 
 # umr1283 1.3.0
 
@@ -231,7 +237,7 @@
 - In `R/create_project.R`,
   - Add "data" directory.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.2.3...v1.3.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.2.3...v1.3.0>
 
 # umr1283 1.2.3
 
@@ -240,7 +246,7 @@
 - In `R/use_xaringan.R`,
   - Avoid copying `README.Rmd`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.2.2...v1.2.3
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.2.2...v1.2.3>
 
 # umr1283 1.2.2
 
@@ -250,7 +256,7 @@
   - Fix typo/bug in `_targets.R` template script.
   - Edit `.Rprofile` (if it exists) with shortcut for targets.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.2.1...v1.2.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.2.1...v1.2.2>
 
 # umr1283 1.2.1
 
@@ -258,7 +264,7 @@
   - Fix output when only one file is provided.
   - Improve example.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.2.0...v1.2.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.2.0...v1.2.1>
 
 # umr1283 1.2.0
 
@@ -271,7 +277,7 @@
 - In `R/use_python.R`,
   - Fix typo.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.1.4...v1.2.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.1.4...v1.2.0>
 
 # umr1283 1.1.4
 
@@ -283,7 +289,7 @@
     if in interactive session and installed
     (locally or system-wide depending on the project setup).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.1.3...v1.1.4
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.1.3...v1.1.4>
 
 # umr1283 1.1.3
 
@@ -292,7 +298,7 @@
 - In `R/use_readme.R`,
   - Use bullets list for affiliation.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.1.2...v1.1.3
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.1.2...v1.1.3>
 
 # umr1283 1.1.2
 
@@ -301,7 +307,7 @@
 - In `inst/fex/fexsend`,
   - Fix permission.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.1.1...v1.1.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.1.1...v1.1.2>
 
 # umr1283 1.1.1
 
@@ -318,7 +324,7 @@
 - In `R/use_python.R`,
   - Improve description.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.1.0...v1.1.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.1.0...v1.1.1>
 
 # umr1283 1.1.0
 
@@ -338,14 +344,14 @@
   - New function to upload file(s) using fexsend.
 - Add `pkgdown`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.0.1...v1.1.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.0.1...v1.1.0>
 
 # umr1283 1.0.1
 
 - In `R/use_python.R`,
   - Remove code related to `ensurepip`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v1.0.0...v1.0.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v1.0.0...v1.0.1>
 
 # umr1283 1.0.0
 
@@ -375,14 +381,14 @@
   - Add function to get current affiliation.
 - Remove [rmarkdown templates](inst/rmarkdown/templates).
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.8.1...v1.0.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.8.1...v1.0.0>
 
 # umr1283 0.8.1
 
 - In `R/new_project.R`,
   - Add missing documentation.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.8.0...v0.8.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.8.0...v0.8.1>
 
 # umr1283 0.8.0
 
@@ -398,7 +404,7 @@
   - New function to migrate old project to `renv` project-like.
   - Default `BiocManager` install.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.9...v0.8.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.9...v0.8.0>
 
 # umr1283 0.7.9
 
@@ -409,7 +415,7 @@
 - In [rmarkdown templates](inst/rmarkdown/templates/ioslides/resources),
   - Update affiliation.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.8...v0.7.9
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.8...v0.7.9>
 
 # umr1283 0.7.8
 
@@ -418,14 +424,14 @@
 - In `ioslides_presentation.R`,
   - Update to include Font-Awesome 5.14.0 icons.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.7...v0.7.8
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.7...v0.7.8>
 
 # umr1283 0.7.7
 
 - In [rmarkdown templates](inst/rmarkdown/templates),
   - Update ggplot2 template code.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.6...v0.7.7
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.6...v0.7.7>
 
 # umr1283 0.7.6
 
@@ -435,47 +441,47 @@
 - In `R/new_project.R`,
   - Add "reports" to `.gitignore`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.5...v0.7.6
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.5...v0.7.6>
 
 # umr1283 0.7.5
 
 - In [rmarkdown templates](inst/rmarkdown/templates),
   - Minor code change.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.4...v0.7.5
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.4...v0.7.5>
 
 # umr1283 0.7.4
 
 - In [rmarkdown templates](inst/rmarkdown/templates),
   - Remove css style for tables.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.3...v0.7.4
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.3...v0.7.4>
 
 # umr1283 0.7.3
 
 - In [rmarkdown templates](inst/rmarkdown/templates),
   - Reorder code in setup chunk.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.2...v0.7.3
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.2...v0.7.3>
 
 # umr1283 0.7.2
 
 - Fix knitr hook in templates.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.1...v0.7.2
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.1...v0.7.2>
 
 # umr1283 0.7.1
 
 - Fix outputs directory in templates.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.7.0...v0.7.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.7.0...v0.7.1>
 
 # umr1283 0.7.0
 
 - Fix ioslide templates.
 - Update setup chunks in all templates.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.6.0...v0.7.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.6.0...v0.7.0>
 
 # umr1283 0.6.0
 
@@ -494,21 +500,21 @@
     └── test.Rproj
     ```
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.5.0...v0.6.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.5.0...v0.6.0>
 
 # umr1283 0.5.0
 
 - Update rmarkdown templates according to project directory tree structure.
 - Fix obsolete parameters in chunks of the rmarkdown templates.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.4.1...v0.5.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.4.1...v0.5.0>
 
 # umr1283 0.4.1
 
 - Update report template.
 - Fix ressources in ioslide template.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.4.0...v0.4.1
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.4.0...v0.4.1>
 
 # umr1283 0.4.0
 
@@ -529,13 +535,13 @@
 
 - Fix some style in `README.md` file.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.3.0...v0.4.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.3.0...v0.4.0>
 
 # umr1283 0.3.0
 
 - Set 775 permissions for files and directories
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.2.0...v0.3.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.2.0...v0.3.0>
 
 # umr1283 0.2.0
 
@@ -545,7 +551,7 @@
 - Remove Rmarkdown templates, now in `dmapaq`:
   - qc_idats - `UMR 1283 - QC idats`.
 
-**Full Changelog**: https://github.com/umr1283/umr1283/compare/v0.1.0...v0.2.0
+**Full Changelog**: <https://github.com/umr1283/umr1283/compare/v0.1.0...v0.2.0>
 
 # umr1283 0.1.0
 
